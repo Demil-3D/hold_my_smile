@@ -85,17 +85,19 @@ function LoginPage() {
                   className="py-6 px-4 rounded-none shadow-none inset-shadow-xs border text-lg"
                 />
               </Field>
-              <Field className={!showPasswordField ? "hidden" : undefined}>
-                <FieldLabel htmlFor="password">Password</FieldLabel>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="password"
-                  required={showPasswordField}
-                  className="py-6 px-4 rounded-none shadow-none inset-shadow-xs border text-lg"
-                />
-              </Field>
+              {showPasswordField && (
+                <Field>
+                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    required={showPasswordField}
+                    className="py-6 px-4 rounded-none shadow-none inset-shadow-xs border text-lg"
+                  />
+                </Field>
+              )}
               <Field>
                 <Button
                   variant={"secondary"}
