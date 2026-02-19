@@ -12,10 +12,11 @@ import {
   PencilLineIcon,
 } from "lucide-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 function ProfilePage() {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileProps | null>(null);
   const isProfileNull = profile === null;
   const [enableEdit, setEnableEdit] = useState(false);
@@ -261,6 +262,7 @@ function ProfilePage() {
       await http.put(`profile`, dataObj);
       toast.success("Profile Updated Successfully!");
       setEnableEdit(false);
+      navigate("/portal/profile");
     } catch (error) {
       toast.error("Connection Failed!");
     }
