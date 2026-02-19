@@ -311,7 +311,7 @@ function RegisterPage() {
               </Field>
               <Field orientation={"horizontal"} className="w-fit mx-auto">
                 <Input type="checkbox" className="w-5" required />
-                <FieldLabel className="flex-1 px-1 text-center">
+                <FieldLabel className="flex-1 px-1 text-center flex flex-wrap">
                   Agree to our{" "}
                   <Link to="/terms-of-service" className="underline">
                     Terms of Service
