@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     try {
       await http.post(`logout`, {});
     } catch (err) {
-      console.error("Logout failed", err);
+      console.log("User not logged in", err);
     } finally {
       navigate("/login");
     }
