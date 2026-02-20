@@ -64,7 +64,7 @@ export function AboutSection() {
             hold<span className="text-accent font-bold">my</span>
             <span className="relative">
               <span>smile</span>
-              <div className="size-10 md:size-20 rounded-full border-[2.5px] md:border-[5px] border-transparent border-b-accent absolute -bottom-1 md:-bottom-1.75 right-0 left-0 mx-auto"></div>
+              <div className="size-10 md:size-16 rounded-full border-[2.5px] md:border-[5px] border-transparent border-b-accent absolute -bottom-1 md:-bottom-1.75 right-0 left-0 mx-auto"></div>
             </span>
           </span>{" "}
           Subscription?
