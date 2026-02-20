@@ -146,6 +146,10 @@ export default function NavBar() {
       label: "About Us",
     },
     {
+      path: "/pricing",
+      label: "Pricing",
+    },
+    {
       path: "/track-item",
       label: "Track Order",
     },
@@ -153,7 +157,7 @@ export default function NavBar() {
       path: "/contact-us",
       label: "Contact Us",
     },
-  ];
+  ]; // .filter((link) => (isLoggedIn ? link.label !== "Pricing" : true));
 
   return (
     <>

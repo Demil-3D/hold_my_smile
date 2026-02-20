@@ -80,27 +80,27 @@ function SubscriptionPlanCarousel({
         </CarouselContent>
 
         {/* CAROUSEL CTRLS */}
-        {subscriptions.length > 1 && (
-          <div className="w-full flex mt-4 gap-2">
-            <CarouselPrevious className="static size-8 bg-primary/20 text-primary/90" />
-            <CarouselNext className="static size-8 bg-primary/20 text-primary/90" />
-            <div className="px-2 flex gap-1">
-              {Array.from({ length: subscriptions.length }, (_, i) => i).map(
-                (idx) => (
-                  <div
-                    key={idx}
-                    className={cn(
-                      "transition-all duration-300",
-                      current === idx
-                        ? "bg-primary w-6 h-1"
-                        : "bg-primary/50 size-1",
-                    )}
-                  ></div>
-                ),
-              )}
-            </div>
+        {/* {subscriptions.length > 1 && ( */}
+        <div className="w-full flex mt-4 gap-2">
+          <CarouselPrevious className="static size-8 bg-primary/20 text-primary/90" />
+          <CarouselNext className="static size-8 bg-primary/20 text-primary/90" />
+          <div className="px-2 flex gap-1">
+            {Array.from({ length: subscriptions.length }, (_, i) => i).map(
+              (idx) => (
+                <div
+                  key={idx}
+                  className={cn(
+                    "transition-all duration-300",
+                    current === idx
+                      ? "bg-primary w-6 h-1"
+                      : "bg-primary/50 size-1",
+                  )}
+                ></div>
+              ),
+            )}
           </div>
-        )}
+        </div>
+        {/* )} */}
       </Carousel>
     </>
   );

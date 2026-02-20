@@ -12,11 +12,10 @@ import {
   PencilLineIcon,
 } from "lucide-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
 function ProfilePage() {
-  const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileProps | null>(null);
   const isProfileNull = profile === null;
   const [enableEdit, setEnableEdit] = useState(false);
@@ -262,7 +261,7 @@ function ProfilePage() {
       await http.put(`profile`, dataObj);
       toast.success("Profile Updated Successfully!");
       setEnableEdit(false);
-      navigate("/portal/profile");
+      onLoad();
     } catch (error) {
       toast.error("Connection Failed!");
     }
@@ -293,35 +292,40 @@ function ProfilePage() {
   };
 
   // ON PAGE LOAD
-  useEffect(() => {
-    async function onLoad() {
-      try {
-        // SET PROFILE DATA
-        const profileRes = await http.get(`profile`);
-        const profileData = await profileRes.json();
-        setProfile(profileData);
+  async function onLoad() {
+    try {
+      // SET PROFILE DATA
+      const profileRes = await http.get(`profile`);
+      const profileData = await profileRes.json();
+      setProfile(profileData);
 
-        // SET PRACTICE DATA
-        const practiceRes = await http.get("practices");
-        const practiceData: [
-          {
-            practice_id: number | string;
-            practice_name: string;
-          },
-        ] = await practiceRes.json();
-        setPractices(
-          practiceData.map((practice) => {
-            return {
-              label: practice.practice_name,
-              value: practice.practice_id.toString(),
-            };
-          }),
-        );
-      } catch (err) {
-        toast.error("Network error!\n\nFailed to load user profile.");
+      // SET PRACTICE DATA
+      const practiceRes = await http.get("practices");
+      const practiceData: [
+        {
+          practice_id: number | string;
+          practice_name: string;
+        },
+      ] = await practiceRes.json();
+      setPractices(
+        practiceData.map((practice) => {
+          return {
+            label: practice.practice_name,
+            value: practice.practice_id.toString(),
+          };
+        }),
+      );
+
+      if (profile?.clinician) {
+        /* TODO: CALL LOAD CLINICIANS LIST FOR CURRENT PRACTICE IF CLINICIAN PROPERTY IN PROFILE DATA EXISTS */
+        // handleUpdateCliniciansList();
       }
+    } catch (err) {
+      toast.error("Network error!\n\nFailed to load user profile.");
     }
+  }
 
+  useEffect(() => {
     const onDocMouseDown = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest("[data-autocomplete-root='true']")) {

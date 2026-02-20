@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import type { Order } from "@/pages/Dashboard/utils/schema/patient/orders";
 import OrderTableComponent from "../OrderComponents/OrderTableComponent";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 function RecentOrdersSegment({ orders }: { orders: Order[] }) {
   const navigate = useNavigate();
@@ -30,13 +29,14 @@ function RecentOrdersSegment({ orders }: { orders: Order[] }) {
         {orders.length === 0 ? (
           <EmptyContainer />
         ) : (
-          <ScrollArea>
-            <ScrollBar orientation="horizontal" />
-            <OrderTableComponent
-              orders={orders.slice(0, 3)}
-              isHeadingHidden={true}
-            />
-          </ScrollArea>
+          <div className="w-full max-w-full overflow-x-auto">
+            <div className="min-w-max">
+              <OrderTableComponent
+                orders={orders.slice(0, 3)}
+                isHeadingHidden={true}
+              />
+            </div>
+          </div>
         )}
       </div>
     </div>

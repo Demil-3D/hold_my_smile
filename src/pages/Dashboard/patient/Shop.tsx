@@ -66,7 +66,6 @@ function ShopPage() {
         const filteredProducts = (data.products as []).filter(
           (p) => p["type"] !== "subscription",
         );
-        console.log(filteredProducts);
         setProducts(filteredProducts);
       } catch (err) {
         toast.error("Network error!\n\nFailed to load subscription data.");

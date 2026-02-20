@@ -3,13 +3,14 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "@/pages/Home";
 import { useEffect, type JSX, type ReactElement } from "react";
 import NavBar from "@/components/NavBar";
+import AboutUsPage from "@/pages/AboutUs";
 import TrackOrder from "@/pages/TrackOrder";
+import PricingPage from "@/pages/Pricing";
 import ContactPage from "@/pages/Contact";
 import { setPageTitle } from "@/utils/webpage-utils";
 import LoginPage from "@/pages/Auth/Login";
 import RegisterPage from "@/pages/Auth/Register";
 import PasswordResetPage from "@/pages/Auth/ResetPassword";
-import AboutUsPage from "@/pages/AboutUs";
 import TermsOfService from "@/pages/Policies/TermsOfService";
 import PrivacyPolicy from "@/pages/Policies/PrivacyPolicy";
 import RefundPolicy from "@/pages/Policies/RefundPolicy";
@@ -71,6 +72,10 @@ function App() {
         {
           path: "/track-item",
           element: <TrackOrder />,
+        },
+        {
+          path: "/pricing",
+          element: <PricingPage />,
         },
         {
           path: "/contact-us",
@@ -170,6 +175,9 @@ function App() {
         break;
       case "/track-item":
         setPageTitle("Track | HoldMySmile");
+        break;
+      case "/pricing":
+        setPageTitle("Pricing | HoldMySmile");
         break;
       case "/contact-us":
         setPageTitle("Contact | HoldMySmile");
