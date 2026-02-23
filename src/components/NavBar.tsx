@@ -157,7 +157,7 @@ export default function NavBar() {
       path: "/contact-us",
       label: "Contact Us",
     },
-  ]; // .filter((link) => (isLoggedIn ? link.label !== "Pricing" : true));
+  ];
 
   return (
     <>
