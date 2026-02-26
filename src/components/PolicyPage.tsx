@@ -29,7 +29,7 @@ export default function PolicyPageComponent({
                   key={`policy-section-${index}`}
                 >
                   <legend className="text-2xl font-bold text-primary">
-                    {_.sectionHeading}
+                    {index + 1}. {_.sectionHeading}
                   </legend>
 
                   {_.details.map((item, index) => {

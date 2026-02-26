@@ -2,12 +2,12 @@ import {
   ShoppingCart,
   Repeat,
   Package,
-  MapIcon,
   ChartAreaIcon,
   LogOutIcon,
   ReceiptTextIcon,
   UserIcon,
   UsersRoundIcon,
+  HeadsetIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -38,12 +38,12 @@ const patientNavItems = [
     icon: UserIcon,
     section: "Account",
   },
-  {
-    title: "Addresses",
-    path: "/portal/addresses",
-    icon: MapIcon,
-    section: "Account",
-  },
+  // {
+  //   title: "Addresses",
+  //   path: "/portal/addresses",
+  //   icon: MapIcon,
+  //   section: "Account",
+  // },
   {
     title: "Subscriptions",
     path: "/portal/subscriptions",
@@ -61,6 +61,12 @@ const patientNavItems = [
     path: "/portal/orders",
     icon: Package,
     section: "Shopping",
+  },
+  {
+    title: "Contact Support",
+    path: "/portal/support",
+    icon: HeadsetIcon,
+    section: "More Links",
   },
 ];
 
@@ -88,6 +94,12 @@ const clinicianNavItems = [
     path: "/portal/patients",
     icon: UsersRoundIcon,
     section: "Records",
+  },
+  {
+    title: "Contact Support",
+    path: "/portal/support",
+    icon: HeadsetIcon,
+    section: "More Links",
   },
 ];
 
@@ -117,11 +129,14 @@ export default function DashboardSideNav() {
       <SidebarContent className="py-6 pt-28 inset-shadow-xs">
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
-            <SidebarGroup key={section}>
+            <SidebarGroup key={section.split(" ").join("")}>
               {section !== "" && (
-                <SidebarGroupLabel className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-3 px-2">
-                  {section}
-                </SidebarGroupLabel>
+                <>
+                  <SidebarGroupLabel className="text-xs font-medium text-muted-foreground capitalize tracking-wider px-2">
+                    {section}
+                  </SidebarGroupLabel>
+                  <Separator />
+                </>
               )}
 
               <SidebarGroupContent>

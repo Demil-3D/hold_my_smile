@@ -1,4 +1,4 @@
-import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
+// import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
 import ClinicianSegment from "@/components/Dashboard/DashboardComponents/ClinicianSegment";
 import PatientListSegment from "@/components/Dashboard/DashboardComponents/PatientListSegment";
 import ProfileSegment from "@/components/Dashboard/DashboardComponents/ProfileSegment";
@@ -176,10 +176,10 @@ export default function Dashboard() {
     },
 
     /* DEFAULT ADDRESS SECTION */
-    {
-      id: "address",
-      content: <AddressSegment />,
-    },
+    // {
+    //   id: "address",
+    //   content: <AddressSegment />,
+    // },
 
     /* HELPFUL LINKS */
     {

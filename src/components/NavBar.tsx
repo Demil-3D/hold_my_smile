@@ -142,6 +142,10 @@ export default function NavBar() {
       label: "Home",
     },
     {
+      path: "/professional",
+      label: "Professional",
+    },
+    {
       path: "/about-us",
       label: "About Us",
     },

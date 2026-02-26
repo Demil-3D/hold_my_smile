@@ -30,6 +30,7 @@ import OrdersPage from "@/pages/Dashboard/patient/Orders";
 import SettlementLogsPage from "@/pages/Dashboard/clinician/SettlementLogs";
 import PatientListPage from "@/pages/Dashboard/clinician/Patients";
 import CheckoutPage from "@/pages/Dashboard/patient/Checkout";
+import ProfessionalPage from "./pages/Professional";
 
 type PathProps = {
   path: string | null;
@@ -64,6 +65,10 @@ function App() {
         {
           path: null,
           element: <HomePage />,
+        },
+        {
+          path: "/professional",
+          element: <ProfessionalPage />,
         },
         {
           path: "/about-us",

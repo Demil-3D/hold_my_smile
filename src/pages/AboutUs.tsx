@@ -84,10 +84,11 @@ function AboutUsPage() {
                 Clinical Perspective:
               </div>
               <p className="text-base">
-                Matt Clare, an experienced orthodontist, saw the impact within
-                practice workflows; patients struggling to stay compliant,
-                limited chair time for replacement appointments, and relapse
-                undermining otherwise excellent treatment outcomes.
+                <span className="font-medium">Dr. Matt Clare</span>, an
+                experienced orthodontist, saw the impact within practice
+                workflows; patients struggling to stay compliant, limited chair
+                time for replacement appointments, and relapse undermining
+                otherwise excellent treatment outcomes.
               </p>
             </div>
             <div className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4">

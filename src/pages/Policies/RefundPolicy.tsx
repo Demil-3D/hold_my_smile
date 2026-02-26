@@ -8,7 +8,7 @@ function RefundPolicy() {
   );
   const policies: PolicySection[] = [
     {
-      sectionHeading: "1. Custom-Made Medical Devices",
+      sectionHeading: "Custom-Made Medical Devices",
       details: [
         <p>
           All Hold My Smile retainers are{" "}
@@ -27,7 +27,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "2. Fit Guarantee - Free Remake",
+      sectionHeading: "Fit Guarantee - Free Remake",
       details: [
         <p>
           If your retainers arrive <span>damaged</span> or{" "}
@@ -87,7 +87,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "3. Refund Eligibility",
+      sectionHeading: "Refund Eligibility",
       details: [
         <p>Refunds may only be offered in the following circumstances:</p>,
         <ul>
@@ -112,7 +112,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "4. Non-Refundable Situations",
+      sectionHeading: "Non-Refundable Situations",
       details: [
         <p>Refunds or free remakes will not be provided where:</p>,
         <ul>
@@ -138,7 +138,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "5. Refund Process",
+      sectionHeading: "Refund Process",
       details: [
         <p>To request a refund or remake:</p>,
         <ul>
@@ -162,7 +162,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "6. Subscription Payments",
+      sectionHeading: "Subscription Payments",
       details: [
         <p>
           Your subscription begins once your initial payment has been processed.
@@ -180,7 +180,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "7. Errors and Duplicates",
+      sectionHeading: "Errors and Duplicates",
       details: [
         <p>
           If you believe a payment was taken in error or processed twice, please
@@ -193,7 +193,7 @@ function RefundPolicy() {
       ],
     },
     {
-      sectionHeading: "8. Contact Information",
+      sectionHeading: "Contact Information",
       details: [
         <p>
           If you have questions about this Refund Policy or wish to request a

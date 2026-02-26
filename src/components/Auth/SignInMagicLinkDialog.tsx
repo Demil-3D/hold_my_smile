@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   open: boolean;
@@ -18,6 +19,8 @@ type Props = {
 };
 
 export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
+  const navigate = useNavigate();
+
   return (
     <Dialog open={open} onOpenChange={() => onOpenChange(true)}>
       <DialogOverlay className="z-99999999" />
@@ -72,6 +75,9 @@ export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
               <Button
                 variant={"secondary"}
                 size={"lg"}
+                onClick={() => {
+                  navigate("/");
+                }}
                 className="w-full p-6 bg-accent flex items-center justify-center rounded-none text-primary"
               >
                 Got it

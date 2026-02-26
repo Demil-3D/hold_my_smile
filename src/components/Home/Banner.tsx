@@ -21,7 +21,7 @@ export function HeroBanner() {
       >
         <div className="w-full h-full min-h-dvh bg-primary/40">
           <div className="w-full lg:w-5/9 h-full min-h-dvh ml-auto bg-white banner-clip flex items-center pt-24 pb-6">
-            <div className="w-full lg:max-w-11/12 text-center lg:text-end p-6 lg:p-24 lg:pt-40 flex flex-col gap-2 items-center lg:items-end ml-auto">
+            <div className="w-full lg:max-w-10/12 text-center lg:text-start p-6 lg:p-24 lg:pt-40 flex flex-col gap-2 items-center lg:items-start ml-auto">
               <img
                 src={circleImage}
                 alt="Smiling lady"
@@ -33,10 +33,7 @@ export function HeroBanner() {
                 patients.
               </p>
               <p className="text-black/70 mt-3 max-w-2xl text-lg">
-                {`At Hold My Smile, we're dedicated to making orthodontic
-                aftercare simple, accessible, and effective. We believe everyone
-                deserves a lifetime of confidence in their smile, and we're here
-                to help you hold onto it.`}
+                {`Orthodontic treatment doesn't end when your braces come off. Retention is lifelong. We make it simple.`}
               </p>
               <Button
                 variant={"secondary"}
@@ -44,7 +41,7 @@ export function HeroBanner() {
                 className="rounded-none text-lg mt-4 py-7 px-8 bg-accent"
                 onClick={() => navigate("/register")}
               >
-                Get Started
+                Register Now
               </Button>
             </div>
           </div>

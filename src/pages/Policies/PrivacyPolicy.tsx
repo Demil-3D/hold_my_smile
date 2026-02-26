@@ -8,7 +8,7 @@ function PrivacyPolicy() {
   );
   const policies: PolicySection[] = [
     {
-      sectionHeading: "1. Who We Are",
+      sectionHeading: "Who We Are",
       details: [
         <p>Hold My Smile Ltd is a company registered in England and Wales</p>,
         <p>
@@ -35,7 +35,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "2. Information We Collect",
+      sectionHeading: "Information We Collect",
       details: [
         <p>
           We collect and process the following types of information to deliver
@@ -87,7 +87,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "3. How We Use Your Information",
+      sectionHeading: "How We Use Your Information",
       details: [
         <p>We use your data to:</p>,
         <ul>
@@ -124,7 +124,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "4. Anonymised Data and Research",
+      sectionHeading: "Anonymized Data and Research",
       details: [
         <p>
           To help us improve the accuracy and quality of our products and
@@ -145,7 +145,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "5. Sharing Your Information",
+      sectionHeading: "Sharing Your Information",
       details: [
         <p>
           We only share your information when necessary to provide your service:
@@ -180,7 +180,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "6. Data Storage and Security",
+      sectionHeading: "Data Storage and Security",
       details: [
         <p>
           Your information is stored on secure, encrypted servers located in the{" "}
@@ -204,7 +204,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "7. Data Retention",
+      sectionHeading: "Data Retention",
       details: [
         <p>
           We keep your personal and clinical data only as long as necessary to
@@ -231,7 +231,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "8. Your Rights",
+      sectionHeading: "Your Rights",
       details: [
         <p>Under UK GDPR, you have the right to:</p>,
         <ul>
@@ -264,7 +264,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "9. Data Breach Policy",
+      sectionHeading: "Data Breach Policy",
       details: [
         <p>In the unlikely event of a data breach, Hold My Smile will:</p>,
         <ul>
@@ -277,7 +277,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "10. Cookies and Tracking",
+      sectionHeading: "Cookies and Tracking",
       details: [
         <p>
           Our website uses cookies to improve your experience, analyse usage,
@@ -289,7 +289,7 @@ function PrivacyPolicy() {
       ],
     },
     {
-      sectionHeading: "11. Contact Us",
+      sectionHeading: "Contact Us",
       details: [
         <p>
           If you have questions about this Privacy Policy, your data, or how we

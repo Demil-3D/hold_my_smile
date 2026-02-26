@@ -9,7 +9,7 @@ function ShippingPolicy() {
 
   const policies: PolicySection[] = [
     {
-      sectionHeading: "1. Delivery Areas",
+      sectionHeading: "Delivery Areas",
       details: [
         <p>
           We currently ship to <span>UK addresses only</span>.
@@ -22,7 +22,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "2. Delivery Times",
+      sectionHeading: "Delivery Times",
       details: [
         <p>
           <span>Retainers</span>
@@ -60,7 +60,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "3. Shipping Confirmation",
+      sectionHeading: "Shipping Confirmation",
       details: [
         <p>
           Once your order has been dispatched, you'll receive a{" "}
@@ -78,7 +78,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "4. Delivery Delays",
+      sectionHeading: "Delivery Delays",
       details: [
         <p>
           We work closely with our delivery partners to ensure reliable service,
@@ -100,7 +100,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "5. Damaged or Lost Packages",
+      sectionHeading: "Damaged or Lost Packages",
       details: [
         <p>
           If your retainers or monitoring equipment arrive <span>damaged</span>{" "}
@@ -124,7 +124,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "6. Incorrect or Incomplete Delivery Information",
+      sectionHeading: "Incorrect or Incomplete Delivery Information",
       details: [
         <p>
           It's your responsibility to ensure your{" "}
@@ -144,7 +144,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "7. Multiple Orders and Split Deliveries",
+      sectionHeading: "Multiple Orders and Split Deliveries",
       details: [
         <p>
           If you order multiple retainers or items (e.g. retainers and a ScanBox
@@ -155,7 +155,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "8. Missed Deliveries",
+      sectionHeading: "Missed Deliveries",
       details: [
         <p>
           If a delivery attempt is missed, your courier will usually leave a
@@ -173,7 +173,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "9. Returns",
+      sectionHeading: "Returns",
       details: [
         <p>
           Because our retainers are <span>custom medical devices</span>, they
@@ -187,7 +187,7 @@ function ShippingPolicy() {
       ],
     },
     {
-      sectionHeading: "10. Contact Information",
+      sectionHeading: "Contact Information",
       details: [
         <p>
           If you have questions about this Refund Policy or wish to request a

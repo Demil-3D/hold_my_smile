@@ -9,7 +9,7 @@ function TermsOfService() {
 
   const terms: PolicySection[] = [
     {
-      sectionHeading: "1. Company Information",
+      sectionHeading: "Company Information",
       details: [
         <p>Hold My Smile Ltd is a company registered in England and Wales.</p>,
         <p>
@@ -26,7 +26,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "2. Our Service",
+      sectionHeading: "Our Service",
       details: [
         <p>These Terms are governed by the laws of England and Wales.</p>,
         <p>Our services may include:</p>,
@@ -50,7 +50,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "3. Subscriptions",
+      sectionHeading: "Subscriptions",
       details: [
         <p className="font-semibold">3.1 Subscription Start</p>,
         <p>
@@ -84,7 +84,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "4. Cancellation Policy",
+      sectionHeading: "Cancellation Policy",
       details: [
         <p>
           If you choose to cancel your subscription before the end of your
@@ -98,7 +98,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "5. Retainers and Fit Guarantee",
+      sectionHeading: "Retainers and Fit Guarantee",
       details: [
         <p>
           All retainers are custom-made to your digital scan and prescription
@@ -117,7 +117,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "6. Monitoring and Data Sharing",
+      sectionHeading: "Monitoring and Data Sharing",
       details: [
         <p>
           By subscribing, you consent to your{" "}
@@ -163,7 +163,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "7. Data Protection and Privacy",
+      sectionHeading: "Data Protection and Privacy",
       details: [
         <p>
           We are fully compliant with the{" "}
@@ -182,13 +182,8 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "8. Refunds",
+      sectionHeading: "Refunds",
       details: [
-        <p>
-          We will never sell or share your information with unauthorised third
-          parties. For more details, please see our{" "}
-          <Link to={"/privacy-policy"}>Privacy Policy</Link>.
-        </p>,
         <p>Refunds may be issued only if:</p>,
         <ul>
           <li>Your retainers are found to be defective; or</li>
@@ -201,28 +196,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "9. Shipping and Delivery",
-      details: [
-        <p>
-          Hold My Smile will aim to deliver retainers within{" "}
-          <span>48 working hours</span> of receiving your confirmed order before
-          5 pm (orders placed after 5 pm will be processed the next working
-          day).
-        </p>,
-        <p>
-          Your <span>ScanBox Pro</span> and other monitoring equipment will be
-          dispatched within <span>5-7 working days</span> of your subscription
-          start date.
-        </p>,
-        <p>
-          We currently ship to <span>UK addresses only</span>, and all
-          deliveries are handled via <span>tracked courier services</span> on
-          standard working days (Monday-Friday, excluding public holidays).
-        </p>,
-      ],
-    },
-    {
-      sectionHeading: "10. Your Responsibilities",
+      sectionHeading: "Your Responsibilities",
       details: [
         <p>You agree to:</p>,
         <ul>
@@ -258,7 +232,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "11. Limitation of Liability",
+      sectionHeading: "Limitation of Liability",
       details: [
         <p>
           Hold My Smile provides monitoring and retention support services but
@@ -278,12 +252,17 @@ function TermsOfService() {
             Indirect or consequential loss resulting from the use of our
             services
           </li>
+          <li>Performing orthodontic treatment</li>
+          <li>
+            Checking or replacing dental diagnosis or replace physical
+            in-practice dental check ups such as your "annual dental check up".
+          </li>
         </ul>,
         <p>Nothing in these Terms limits your rights under UK consumer law.</p>,
       ],
     },
     {
-      sectionHeading: "12. Complaints and Contact",
+      sectionHeading: "Complaints and Contact",
       details: [
         <p>We aim to provide a high standard of service at all times.</p>,
         <p>
@@ -294,7 +273,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "13. Changes to These Terms",
+      sectionHeading: "Changes to These Terms",
       details: [
         <p>
           Hold My Smile may update these Terms from time to time to reflect
@@ -307,7 +286,7 @@ function TermsOfService() {
       ],
     },
     {
-      sectionHeading: "14. Governing Law",
+      sectionHeading: "Governing Law",
       details: [
         <p>
           These Terms are governed by and construed in accordance with the laws

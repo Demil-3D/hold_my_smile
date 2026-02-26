@@ -201,11 +201,14 @@ function RegisterPage() {
             className="w-full flex flex-col items-center gap-4"
           >
             <FieldGroup>
-              <div className="flex flex-col items-center gap-1 text-center">
+              <div className="flex flex-col items-center gap-1 text-center space-y-1">
                 <h1 className="text-3xl font-bold">Create an Account!</h1>
-                <FieldDescription>
-                  Already have an account? <Link to="/login">Login</Link>
-                </FieldDescription>
+                <p className="text-muted-foreground text-[1.05rem]">
+                  Already have an account?{" "}
+                  <Link to="/login" className="underline">
+                    Login
+                  </Link>
+                </p>
               </div>
 
               <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-6">
