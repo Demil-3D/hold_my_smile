@@ -14,9 +14,9 @@ function PracticeSupportSection() {
   const PARTNER_BENEFITS = [
     {
       icon: <HandCoinsIcon />,
-      title: "50:50 Profit Share for Practices",
+      title: "Up to 50% Profit Share for Practices",
       description:
-        "Subscriptions deliver predictable monthly income, with revenue shared equally for higher returns.",
+        "Turn subscriptions into predictable monthly income with profit sharing of up to half the net revenue.",
     },
     {
       icon: <UserRoundPlusIcon />,

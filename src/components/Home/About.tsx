@@ -27,7 +27,7 @@ export function AboutSection() {
       icon: <CreditCardIcon />,
       title: "Your Subscription",
       description:
-        "One simple plan: £11.99 per month for a fresh retainer, plus up to £19.99 off any additional replacements.",
+        "Choose from multiple plans starting at £19.99 per month, with discounted replacement retainers when you need them.",
     },
     {
       icon: <PackageCheckIcon />,
