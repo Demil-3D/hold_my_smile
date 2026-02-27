@@ -1,4 +1,3 @@
-import PricingListCarousel from "@/components/Dashboard/SubscriptionComponents/PricingListCarousel";
 import type { SubscriptionPlanProperties } from "./Dashboard/utils/schema/patient/subscription";
 import { useEffect, useState } from "react";
 import { http } from "@/utils/http";
@@ -7,6 +6,13 @@ import { cn } from "@/lib/utils";
 import biologyNotFailure from "@/assets/images/biology-not-failure.png";
 import monitoring from "@/assets/images/monitoring.png";
 import longTermSmileProtection from "@/assets/images/long-term-smile-protection.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import SubscriptionCard from "@/components/Dashboard/SubscriptionComponents/SubscriptionCard";
 
 function PricingPage() {
   const [subscriptionPlans, setSubscriptionPlans] = useState<
@@ -41,14 +47,29 @@ function PricingPage() {
       image: monitoring,
     },
     {
-      text: `If you have finished orthodontic treatment, are managing a teenager’s retention, or have ever replaced a lost retainer at short notice, you already understand the importance of staying consistent.\n\nYour orthodontic treatment was an investment. Retention protects it.\n\nChoose the level of support that matches how closely you want your smile supervised, and let the system handle the rest.`,
+      text: `If you have finished orthodontic treatment, are managing a teenager's retention, or have ever replaced a lost retainer at short notice, you already understand the importance of staying consistent.\n\nYour orthodontic treatment was an investment. Retention protects it.\n\nChoose the level of support that matches how closely you want your smile supervised, and let the system handle the rest.`,
       image: longTermSmileProtection,
+    },
+  ];
+
+  const PLAN_TYPES = [
+    {
+      group: "Retention",
+      levels: ["RETENTION_STANDARD", "RETENTION_PREMIUM"],
+    },
+    {
+      group: "Monitoring",
+      levels: ["MONITORING_LITE"],
+    },
+    {
+      group: "Mixed",
+      levels: ["MONITORING_STANDARD", "MONITORING_PREMIUM"],
     },
   ];
 
   return (
     <div className="w-full relative">
-      <div className="w-full pb-0 pt-44 text-center">
+      <div className="w-full pb-0 pt-44 text-center bg-slate-100">
         <legend className="text-4xl font-semibold text-primary">
           Protect Your{" "}
           <span className="relative">
@@ -61,9 +82,43 @@ function PricingPage() {
           Choose the level of protection and monitoring that suits you.
         </p>
       </div>
-      <div className="w-full py-20 px-6 space-y-32" id="plans">
-        <PricingListCarousel subscriptionPlans={subscriptionPlans} />
+      <div className="w-full text-center py-24 bg-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <Accordion
+            type="single"
+            className="w-full space-y-4 border border-slate-200"
+            defaultValue={"0"}
+          >
+            {PLAN_TYPES.map((plan_type, index) => {
+              const plans = subscriptionPlans.filter((p) =>
+                plan_type.levels.includes(p.sub_level),
+              );
+              if (plans.length === 0) return null;
+              return (
+                <AccordionItem
+                  key={index}
+                  value={`${index}`}
+                  className="rounded-none"
+                >
+                  <AccordionTrigger className="text-xl font-semibold cursor-pointer border-b-2 p-4 rounded-none">
+                    {plan_type.group}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                      {plans.map((plan) => (
+                        <SubscriptionCard key={plan.id} plan={plan} />
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
+        </div>
+      </div>
 
+      {/* OTHER TEXT */}
+      <div className="w-full py-20 px-6 space-y-32" id="plans">
         <section className="w-full max-w-300 text-center space-y-10 mx-auto">
           <legend className="text-2xl md:text-4xl font-bold text-primary max-w-2xl mx-auto">
             Clinical Standards You Can{" "}

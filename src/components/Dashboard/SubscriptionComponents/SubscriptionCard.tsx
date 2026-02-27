@@ -40,10 +40,10 @@ function PlanSpecRow({
     <li className="flex w-full py-2">
       <Badge
         variant="secondary"
-        className="rounded-none whitespace-pre-wrap text-start"
+        className={`rounded-none whitespace-pre-wrap text-start ${label === "Annual Savings" ? "text-base" : ""}`}
       >
-        <span className="mr-2">{label}</span>
-        <span className="text-accent">{value}</span>
+        <span className="mr-2 font-normal">{label}</span>
+        <span className="">{value}</span>
       </Badge>
     </li>
   );
