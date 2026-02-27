@@ -32,6 +32,8 @@ import PatientListPage from "@/pages/Dashboard/clinician/Patients";
 import CheckoutPage from "@/pages/Dashboard/patient/Checkout";
 import ProfessionalPage from "./pages/Professional";
 import FAQPage from "./pages/FAQs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 type PathProps = {
   path: string | null;
@@ -225,6 +227,10 @@ function App() {
         break;
     }
   }, [currentPage]);
+
+  useEffect(() => {
+    AOS.init({ once: false, duration: 400 });
+  }, []);
 
   return (
     <>

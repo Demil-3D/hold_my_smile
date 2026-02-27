@@ -26,7 +26,12 @@ function AboutUsPage() {
         {/* OUR MISSION */}
         <section className="py-24 px-6 md:px-12 lg:px-0 w-full max-w-7xl mx-auto">
           <div className="w-full flex max-md:flex-col items-center gap-12">
-            <div className="w-full md:flex-1 space-y-4 max-md:text-center">
+            <div
+              className="w-full md:flex-1 space-y-4 max-md:text-center"
+              data-aos="fade-right"
+              data-aos-delay={250}
+              data-aos-duration={500}
+            >
               <h1 className="text-4xl text-primary font-bold">
                 Our <span className="text-accent">Mission</span>
               </h1>
@@ -42,7 +47,12 @@ function AboutUsPage() {
                 the journey. Hold My Smile exists to change that.`}
               </p>
             </div>
-            <div className="w-full md:flex-1">
+            <div
+              className="w-full md:flex-1"
+              data-aos="fade-left"
+              data-aos-delay={0}
+              data-aos-duration={500}
+            >
               <img
                 src={missionSectionImage}
                 alt="Smiling lady"
@@ -62,7 +72,12 @@ function AboutUsPage() {
             the same persistent problem.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-3">
-            <div className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4">
+            <div
+              className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
+              data-aos="fade-up"
+              data-aos-delay={0}
+              data-aos-duration={500}
+            >
               <div
                 className="w-fit pb-2 font-bold text-accent"
                 style={{ textShadow: "none" }}
@@ -76,7 +91,12 @@ function AboutUsPage() {
                 placed unnecessary pressure on already busy practices.
               </p>
             </div>
-            <div className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4">
+            <div
+              className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
+              data-aos="fade-up"
+              data-aos-delay={250}
+              data-aos-duration={500}
+            >
               <div
                 className="w-fit pb-2 font-bold text-accent"
                 style={{ textShadow: "none" }}
@@ -91,7 +111,12 @@ function AboutUsPage() {
                 otherwise excellent treatment outcomes.
               </p>
             </div>
-            <div className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4">
+            <div
+              className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
+              data-aos="fade-up"
+              data-aos-delay={500}
+              data-aos-duration={500}
+            >
               <div
                 className="w-fit pb-2 font-bold text-accent"
                 style={{ textShadow: "none" }}
@@ -121,7 +146,12 @@ function AboutUsPage() {
             A <span className="text-accent">Smarter Approach</span> <br />
             to Retention
           </h1>
-          <p className="text-lg pt-3 mx-auto">
+          <p
+            className="text-lg pt-3 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay={0}
+            data-aos-duration={500}
+          >
             By combining laboratory expertise, clinical insight, and a
             patient-first digital approach, we built Hold My Smile; a modern
             retention system designed to work beyond the treatment room. For
@@ -129,14 +159,24 @@ function AboutUsPage() {
             practices, it becomes structured, reliable, and sustainable.
           </p>
 
-          <p className="text-lg max-w-3xl mx-auto">
+          <p
+            className="text-lg max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay={150}
+            data-aos-duration={500}
+          >
             Hold My Smile supports orthodontic practices by removing friction
             from one of the most time-consuming post-treatment processes, while
             giving patients confidence that their smile is protected long after
             treatment ends.
           </p>
 
-          <p className="text-lg max-w-2xl mx-auto">
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay={300}
+            data-aos-duration={500}
+          >
             We don't replace the clinician-patient relationship. We reinforce it
             by ensuring retention is simple, compliant, and dependable.
           </p>

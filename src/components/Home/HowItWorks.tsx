@@ -51,7 +51,13 @@ function HowItWorksSection() {
           <div className="w-full grid md:grid-cols-2 place-items-center place-content-center gap-6 text-start">
             {HOW_IT_WORKS_STEPS.map((step, index) => {
               return (
-                <Item key={index} className="items-start gap-6">
+                <Item
+                  key={index}
+                  className="items-start gap-6"
+                  data-aos="fade-right"
+                  data-aos-delay={250 * index}
+                  data-aos-duration={500}
+                >
                   <ItemMedia>
                     <div className="size-10 bg-primary/10 text-primary grid place-items-center">
                       {step.icon}
@@ -68,7 +74,12 @@ function HowItWorksSection() {
         </div>
 
         {/* BENEFITS */}
-        <div className="space-y-12 w-full max-w-4xl mx-auto bg-white/10 py-4">
+        <div
+          className="space-y-12 w-full max-w-4xl mx-auto bg-white/10 py-4"
+          data-aos="fade-up"
+          data-aos-delay={0}
+          data-aos-duration={500}
+        >
           <div className="w-full space-y-6 px-6 text-center">
             {/* <legend className="text-4xl font-bold text-primary max-w-2xl mx-auto text-center">
               Because <span className="text-accent">Retention</span> Is
@@ -91,7 +102,12 @@ function HowItWorksSection() {
       </section>
 
       {/* DOCTOR RECOMMENDATION */}
-      <section className={`w-full mx-auto px-6 md:px-12 pt-6 pb-18`}>
+      <section
+        className={`w-full mx-auto px-6 md:px-12 pt-6 pb-18`}
+        data-aos="flip-down"
+        data-aos-delay={0}
+        data-aos-duration={500}
+      >
         <div className="w-full max-w-4xl mx-auto inset-shadow-sm border p-6 md:p-10 flex max-md:flex-col items-start gap-12">
           <div className="w-24 aspect-square rounded-full bg-secondary overflow-hidden">
             <img

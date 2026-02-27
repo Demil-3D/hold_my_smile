@@ -53,7 +53,12 @@ export function AboutSection() {
         {/* PROBLEM AND SOLUTION */}
         <div className="pt-10 grid gap-8 lg:grid-cols-2">
           {/* Card: Problem */}
-          <div className="group relative p-7">
+          <div
+            className="group relative p-7"
+            data-aos="fade-up"
+            data-aos-delay={0}
+            data-aos-duration={500}
+          >
             <div className="flex items-start gap-4">
               <div className="flex size-10 items-center justify-center bg-[#0f172b10] text-[#0f172b] shadow-sm">
                 <ShieldCheck className="size-6" />
@@ -83,7 +88,12 @@ export function AboutSection() {
           </div>
 
           {/* Card: Solution */}
-          <div className="group relative p-7">
+          <div
+            className="group relative p-7"
+            data-aos="fade-up"
+            data-aos-delay={250}
+            data-aos-duration={500}
+          >
             <div className="flex items-start gap-4">
               <div className="flex size-10 items-center justify-center bg-[#d77bc520] text-[#d77bc5] shadow-sm">
                 <HeartHandshake className="size-6" />
@@ -132,6 +142,9 @@ export function AboutSection() {
             return (
               <div
                 key={index}
+                data-aos="fade-up"
+                data-aos-delay={250 * index}
+                data-aos-duration={500}
                 className="w-full flex flex-col gap-4 px-4 py-6 items-center max-md:border max-md:border-slate-200 md:border-x md:border-x-slate-200"
               >
                 {benefit.icon}

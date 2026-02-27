@@ -1,181 +1,180 @@
-[
-  {
-    "section_head": "Common Inquiries",
-    "questions": [
-      {
-        "question": "How can I place an order?",
-        "response": "Ordering is quick and easy! Just visit our website from any device — phone, tablet, laptop, or desktop — and follow the simple steps to get started. If you need any help along the way, our friendly team is always here to guide you."
-      },
-      {
-        "question": "Do I need to visit the practice?",
-        "response": "Nope — you can get started from the comfort of your own home! Simply sign up, and one of our friendly team members will give you a quick call to guide you through the onboarding process. We’ll request your latest scans from your dental practice so all your information is in one secure place. From there, you can use our platform to subscribe and receive a fresh retainer every year — or order one whenever you need."
-      },
-      {
-        "question": "What happens if my retainers don’t fit?",
-        "response": "Don’t worry — we’ve got you covered! If your retainers don’t fit, we’ll remake them for you. If they still don’t fit after that, we’ll work with your dental practice to arrange an additional scan and remake them at no extra cost, so you get the perfect fit."
-      },
-      {
-        "question": "How long will my retainers take to arrive?",
-        "response": "We know you’ll want them quickly! If we receive your order before 5 pm, we’ll have your retainers made and delivered straight to your door within 48 hours. Orders placed after 5 pm will be processed the next working day."
-      },
-      {
-        "question": "How do I contact Hold my smile if I need to?",
-        "response": "Please email in Info@holdmysmile.com."
-      },
-      {
-        "question": "How do I clean my retainers?",
-        "response": "To keep your retainers fresh and clear, rinse them with cool water after each use and gently brush them with a soft toothbrush (no toothpaste, as it can scratch them). For a deeper clean, you can use a retainer cleaning tablet or follow your dental practice’s advice. Always store them in their case when not in use to keep them safe."
-      },
-      {
-        "question": "What is your subscription service?",
-        "response": "At Hold My Smile, we’re here to help you protect your smile and the investment you’ve made in it. Our subscription service makes it easy — you’ll receive a fresh set of retainers every year. Simply start your subscription, choose when you’d like your first set, and from that date, we’ll send you a new retainer every 12 months to keep your smile looking its best."
-      },
-      {
-        "question": "My retainers have been damaged 6 months into my subscription — can I get new ones?",
-        "response": "Yes! Simply visit our website, add a replacement retainer to your cart, and checkout as normal. As a subscription member, you’ll automatically receive 20% off your replacement. We’ll have it made and delivered to your door within 48 hours, so you can get back to protecting your smile without delay."
-      },
-      {
-        "question": "Are the new retainers clinically approved by my practice?",
-        "response": "Absolutely! Hold My Smile is part of one of the largest orthodontic labs in the UK. All our products are fully certified, and we work closely with your dental practice to ensure they meet their clinical standards. Together, we deliver your retainers straight to your door within 48 hours."
-      },
-      {
-        "question": "What if I decide to cancel after a few months? Will I get a refund?",
-        "response": "Unfortunately, we’re not able to offer refunds, as Hold My Smile is a full-term commitment. Once you’ve signed up, we’ll honour our part by manufacturing and delivering your retainers as promised. You can, however, cancel your subscription at any time via the Profile page in the Hold My Smile app — this will stop any future payments after your current term ends."
-      }
-    ]
-  },
-  {
-    "section_head": "Service Overview",
-    "questions": [
-      {
-        "question": "What is Hold My Smile and how does it work for patients?",
-        "response": "Hold My Smile makes orthodontic aftercare simple, accessible, and effective by removing common barriers to patients getting new retainers. Whether through our annual subscription service or a quick one-off reorder, patients can easily maintain their smile without unnecessary delays or additional practice visits."
-      },
-      {
-        "question": "How does it work for my practice?",
-        "response": "We reduce your workload and generate additional income by giving you a 50% margin on every retainer sold via Hold My Smile in exchange for access to your patient base. This creates a passive revenue stream without increasing chair time."
-      },
-      {
-        "question": "How does it integrate with my practice’s workflow?",
-        "response": "Integration is seamless: Your patient fills out an online sign-up form; we request their scans and prescription from you; the retainer is manufactured to your original prescription; and it’s delivered to the patient’s home within 48 hours. You can upload scans via your intraoral scanner or by sending STL files through our website. We do not currently work with impressions."
-      },
-      {
-        "question": "What’s in it for Hold My Smile?",
-        "response": "We share 50% of revenue gained on each retainer sale and, by making ordering easier for patients, increase the total number of sales for both us and your practice."
-      },
-      {
-        "question": "Why share 50% margin to Hold My Smile?",
-        "response": "Currently, 30–70% of patients relapse within five years, often because they’ve lost or damaged their retainer and can’t get to the practice in time. We solve these problems by providing a platform where patients can get a retainer ASAP, improving patient satisfaction and keeping them connected to your practice without taking up clinical time for replacements."
-      }
-    ]
-  },
-  {
-    "section_head": "Ordering & Onboarding",
-    "questions": [
-      {
-        "question": "How does a patient get started?",
-        "response": "The patient completes an online form at the end of their orthodontic treatment. A Hold My Smile team member then contacts them to explain the service, walk them through the website, and confirm they have everything they need."
-      },
-      {
-        "question": "Does the patient sign up directly or via the practice?",
-        "response": "Directly with Hold My Smile."
-      },
-      {
-        "question": "What details/scans are required for the first order?",
-        "response": "We require patient details (name, address, DOB, practice), a scan of the patient’s teeth, and a prescription from the practice."
-      },
-      {
-        "question": "How are scans obtained?",
-        "response": "Once the patient signs up, we contact the practice to request their scan, or they can be sent in advance while chairside."
-      },
-      {
-        "question": "Who confirms retainer suitability?",
-        "response": "The clinician — we only manufacture retainers from an approved prescription."
-      }
-    ]
-  },
-  {
-    "section_head": "Clinical Approval & Responsibility",
-    "questions": [
-      {
-        "question": "How do I approve a patient’s retainers?",
-        "response": "Since there are no changes to the prescription, the patient receives the same type of retainer they left your practice with — just newer and cleaner."
-      },
-      {
-        "question": "Is there a formal prescription process?",
-        "response": "Yes — a prescription must be sent with the scan before manufacture."
-      },
-      {
-        "question": "How are clinical concerns flagged?",
-        "response": "Patients complete a clinical questionnaire before manufacture. After delivery, they confirm the fit with Hold My Smile. If there’s an issue, we either remake the retainer or arrange with your practice for a new scan."
-      },
-      {
-        "question": "What if the patient’s teeth have moved?",
-        "response": "We would request them to visit the dentist for a check-up; they can rescan and get a new retainer."
-      },
-      {
-        "question": "Who is responsible for follow-up?",
-        "response": "The orthodontist is still responsible for follow-up. We advise on retention and cleaning, but for clinical guidance (e.g., a feeling that a tooth has rotated), we advise patients to seek clinical guidance from their orthodontist."
-      },
-      {
-        "question": "What if a patient tries to sign up without my approval?",
-        "response": "They would not be able to fully sign up unless you send through the scan file."
-      }
-    ]
-  },
-  {
-    "section_head": "Manufacturing & Quality",
-    "questions": [
-      {
-        "question": "Where are retainers made? Are they MHRA-compliant?",
-        "response": "All retainers are manufactured by 3Dental, one of the UK’s largest orthodontic labs, and are fully MHRA-compliant."
-      },
-      {
-        "question": "What materials are used?",
-        "response": "Premium PET-G material for durability and clarity."
-      },
-      {
-        "question": "How long do retainers last?",
-        "response": "Typically 12 months with proper care, though lifespan varies based on individual usage."
-      }
-    ]
-  },
-  {
-    "section_head": "Delivery & Subscription",
-    "questions": [
-      {
-        "question": "How quickly are retainers delivered?",
-        "response": "If we receive the order before 5 pm, it is delivered to the patient’s home within 48 hours (2 working days)."
-      },
-      {
-        "question": "How does the subscription model work?",
-        "response": "The patient signs up and receives their first retainer within a few days. A new retainer is then automatically delivered every 12 months. Subscription members also receive a 20% discount on replacements for lost or damaged retainers."
-      },
-      {
-        "question": "What happens if a patient cancels mid-term?",
-        "response": "Subscriptions are for a minimum of one year, and we fulfil all agreed orders within that term."
-      },
-      {
-        "question": "Can a patient order outside their yearly cycle?",
-        "response": "Yes — replacements can be ordered anytime via our website."
-      }
-    ]
-  },
-  {
-    "section_head": "Fit Issues & Communication",
-    "questions": [
-      {
-        "question": "What if a patient’s retainer doesn’t fit?",
-        "response": "We remake it once at no charge. If the second retainer also doesn’t fit, a new scan is required. We notify the practice to arrange this with the patient."
-      },
-      {
-        "question": "Who communicates with the patient?",
-        "response": "Hold My Smile manages all patient communication, except when a new scan is required — in that case, the practice contacts the patient after we notify them."
-      },
-      {
-        "question": "Will the practice be updated on orders?",
-        "response": "Not directly, but you can view all orders and subscriptions via your online dashboard."
-      }
-    ]
-  }
-]
+{
+  "patient_faqs": [
+    {
+      "question": "How can I place an order?",
+      "response": "Ordering is quick and easy! Just visit our website from any device — phone, tablet, laptop, or desktop — and follow the simple steps to get started. If you need any help along the way, our friendly team is always here to guide you."
+    },
+    {
+      "question": "Do I need to visit the practice?",
+      "response": "Nope — you can get started from the comfort of your own home! Simply sign up, and one of our friendly team members will give you a quick call to guide you through the onboarding process. We’ll request your latest scans from your dental practice so all your information is in one secure place. From there, you can use our platform to subscribe and receive a fresh retainer every year — or order one whenever you need."
+    },
+    {
+      "question": "What happens if my retainers don’t fit?",
+      "response": "Don’t worry — we’ve got you covered! If your retainers don’t fit, we’ll remake them for you. If they still don’t fit after that, we’ll work with your dental practice to arrange an additional scan and remake them at no extra cost, so you get the perfect fit."
+    },
+    {
+      "question": "How long will my retainers take to arrive?",
+      "response": "We know you’ll want them quickly! If we receive your order before 5 pm, we’ll have your retainers made and delivered straight to your door within 48 hours. Orders placed after 5 pm will be processed the next working day."
+    },
+    {
+      "question": "How do I contact Hold my smile if I need to?",
+      "response": "Please email in Info@holdmysmile.com."
+    },
+    {
+      "question": "How do I clean my retainers?",
+      "response": "To keep your retainers fresh and clear, rinse them with cool water after each use and gently brush them with a soft toothbrush (no toothpaste, as it can scratch them). For a deeper clean, you can use a retainer cleaning tablet or follow your dental practice’s advice. Always store them in their case when not in use to keep them safe."
+    },
+    {
+      "question": "What is your subscription service?",
+      "response": "At Hold My Smile, we’re here to help you protect your smile and the investment you’ve made in it. Our subscription service makes it easy — you’ll receive a fresh set of retainers every year. Simply start your subscription, choose when you’d like your first set, and from that date, we’ll send you a new retainer every 12 months to keep your smile looking its best."
+    },
+    {
+      "question": "My retainers have been damaged 6 months into my subscription — can I get new ones?",
+      "response": "Yes! Simply visit our website, add a replacement retainer to your cart, and checkout as normal. As a subscription member, you’ll automatically receive 20% off your replacement. We’ll have it made and delivered to your door within 48 hours, so you can get back to protecting your smile without delay."
+    },
+    {
+      "question": "Are the new retainers clinically approved by my practice?",
+      "response": "Absolutely! Hold My Smile is part of one of the largest orthodontic labs in the UK. All our products are fully certified, and we work closely with your dental practice to ensure they meet their clinical standards. Together, we deliver your retainers straight to your door within 48 hours."
+    },
+    {
+      "question": "What if I decide to cancel after a few months? Will I get a refund?",
+      "response": "Unfortunately, we’re not able to offer refunds, as Hold My Smile is a full-term commitment. Once you’ve signed up, we’ll honour our part by manufacturing and delivering your retainers as promised. You can, however, cancel your subscription at any time via the Profile page in the Hold My Smile app — this will stop any future payments after your current term ends."
+    }
+  ],
+  "clinician_faqs": [
+    {
+      "section_head": "Service Overview",
+      "questions": [
+        {
+          "question": "What is Hold My Smile and how does it work for patients?",
+          "response": "Hold My Smile makes orthodontic aftercare simple, accessible, and effective by removing common barriers to patients getting new retainers. Whether through our annual subscription service or a quick one-off reorder, patients can easily maintain their smile without unnecessary delays or additional practice visits."
+        },
+        {
+          "question": "How does it work for my practice?",
+          "response": "We reduce your workload and generate additional income by giving you a 50% margin on every retainer sold via Hold My Smile in exchange for access to your patient base. This creates a passive revenue stream without increasing chair time."
+        },
+        {
+          "question": "How does it integrate with my practice’s workflow?",
+          "response": "Integration is seamless: Your patient fills out an online sign-up form; we request their scans and prescription from you; the retainer is manufactured to your original prescription; and it’s delivered to the patient’s home within 48 hours. You can upload scans via your intraoral scanner or by sending STL files through our website. We do not currently work with impressions."
+        },
+        {
+          "question": "What’s in it for Hold My Smile?",
+          "response": "We share 50% of revenue gained on each retainer sale and, by making ordering easier for patients, increase the total number of sales for both us and your practice."
+        },
+        {
+          "question": "Why share 50% margin to Hold My Smile?",
+          "response": "Currently, 30–70% of patients relapse within five years, often because they’ve lost or damaged their retainer and can’t get to the practice in time. We solve these problems by providing a platform where patients can get a retainer ASAP, improving patient satisfaction and keeping them connected to your practice without taking up clinical time for replacements."
+        }
+      ]
+    },
+    {
+      "section_head": "Ordering & Onboarding",
+      "questions": [
+        {
+          "question": "How does a patient get started?",
+          "response": "The patient completes an online form at the end of their orthodontic treatment. A Hold My Smile team member then contacts them to explain the service, walk them through the website, and confirm they have everything they need."
+        },
+        {
+          "question": "Does the patient sign up directly or via the practice?",
+          "response": "Directly with Hold My Smile."
+        },
+        {
+          "question": "What details/scans are required for the first order?",
+          "response": "We require patient details (name, address, DOB, practice), a scan of the patient’s teeth, and a prescription from the practice."
+        },
+        {
+          "question": "How are scans obtained?",
+          "response": "Once the patient signs up, we contact the practice to request their scan, or they can be sent in advance while chairside."
+        },
+        {
+          "question": "Who confirms retainer suitability?",
+          "response": "The clinician — we only manufacture retainers from an approved prescription."
+        }
+      ]
+    },
+    {
+      "section_head": "Clinical Approval & Responsibility",
+      "questions": [
+        {
+          "question": "How do I approve a patient’s retainers?",
+          "response": "Since there are no changes to the prescription, the patient receives the same type of retainer they left your practice with — just newer and cleaner."
+        },
+        {
+          "question": "Is there a formal prescription process?",
+          "response": "Yes — a prescription must be sent with the scan before manufacture."
+        },
+        {
+          "question": "How are clinical concerns flagged?",
+          "response": "Patients complete a clinical questionnaire before manufacture. After delivery, they confirm the fit with Hold My Smile. If there’s an issue, we either remake the retainer or arrange with your practice for a new scan."
+        },
+        {
+          "question": "What if the patient’s teeth have moved?",
+          "response": "We would request them to visit the dentist for a check-up; they can rescan and get a new retainer."
+        },
+        {
+          "question": "Who is responsible for follow-up?",
+          "response": "The orthodontist is still responsible for follow-up. We advise on retention and cleaning, but for clinical guidance (e.g., a feeling that a tooth has rotated), we advise patients to seek clinical guidance from their orthodontist."
+        },
+        {
+          "question": "What if a patient tries to sign up without my approval?",
+          "response": "They would not be able to fully sign up unless you send through the scan file."
+        }
+      ]
+    },
+    {
+      "section_head": "Manufacturing & Quality",
+      "questions": [
+        {
+          "question": "Where are retainers made? Are they MHRA-compliant?",
+          "response": "All retainers are manufactured by 3Dental, one of the UK’s largest orthodontic labs, and are fully MHRA-compliant."
+        },
+        {
+          "question": "What materials are used?",
+          "response": "Premium PET-G material for durability and clarity."
+        },
+        {
+          "question": "How long do retainers last?",
+          "response": "Typically 12 months with proper care, though lifespan varies based on individual usage."
+        }
+      ]
+    },
+    {
+      "section_head": "Delivery & Subscription",
+      "questions": [
+        {
+          "question": "How quickly are retainers delivered?",
+          "response": "If we receive the order before 5 pm, it is delivered to the patient’s home within 48 hours (2 working days)."
+        },
+        {
+          "question": "How does the subscription model work?",
+          "response": "The patient signs up and receives their first retainer within a few days. A new retainer is then automatically delivered every 12 months. Subscription members also receive a 20% discount on replacements for lost or damaged retainers."
+        },
+        {
+          "question": "What happens if a patient cancels mid-term?",
+          "response": "Subscriptions are for a minimum of one year, and we fulfil all agreed orders within that term."
+        },
+        {
+          "question": "Can a patient order outside their yearly cycle?",
+          "response": "Yes — replacements can be ordered anytime via our website."
+        }
+      ]
+    },
+    {
+      "section_head": "Fit Issues & Communication",
+      "questions": [
+        {
+          "question": "What if a patient’s retainer doesn’t fit?",
+          "response": "We remake it once at no charge. If the second retainer also doesn’t fit, a new scan is required. We notify the practice to arrange this with the patient."
+        },
+        {
+          "question": "Who communicates with the patient?",
+          "response": "Hold My Smile manages all patient communication, except when a new scan is required — in that case, the practice contacts the patient after we notify them."
+        },
+        {
+          "question": "Will the practice be updated on orders?",
+          "response": "Not directly, but you can view all orders and subscriptions via your online dashboard."
+        }
+      ]
+    }
+  ]
+}

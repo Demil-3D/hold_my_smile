@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import faqs from "@/utils/faqs.json";
+import { clinician_faqs } from "@/utils/faqs.json";
 
 function FAQPage() {
   return (
@@ -35,8 +35,13 @@ function FAQPage() {
             orientation="vertical"
             className="grid grid-cols-1 md:grid-cols-3 gap-12"
           >
-            <TabsList className="rounded-none bg-slate-100 w-full">
-              {faqs.map((faq_section, index) => (
+            <TabsList
+              className="rounded-none bg-slate-100 w-full"
+              data-aos="fade-right"
+              data-aos-delay={0}
+              data-aos-duration={500}
+            >
+              {clinician_faqs.map((faq_section, index) => (
                 <TabsTrigger
                   key={`tab-${index + 1}`}
                   value={`tab-${index + 1}`}
@@ -46,7 +51,7 @@ function FAQPage() {
                 </TabsTrigger>
               ))}
             </TabsList>
-            {faqs.map((faq_section, index) => (
+            {clinician_faqs.map((faq_section, index) => (
               <TabsContent
                 key={`tab-content-${index + 1}`}
                 value={`tab-${index + 1}`}
@@ -57,6 +62,9 @@ function FAQPage() {
                     <AccordionItem
                       key={`faq-item-${index + 1}`}
                       value={`faq-item-${index + 1}`}
+                      data-aos="fade-up"
+                      data-aos-delay={50 * index}
+                      data-aos-duration={500}
                     >
                       <AccordionTrigger className="text-lg">
                         {q.question}

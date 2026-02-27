@@ -47,7 +47,13 @@ function HowItWorksSection() {
         <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-2 place-items-center place-content-center gap-0 text-start">
           {HOW_IT_WORKS.map((explanation, index) => {
             return (
-              <Item key={index} className="w-full items-start gap-6">
+              <Item
+                key={index}
+                className="w-full items-start gap-6"
+                data-aos="fade-up"
+                data-aos-delay={250 * index}
+                data-aos-duration={500}
+              >
                 <ItemMedia>
                   <span className="text-4xl font-bold text-accent">
                     {(index + 1).toString().padStart(2, "0")}
@@ -65,7 +71,12 @@ function HowItWorksSection() {
         </div>
       </section>
 
-      <section className={`w-full mx-auto px-6 md:px-12 pb-12`}>
+      <section
+        className={`w-full mx-auto px-6 md:px-12 pb-12`}
+        data-aos="flip-down"
+        data-aos-delay={0}
+        data-aos-duration={500}
+      >
         <div className="w-full max-w-5xl mx-auto inset-shadow-sm border p-4 md:p-8 flex max-md:flex-col items-start gap-12">
           <div className="flex-1 flex flex-col gap-4">
             <p

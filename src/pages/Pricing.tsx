@@ -105,8 +105,16 @@ function PricingPage() {
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-                      {plans.map((plan) => (
-                        <SubscriptionCard key={plan.id} plan={plan} />
+                      {plans.map((plan, index) => (
+                        <div
+                          key={plan.id}
+                          className="w-full"
+                          data-aos="fade-up"
+                          data-aos-delay={250 * index}
+                          data-aos-duration={500}
+                        >
+                          <SubscriptionCard plan={plan} />
+                        </div>
                       ))}
                     </div>
                   </AccordionContent>
@@ -120,11 +128,21 @@ function PricingPage() {
       {/* OTHER TEXT */}
       <div className="w-full py-20 px-6 space-y-32" id="plans">
         <section className="w-full max-w-300 text-center space-y-10 mx-auto">
-          <legend className="text-2xl md:text-4xl font-bold text-primary max-w-2xl mx-auto">
+          <legend
+            className="text-2xl md:text-4xl font-bold text-primary max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay={0}
+            data-aos-duration={500}
+          >
             Clinical Standards You Can{" "}
             <span className="text-accent">Trust</span>
           </legend>
-          <div className="text-center whitespace-pre-wrap max-w-4xl mx-auto text-lg">
+          <div
+            className="text-center whitespace-pre-wrap max-w-4xl mx-auto text-lg"
+            data-aos="fade-up"
+            data-aos-delay={200}
+            data-aos-duration={500}
+          >
             {`Orthodontic treatment straightens your teeth. Retention keeps them that way.\nTeeth move throughout life. After braces or aligners, they naturally shift back toward their original position. That isn’t failure. It’s biology. Without consistent retainers and periodic oversight, small changes can become costly corrections.`}
           </div>
 
@@ -138,10 +156,20 @@ function PricingPage() {
                     (index + 1) % 2 === 0 ? "md:flex-row-reverse" : null,
                   )}
                 >
-                  <div className="w-full md:flex-1 text-lg text-center md:text-start whitespace-pre-wrap">
+                  <div
+                    className="w-full md:flex-1 text-lg text-center md:text-start whitespace-pre-wrap"
+                    data-aos="fade-right"
+                    data-aos-delay={0}
+                    data-aos-duration={500}
+                  >
                     <p>{paragraph.text}</p>
                   </div>
-                  <div className="w-full md:flex-1">
+                  <div
+                    className="w-full md:flex-1"
+                    data-aos="fade-left"
+                    data-aos-delay={250}
+                    data-aos-duration={500}
+                  >
                     <img
                       src={paragraph.image}
                       alt={`Image 0${index + 1}`}

@@ -1,4 +1,5 @@
 import ContactForm from "@/components/Contact/ContactForm";
+import FAQComponent from "@/components/FAQs/FAQComponent";
 import { AboutSection } from "@/components/Home/About";
 import { HeroBanner } from "@/components/Home/Banner";
 import HowItWorksSection from "@/components/Home/HowItWorks";
@@ -11,13 +12,19 @@ function HomePage() {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full overflow-hidden">
         <HeroBanner />
         <AboutSection />
         <HowItWorksSection />
         <TrustAndQualitySection />
 
-        <div className="py-12 px-3">
+        <div
+          className="py-12 px-3"
+          data-aos="fade-up"
+          data-aos-delay={0}
+          data-aos-duration={500}
+        >
+          <FAQComponent />
           <section className="w-full mx-auto px-6 md:px-12 lg:px-24 py-18">
             <div className="w-full border border-slate-200 inset-shadow-xs flex max-md:flex-col p-6 gap-6 items-center max-w-3xl mx-auto">
               <div className="md:flex-1 space-y-2">

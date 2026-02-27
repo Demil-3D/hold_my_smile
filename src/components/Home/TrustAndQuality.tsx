@@ -24,14 +24,29 @@ export default function TrustAndQualitySection() {
       >
         <div className={`${SECTION_CLASSES} backdrop-blur-lg bg-black/40`}>
           <div className="w-full max-w-4xl mx-auto text-center space-y-10 px-6 text-white">
-            <legend className="text-4xl font-bold max-w-2xl mx-auto">
+            <legend
+              className="text-4xl font-bold max-w-2xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay={0}
+              data-aos-duration={500}
+            >
               Professionally Made.{" "}
               <span className="text-accent">Clinically Grounded.</span>
             </legend>
-            <p className="text-lg whitespace-pre-wrap">
+            <p
+              className="text-lg whitespace-pre-wrap"
+              data-aos="fade-up"
+              data-aos-delay={200}
+              data-aos-duration={500}
+            >
               {`Our retainers are manufactured using dental-grade materials and precise digital workflows. We work alongside dental professionals to ensure your retention plan remains aligned with your original orthodontic treatment.`}
             </p>
-            <p className="text-lg whitespace-pre-wrap -mt-3">
+            <p
+              className="text-lg whitespace-pre-wrap -mt-3"
+              data-aos="fade-up"
+              data-aos-delay={400}
+              data-aos-duration={500}
+            >
               {`This isn't DIY dentistry.\nIt's structured, supervised retention support.`}
             </p>
           </div>
@@ -51,6 +66,9 @@ export default function TrustAndQualitySection() {
               {PEOPLE_ITS_FOR.map((item, index) => (
                 <div
                   key={index}
+                  data-aos="fade-left"
+                  data-aos-delay={250 * index}
+                  data-aos-duration={500}
                   className="p-4 border border-slate-300 flex gap-4 text-start"
                 >
                   <div className="size-6 font-bold text-accent bg-accent/20 grid place-items-center rounded-full">

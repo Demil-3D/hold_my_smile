@@ -60,11 +60,6 @@ const FOOTER_LINKS: FooterLinkType[] = [
     label: "Privacy Policy",
     menuGroup: "Policies",
   },
-  {
-    href: "/faqs",
-    label: "FAQs",
-    menuGroup: "Policies",
-  },
 ];
 
 const groupedLinks = FOOTER_LINKS.reduce<Record<string, FooterLinkType[]>>(
