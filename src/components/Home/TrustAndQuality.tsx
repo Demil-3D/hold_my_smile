@@ -38,7 +38,7 @@ export default function TrustAndQualitySection() {
         </div>
       </section>
 
-      <div className="py-12 bg-slate-100">
+      <div className="py-12 bg-linear-to-b from-slate-100 to-slate-200 from-70% bg-fixed">
         <section className={`${SECTION_CLASSES}`}>
           <div className="w-full max-w-5xl mx-auto text-center space-y-6 px-6">
             <legend className="text-4xl text-primary font-bold max-w-2xl mx-auto">

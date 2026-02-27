@@ -175,6 +175,9 @@ function App() {
       case "/":
         setPageTitle("HoldMySmile");
         break;
+      case "/professional":
+        setPageTitle("The Future of Orthodontic Retention | HoldMySmile");
+        break;
       case "/about-us":
         setPageTitle("About Us | HoldMySmile");
         break;

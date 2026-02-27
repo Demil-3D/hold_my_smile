@@ -174,11 +174,14 @@ export default function NavBar() {
           </Link>
 
           {/* NAV LINKS */}
-          <ul className="flex-1 flex gap-0 justify-center items-center max-lg:hidden text-black text-lg">
+          <ul className="flex-1 flex gap-0 justify-center items-center max-xl:hidden text-black">
             {NAV_LINKS.map((l, index) => {
               return (
                 <li key={index}>
-                  <Link to={l.path} className="py-2 px-4 hover:underline">
+                  <Link
+                    to={l.path}
+                    className="py-2 px-4 hover:underline text-[1.05rem]"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -194,12 +197,12 @@ export default function NavBar() {
               onClick={() => {
                 navigate("/portal/dashboard");
               }}
-              className="border-2 border-primary rounded-none  max-lg:hidden"
+              className="border-2 border-primary rounded-none  max-xl:hidden"
             >
               Dashboard
             </Button>
           ) : (
-            <div className="w-fit gap-2 flex items-center max-lg:hidden">
+            <div className="w-fit gap-2 flex items-center max-xl:hidden">
               <Button
                 variant={"outline"}
                 size={"lg"}
@@ -223,7 +226,7 @@ export default function NavBar() {
             </div>
           )}
 
-          <div className="lg:hidden w-fit">
+          <div className="xl:hidden w-fit">
             <MenuDrawer menuLinks={NAV_LINKS} isLoggedIn={isLoggedIn} />
           </div>
         </div>

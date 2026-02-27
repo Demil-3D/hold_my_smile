@@ -13,26 +13,26 @@ export function AboutSection() {
   const SECTION_CLASSES = "w-full mx-auto px-6 md:px-12 lg:px-24 py-18";
   const KEY_BENEFITS = [
     {
-      icon: <CalendarDaysIcon className="size-14" />,
+      icon: <CalendarDaysIcon className="size-14 text-primary" />,
       title: "Annual Retainer Supply",
       subtitle: "Fresh retainers delivered on schedule.",
     },
 
     {
-      icon: <ShieldPlusIcon className="size-14" />,
+      icon: <ShieldPlusIcon className="size-14 text-primary" />,
       title: "Fast Replacement Service",
       subtitle:
-        "Lost or cracked your retainer? We prioritise quick turnaround.",
+        "Lost or cracked your retainer? We prioritize quick turnaround.",
     },
 
     {
-      icon: <BadgeCheckIcon className="size-14" />,
+      icon: <BadgeCheckIcon className="size-14 text-primary" />,
       title: "Professional Quality",
       subtitle: "Produced from clinically approved digital scans.",
     },
 
     {
-      icon: <MapPinHouseIcon className="size-14" />,
+      icon: <MapPinHouseIcon className="size-14 text-primary" />,
       title: "Doorstep Delivery",
       subtitle: "No unnecessary appointments.",
     },
@@ -132,7 +132,7 @@ export function AboutSection() {
             return (
               <div
                 key={index}
-                className="w-full flex flex-col gap-4 px-4 py-6 items-center max-md:border-y max-md:border-y-slate-200 md:border-x md:border-x-slate-200"
+                className="w-full flex flex-col gap-4 px-4 py-6 items-center max-md:border max-md:border-slate-200 md:border-x md:border-x-slate-200"
               >
                 {benefit.icon}
                 <div className="text-center w-fit">
@@ -144,25 +144,6 @@ export function AboutSection() {
               </div>
             );
           })}
-        </div>
-      </section>
-    </div>
-  );
-}
-
-export function AboutForPartnersSection() {
-  return (
-    <div className="py-16 bg-primary">
-      <section
-        className={`w-full mx-auto px-6 md:px-12 lg:px-24 max-w-7xl text-center lg:text-start space-y-12 lg:flex lg:items-center`}
-      >
-        <legend className="text-4xl md:text-6xl font-bold text-white max-w-2xl mx-auto lg:flex-1">
-          <span className="text-accent">Partner</span> with Us.
-        </legend>
-        <div className="w-full lg:flex-1">
-          <p className="text-lg text-white whitespace-pre-wrap">
-            {`Retention shouldn't be the hardest part of orthodontic care.\nHold My Smile makes long-term retention simple for patients and effortless for practices. We handle secure scan storage, annual retainers, and fast replacements - reducing admin, preventing emergencies, and creating reliable recurring revenue. Every smile stays protected, long after treatment ends.`}
-          </p>
         </div>
       </section>
     </div>

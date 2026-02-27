@@ -36,7 +36,10 @@ function HowItWorksSection() {
   ];
 
   return (
-    <div className="py-12 bg-slate-100" id="about">
+    <div
+      className="py-12  bg-linear-to-b from-slate-100 to-slate-200 from-70% bg-fixed"
+      id="about"
+    >
       <section className={`${SECTION_CLASSES} text-start space-y-14`}>
         {/* HOW IT WORKS */}
         <div className="space-y-12 w-full max-w-6xl mx-auto p-6">
