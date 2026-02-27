@@ -21,7 +21,7 @@ export function HeroBanner() {
       >
         <div className="w-full h-full min-h-dvh max-lg:bg-white/70 backdrop-blur-md">
           <div className="w-full max-w-3xl max-lg:mx-auto h-full min-h-dvh flex items-center pt-24 pb-6 lg:px-6">
-            <div className="w-full text-center lg:text-start p-6 lg:px-16 py-12 lg:bg-white/80 lg:backdrop-blur-sm flex flex-col gap-2 items-center lg:items-start ml-auto">
+            <div className="w-full text-center lg:text-start p-6 lg:px-16 py-10 lg:bg-white/80 lg:backdrop-blur-sm flex flex-col gap-2 items-center lg:items-start ml-auto">
               <img
                 src={circleImage}
                 alt="Smiling lady"

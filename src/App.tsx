@@ -31,6 +31,7 @@ import SettlementLogsPage from "@/pages/Dashboard/clinician/SettlementLogs";
 import PatientListPage from "@/pages/Dashboard/clinician/Patients";
 import CheckoutPage from "@/pages/Dashboard/patient/Checkout";
 import ProfessionalPage from "./pages/Professional";
+import FAQPage from "./pages/FAQs";
 
 type PathProps = {
   path: string | null;
@@ -117,6 +118,10 @@ function App() {
         {
           path: "/shipping-policy",
           element: <ShippingPolicy />,
+        },
+        {
+          path: "/faqs",
+          element: <FAQPage />,
         },
       ] as PathProps[],
     },
@@ -209,6 +214,9 @@ function App() {
         setPageTitle("Refund Policy | HoldMySmile");
         break;
       case "/shipping-policy":
+        setPageTitle("Shipping Policy | HoldMySmile");
+        break;
+      case "/faqs":
         setPageTitle("Shipping Policy | HoldMySmile");
         break;
 

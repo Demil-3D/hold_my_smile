@@ -286,10 +286,18 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
                     I have read and understood the{" "}
                     <Link to="/terms-of-service" className="underline">
                       Terms of Service
-                    </Link>{" "}
-                    and{" "}
+                    </Link>
+                    ,{" "}
                     <Link to="/privacy-policy" className="underline">
                       Privacy Policy
+                    </Link>
+                    ,{" "}
+                    <Link to="/shipping-policy" className="underline">
+                      Shipping Policy
+                    </Link>
+                    , and{" "}
+                    <Link to="/refund-policy" className="underline">
+                      Refund Policy
                     </Link>
                   </span>
                 </FieldLabel>
