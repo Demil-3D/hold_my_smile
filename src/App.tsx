@@ -34,6 +34,7 @@ import ProfessionalPage from "./pages/Professional";
 import FAQPage from "./pages/FAQs";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SupportPage from "./pages/Dashboard/CustomerSupport";
 
 type PathProps = {
   path: string | null;
@@ -171,6 +172,10 @@ function App() {
           path: "/portal/patients",
           element: <PatientListPage />,
         },
+        {
+          path: "/portal/support",
+          element: <SupportPage />,
+        },
       ] as PathProps[],
     },
   ];
@@ -220,6 +225,9 @@ function App() {
         break;
       case "/faqs":
         setPageTitle("Shipping Policy | HoldMySmile");
+        break;
+      case "/portal/support":
+        setPageTitle("Support | HoldMySmile");
         break;
 
       default:
