@@ -126,7 +126,7 @@ export default function DashboardSideNav() {
         "border-r border-r-slate-200 bg-slate-100 transition-all sticky h-dvh",
       )}
     >
-      <SidebarContent className="py-6 pt-28 inset-shadow-xs">
+      <SidebarContent className="py-6 pt-28 lg:pt-32 inset-shadow-xs">
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
             <SidebarGroup key={section.split(" ").join("")}>

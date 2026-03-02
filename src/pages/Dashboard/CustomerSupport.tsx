@@ -28,10 +28,10 @@ export default function SupportPage() {
   return (
     <div className="min-h-screen bg-muted/40 pb-16">
       {/* Hero */}
-      <section className="bg-primary py-20 text-primary-foreground">
+      <section className="bg-primary pt-20 pb-36 text-primary-foreground">
         <div className="container max-w-5xl mx-auto text-center">
           <h1 className="text-4xl font-semibold tracking-tight">
-            How can we support your practice today?
+            How can we support you today?
           </h1>
           <p className="mt-4 text-primary-foreground/80">
             Access clinical guides, track shipments, or connect directly with
@@ -40,7 +40,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      <main className="container -mt-10 max-w-6xl mx-auto space-y-12">
+      <main className="container -mt-16 max-w-6xl mx-auto space-y-12">
         {/* Contact Grid */}
         <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <ContactCard
@@ -50,12 +50,6 @@ export default function SupportPage() {
             action="Start Chat"
             variant="default"
           />
-          {/* <ContactCard
-            icon={Video}
-            title="Clinical Consult"
-            description="Speak with a technician"
-            action="Book Zoom"
-          /> */}
           <ContactCard
             icon={Phone}
             title="Phone Support"
@@ -73,23 +67,15 @@ export default function SupportPage() {
         <section className="grid gap-10 lg:grid-cols-3">
           {/* FAQ */}
           <div className="lg:col-span-2 space-y-8">
-            {/* <div className="flex items-center gap-2">
-              <HelpCircle className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-semibold tracking-tight">
-                Frequently Asked Questions
-              </h2>
-            </div> */}
-
             {isPatientAccount ? <FAQComponent /> : <ClinicianFAQs />}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Videos */}
-            <Card>
+            <Card className="rounded-none">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base">
-                  <PlayCircle className="h-4 w-4 text-primary" />
                   Video Tutorials
                 </CardTitle>
               </CardHeader>
@@ -99,7 +85,7 @@ export default function SupportPage() {
                     key={index}
                     className="flex items-start gap-3 rounded-lg p-2 hover:bg-muted cursor-pointer transition-colors"
                   >
-                    <div className="flex h-14 w-20 items-center justify-center rounded-md bg-muted">
+                    <div className="flex h-14 w-20 items-center justify-center bg-muted">
                       <PlayCircle className="h-5 w-5 text-muted-foreground" />
                     </div>
                     <div className="space-y-1">
@@ -115,14 +101,14 @@ export default function SupportPage() {
 
                 <Separator />
 
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full rounded-none">
                   View All Videos
                 </Button>
               </CardContent>
             </Card>
 
             {/* Forms */}
-            <Card>
+            <Card className="rounded-none">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base">
                   <FileText className="h-4 w-4 text-primary" />
@@ -166,14 +152,14 @@ function ContactCard({
   variant?: "default" | "outline";
 }) {
   return (
-    <Card className="transition hover:shadow-md">
+    <Card className="transition hover:shadow-md rounded-none">
       <CardContent className="space-y-4">
         <Icon className="h-6 w-6 text-primary" />
         <div>
           <h3 className="font-medium">{title}</h3>
           <p className="text-xs text-muted-foreground mt-1">{description}</p>
         </div>
-        <Button variant={variant} size="lg" className="w-full">
+        <Button variant={variant} size="lg" className="w-full rounded-none">
           {action}
         </Button>
       </CardContent>
