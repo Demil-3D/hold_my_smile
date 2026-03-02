@@ -12,6 +12,7 @@ import {
 } from "../ui/card";
 import { Item, ItemActions, ItemContent, ItemTitle } from "../ui/item";
 import { Separator } from "../ui/separator";
+import { useNavigate } from "react-router-dom";
 
 export default function PageHeader({ profile }: { profile: any }) {
   const { state, toggleSidebar } = useSidebar();
@@ -70,6 +71,7 @@ export default function PageHeader({ profile }: { profile: any }) {
 }
 
 function MiniNotificationPopup() {
+  const navigate = useNavigate();
   return (
     <Card className="w-full rounded-none py-2 px-0 flex flex-col gap-0 shadow-none">
       <CardHeader className="py-0 px-4">
@@ -105,7 +107,12 @@ function MiniNotificationPopup() {
       </CardContent>
       <Separator />
       <CardFooter className="py-0 px-2">
-        <Button variant={"ghost"} size={"lg"} className="w-full rounded-none">
+        <Button
+          variant={"ghost"}
+          size={"lg"}
+          className="w-full rounded-none"
+          onClick={() => navigate("/portal/notifications")}
+        >
           See all
         </Button>
       </CardFooter>

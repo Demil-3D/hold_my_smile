@@ -35,6 +35,7 @@ import FAQPage from "./pages/FAQs";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SupportPage from "./pages/Dashboard/CustomerSupport";
+import NotificationsPage from "./pages/Dashboard/Notifications";
 
 type PathProps = {
   path: string | null;
@@ -175,6 +176,10 @@ function App() {
         {
           path: "/portal/support",
           element: <SupportPage />,
+        },
+        {
+          path: "/portal/notifications",
+          element: <NotificationsPage />,
         },
       ] as PathProps[],
     },
