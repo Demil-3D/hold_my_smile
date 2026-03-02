@@ -168,7 +168,7 @@ export default function NavBar() {
       <nav
         className={`w-full px-5 py-4 md:py-6 bg-slate-100 lg:border lg:border-slate-200 inset-shadow-xs backdrop-blur-2xl fixed mx-auto z-9999`}
       >
-        <div className="w-full lg:w-[95%] mx-auto flex justify-between items-center">
+        <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
           <Link to={"/"}>
             <Logo color="var(--primary)" />
           </Link>

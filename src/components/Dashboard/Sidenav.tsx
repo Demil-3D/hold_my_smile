@@ -8,17 +8,18 @@ import {
   UserIcon,
   UsersRoundIcon,
   HeadsetIcon,
+  RefreshCcwIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
+  SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -68,6 +69,12 @@ const patientNavItems = [
     icon: HeadsetIcon,
     section: "More Links",
   },
+  {
+    title: "Return Order",
+    path: "https://our-returns.dpd.co.uk/3DENTAL",
+    icon: RefreshCcwIcon,
+    section: "More Links",
+  },
 ];
 
 const clinicianNavItems = [
@@ -104,6 +111,7 @@ const clinicianNavItems = [
 ];
 
 export default function DashboardSideNav() {
+  const navigate = useNavigate();
   const location = useLocation();
   const { state, toggleSidebar } = useSidebar();
   const collapsed = state === "collapsed";
@@ -129,49 +137,46 @@ export default function DashboardSideNav() {
       <SidebarContent className="py-6 pt-28 lg:pt-32 inset-shadow-xs">
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
-            <SidebarGroup key={section.split(" ").join("")}>
-              {section !== "" && (
-                <>
-                  <SidebarGroupLabel className="text-xs font-medium text-muted-foreground capitalize tracking-wider px-2">
-                    {section}
-                  </SidebarGroupLabel>
-                  <Separator />
-                </>
-              )}
-
-              <SidebarGroupContent>
-                <SidebarMenu className="space-y-1">
-                  {items.map((item: any) => {
-                    const Icon = item.icon;
-                    const active = location.pathname === item.path;
-                    return (
-                      <SidebarMenuItem key={item.path}>
-                        <Link
-                          to={item.path}
-                          onClick={() => {
-                            if (window.innerWidth < 1024) toggleSidebar();
-                          }}
-                        >
-                          <div
+            <>
+              <Separator />
+              <SidebarGroup key={section.split(" ").join("")}>
+                <SidebarGroupContent>
+                  <SidebarMenu className="space-y-1">
+                    {items.map((item: any) => {
+                      const Icon = item.icon;
+                      const active = location.pathname === item.path;
+                      return (
+                        <SidebarMenuItem key={item.path}>
+                          <SidebarMenuButton
+                            size={"lg"}
                             className={cn(
-                              "relative px-3 py-3 text-sm font-medium transition-all",
+                              "w-full relative px-4 text-sm font-medium transition-all gap-4 rounded-none cursor-pointer",
                               active
-                                ? "bg-slate-100"
+                                ? "bg-accent/20 text-accent"
                                 : "text-slate-600 hover:bg-slate-100",
                             )}
+                            onClick={() => {
+                              if (item.path.startsWith("https://")) {
+                                const a = document.createElement("a");
+                                a.href = item.path;
+                                a.target = "_blank";
+                                a.click();
+                              } else {
+                                navigate(item.path);
+                              }
+                              if (window.innerWidth < 1024) toggleSidebar();
+                            }}
                           >
-                            <div className="flex-1 flex items-center gap-3">
-                              <Icon className="w-5 h-5" />
-                              {!collapsed && <span>{item.title}</span>}
-                            </div>
-                          </div>
-                        </Link>
-                      </SidebarMenuItem>
-                    );
-                  })}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
+                            <Icon className="size-6" />
+                            {!collapsed && <span>{item.title}</span>}
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            </>
           ))}
         </SidebarMenu>
       </SidebarContent>
