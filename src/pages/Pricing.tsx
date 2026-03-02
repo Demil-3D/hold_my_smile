@@ -110,7 +110,7 @@ function PricingPage() {
                           key={plan.id}
                           className="w-full"
                           data-aos="fade-up"
-                          data-aos-delay={250 * index}
+                          data-aos-delay={150 * index}
                           data-aos-duration={500}
                         >
                           <SubscriptionCard plan={plan} />
@@ -167,7 +167,7 @@ function PricingPage() {
                   <div
                     className="w-full md:flex-1"
                     data-aos="fade-left"
-                    data-aos-delay={250}
+                    data-aos-delay={150}
                     data-aos-duration={500}
                   >
                     <img

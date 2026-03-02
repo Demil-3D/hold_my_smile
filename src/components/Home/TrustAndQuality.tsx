@@ -67,7 +67,7 @@ export default function TrustAndQualitySection() {
                 <div
                   key={index}
                   data-aos="fade-left"
-                  data-aos-delay={250 * index}
+                  data-aos-delay={150 * index}
                   data-aos-duration={500}
                   className="p-4 border border-slate-300 flex gap-4 text-start"
                 >

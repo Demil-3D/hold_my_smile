@@ -89,7 +89,7 @@ function ContactForm() {
           disabled={formDisabled}
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
           data-aos="fade-right"
-          data-aos-delay={250}
+          data-aos-delay={150}
           data-aos-duration={500}
         />
         <Input

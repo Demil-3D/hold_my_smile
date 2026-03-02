@@ -52,7 +52,7 @@ function PracticeSupportSection() {
                   key={index}
                   className="flex-col items-start gap-4 border border-shade-200 rounded-none inset-shadow-xs"
                   data-aos="fade-right"
-                  data-aos-delay={250 * index}
+                  data-aos-delay={150 * index}
                   data-aos-duration={500}
                 >
                   <ItemMedia className="text-primary bg-primary/10 size-10">

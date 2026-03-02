@@ -55,7 +55,7 @@ function HowItWorksSection() {
                   key={index}
                   className="items-start gap-6"
                   data-aos="fade-right"
-                  data-aos-delay={250 * index}
+                  data-aos-delay={150 * index}
                   data-aos-duration={500}
                 >
                   <ItemMedia>

@@ -29,7 +29,7 @@ function AboutUsPage() {
             <div
               className="w-full md:flex-1 space-y-4 max-md:text-center"
               data-aos="fade-right"
-              data-aos-delay={250}
+              data-aos-delay={150}
               data-aos-duration={500}
             >
               <h1 className="text-4xl text-primary font-bold">
@@ -94,7 +94,7 @@ function AboutUsPage() {
             <div
               className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
               data-aos="fade-up"
-              data-aos-delay={250}
+              data-aos-delay={150}
               data-aos-duration={500}
             >
               <div

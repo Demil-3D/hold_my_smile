@@ -34,7 +34,7 @@ function Why() {
         <div
           className="w-full max-w-3xl mx-auto space-y-6"
           data-aos="fade-up"
-          data-aos-delay={250}
+          data-aos-delay={150}
           data-aos-duration={500}
         >
           <p className="text-lg text-center">
@@ -52,7 +52,7 @@ function Why() {
                 key={index}
                 className="gap-6 items-start bg-white/10 rounded-none"
                 data-aos="fade-right"
-                data-aos-delay={250 * (index + 2)}
+                data-aos-delay={150 * (index + 2)}
                 data-aos-duration={500}
               >
                 <ItemMedia>{pillar.icon}</ItemMedia>
