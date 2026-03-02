@@ -27,7 +27,7 @@ export default function PortalLayout() {
     <div className="h-dvh bg-white relative">
       <SidebarProvider>
         {/* Sidebar */}
-        <DashboardSideNav />
+        <DashboardSideNav profile={profile} />
 
         {/* Main Area */}
         <div className="w-full flex-1 max-w-full flex flex-col pt-28">

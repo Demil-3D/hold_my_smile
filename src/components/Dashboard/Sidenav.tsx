@@ -9,6 +9,8 @@ import {
   UsersRoundIcon,
   HeadsetIcon,
   RefreshCcwIcon,
+  ChevronsUpDownIcon,
+  User2Icon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -18,6 +20,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -25,7 +28,15 @@ import {
 } from "@/components/ui/sidebar";
 import { Separator } from "../ui/separator";
 import { useAuth } from "@/context/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
+// TODO: REMOVE PROFILE LINKS FROM HERE AND CREATE AVATAR DROPDOWN IN SIDENAV FOOTER
 const patientNavItems = [
   {
     title: "Dashboard",
@@ -34,34 +45,16 @@ const patientNavItems = [
     section: "",
   },
   {
-    title: "Profile",
-    path: "/portal/profile",
-    icon: UserIcon,
-    section: "Account",
-  },
-  // {
-  //   title: "Addresses",
-  //   path: "/portal/addresses",
-  //   icon: MapIcon,
-  //   section: "Account",
-  // },
-  {
-    title: "Subscriptions",
-    path: "/portal/subscriptions",
-    icon: Repeat,
-    section: "Account",
-  },
-  {
     title: "Shop",
     path: "/portal/shop",
     icon: ShoppingCart,
-    section: "Shopping",
+    section: "",
   },
   {
     title: "Orders",
     path: "/portal/orders",
     icon: Package,
-    section: "Shopping",
+    section: "",
   },
   {
     title: "Contact Support",
@@ -110,7 +103,28 @@ const clinicianNavItems = [
   },
 ];
 
-export default function DashboardSideNav() {
+const patientProfileLinks = [
+  {
+    title: "Profile",
+    path: "/portal/profile",
+    icon: UserIcon,
+    section: "Account",
+  },
+  // {
+  //   title: "Addresses",
+  //   path: "/portal/addresses",
+  //   icon: MapIcon,
+  //   section: "Account",
+  // },
+  {
+    title: "Subscriptions",
+    path: "/portal/subscriptions",
+    icon: Repeat,
+    section: "Account",
+  },
+];
+
+export default function DashboardSideNav({ profile }: { profile: any }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { state, toggleSidebar } = useSidebar();
@@ -125,6 +139,18 @@ export default function DashboardSideNav() {
     return acc;
   }, {});
 
+  const onNavLinkClick = (path: string) => {
+    if (path.startsWith("https://")) {
+      const a = document.createElement("a");
+      a.href = path;
+      a.target = "_blank";
+      a.click();
+    } else {
+      navigate(path);
+    }
+    if (window.innerWidth < 1024) toggleSidebar();
+  };
+
   return (
     <Sidebar
       side="left"
@@ -138,8 +164,8 @@ export default function DashboardSideNav() {
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
             <>
-              <Separator />
               <SidebarGroup key={section.split(" ").join("")}>
+                {section && <SidebarGroupLabel>{section}</SidebarGroupLabel>}
                 <SidebarGroupContent>
                   <SidebarMenu className="space-y-1">
                     {items.map((item: any) => {
@@ -155,17 +181,7 @@ export default function DashboardSideNav() {
                                 ? "bg-accent/20 text-accent"
                                 : "text-slate-600 hover:bg-slate-100",
                             )}
-                            onClick={() => {
-                              if (item.path.startsWith("https://")) {
-                                const a = document.createElement("a");
-                                a.href = item.path;
-                                a.target = "_blank";
-                                a.click();
-                              } else {
-                                navigate(item.path);
-                              }
-                              if (window.innerWidth < 1024) toggleSidebar();
-                            }}
+                            onClick={() => onNavLinkClick(item.path)}
                           >
                             <Icon className="size-6" />
                             {!collapsed && <span>{item.title}</span>}
@@ -176,29 +192,82 @@ export default function DashboardSideNav() {
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
+              <Separator />
             </>
           ))}
         </SidebarMenu>
       </SidebarContent>
       <Separator />
       <SidebarFooter className="my-3">
-        <SidebarMenuItem
-          onClick={() => {
-            logout();
-          }}
-        >
-          <div
-            className={cn(
-              "relative px-3 py-3 text-sm font-medium transition-all cursor-pointer",
-              "text-slate-600 hover:bg-slate-100",
-            )}
-          >
-            <div className="flex-1 flex items-center gap-3 text-red-600">
-              <LogOutIcon className="w-5 h-5" />
-              {!collapsed && <span>Logout</span>}
-            </div>
-          </div>
-        </SidebarMenuItem>
+        <SidebarMenu>
+          {/* USER PROFILE */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div
+                className={`"w-full" flex gap-4 items-center cursor-pointer px-3 py-2`}
+              >
+                <div className="size-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
+                  <User2Icon className="size-5.5" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm">
+                    <span className="line-clamp-1 font-semibold">
+                      <span>
+                        {profile !== null ? profile.first_name : "---"}
+                      </span>{" "}
+                      <span>{profile !== null ? profile.last_name : ""}</span>
+                    </span>
+                    <small className="line-clamp-1">
+                      {profile !== null ? profile.email : "---"}
+                    </small>
+                  </div>
+                </div>
+
+                <ChevronsUpDownIcon className="ml-auto" />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-68 p-2 rounded-none mx-2 shadow-lg">
+              <DropdownMenuLabel className="p-2 flex gap-4">
+                <div className="flex-1">
+                  <div className="flex flex-col">
+                    <span className="line-clamp-1 font-semibold">
+                      <span>
+                        {profile !== null ? profile.first_name : "---"}
+                      </span>{" "}
+                      <span>{profile !== null ? profile.last_name : ""}</span>
+                    </span>
+                    <small className="line-clamp-1">
+                      {profile !== null ? profile.email : "---"}
+                    </small>
+                  </div>
+                </div>
+              </DropdownMenuLabel>
+              <Separator className=" my-2" />
+              {patientProfileLinks.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <DropdownMenuItem
+                    key={index}
+                    variant="default"
+                    onClick={() => onNavLinkClick(item.path)}
+                    className="flex gap-4 py-3 px-3 rounded-none"
+                  >
+                    <Icon className="size-4.5" />
+                    <span>{item.title}</span>
+                  </DropdownMenuItem>
+                );
+              })}
+              <DropdownMenuItem
+                variant="destructive"
+                onClick={() => logout()}
+                className="flex gap-4 py-3 px-3 rounded-none"
+              >
+                <LogOutIcon className="w-5 h-5" />
+                <span>Logout</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
