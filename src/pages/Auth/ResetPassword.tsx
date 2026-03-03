@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Field, FieldContent, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "@/context/AuthContext";
 import { http } from "@/utils/http";
 import React, { useState, type JSX } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -17,7 +16,6 @@ type ValidPasswordType = {
 function PasswordResetPage() {
   const navigate = useNavigate();
   const [searchParams, _] = useSearchParams();
-  const { login } = useAuth();
   const [passwordValid, setPasswordValid] = useState<ValidPasswordType>({
     lengthVerified: false,
     containsUpper: false,
@@ -25,7 +23,7 @@ function PasswordResetPage() {
     containsSpecial: false,
   });
   const [loading, setLoading] = useState(false);
-  const isChangePassword: "reset" | "set" | undefined = _setState();
+  const isChangePassword = _setState();
 
   function _setState() {
     if (searchParams.get("state") === "reset") return "reset";
@@ -141,24 +139,38 @@ function PasswordResetPage() {
     setLoading(true);
 
     try {
-      if (isChangePassword === "reset") {
-        // CHANGE PASSWORD
-        console.log("Changing Password...");
-        await http.post(`auth/change-password`, {
-          password,
-        });
-      } else {
-        // CREATE A PASSWORD
-        await http.post(`auth/set-password`, {
+      // FORGOT PASSWORD
+      if (isChangePassword === undefined) {
+        const token = searchParams.get("token");
+        if (!token) {
+          toast.error("Invalid or expired reset link.");
+          return;
+        }
+        await http.post(`auth/reset-password`, {
+          token,
           password,
         });
       }
+      // CHANGE OR CREATE PASSWORD
+      else {
+        if (isChangePassword === "reset") {
+          // CHANGE PASSWORD
+          console.log("Changing Password...");
+          await http.post(`auth/change-password`, {
+            password,
+          });
+        } else {
+          // CREATE A PASSWORD
+          await http.post(`auth/set-password`, {
+            password,
+          });
+        }
+      }
 
       toast.success("Password reset successful!");
-      login(); // update auth context
 
       setTimeout(() => {
-        navigate("/portal/dashboard");
+        navigate("/login");
       }, 1500);
     } catch {
       toast.error("Failed to reset password. Please try again.");
@@ -176,7 +188,7 @@ function PasswordResetPage() {
             className="w-full max-w-xl inset-shadow-xs px-6 py-6 space-y-6"
           >
             <h1 className="text-2xl font-semibold text-primary">
-              {isChangePassword === "reset" ? "Change" : "Create"} Password
+              {isChangePassword === "set" ? "Create" : "Change"} Password
             </h1>
 
             <div className="w-full flex flex-col gap-6">
@@ -189,7 +201,7 @@ function PasswordResetPage() {
               disabled={loading}
               className="py-6 px-8 w-fit rounded-none text-primary bg-accent"
             >
-              Set Password
+              Save Password
             </Button>
           </form>
         </div>

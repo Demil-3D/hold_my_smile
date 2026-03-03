@@ -1,3 +1,4 @@
+import { ForgotPasswordDialog } from "@/components/Auth/ForgotPasswordDialog";
 import { SignInMagicLinkDialog } from "@/components/Auth/SignInMagicLinkDialog";
 import { Button } from "@/components/ui/button";
 import {
@@ -102,6 +103,18 @@ function LoginPage() {
                     required={showPasswordField}
                     className="py-6 px-4 rounded-none shadow-none inset-shadow-xs border text-lg"
                   />
+                  <div className="w-full text-end">
+                    <ForgotPasswordDialog>
+                      <Button
+                        variant={"link"}
+                        size={"sm"}
+                        type="button"
+                        className="text-sm text-muted-foreground p-0 cursor-pointer"
+                      >
+                        Forgot Password?
+                      </Button>
+                    </ForgotPasswordDialog>
+                  </div>
                 </Field>
               )}
               <Field>

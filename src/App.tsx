@@ -104,7 +104,7 @@ function App() {
           element: <VerifyLoginRequest />,
         },
         {
-          path: "/password-reset",
+          path: "/reset-password",
           element: <PasswordResetPage />,
         },
         {
@@ -213,7 +213,7 @@ function App() {
       case "/register":
         setPageTitle("Register | HoldMySmile");
         break;
-      case "/password-reset":
+      case "/reset-password":
         setPageTitle("Change Password | HoldMySmile");
         break;
       case "/terms-of-service":
