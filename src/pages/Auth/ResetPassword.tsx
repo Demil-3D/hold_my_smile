@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/context/AuthContext";
 import { http } from "@/utils/http";
 import React, { useState, type JSX } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 
 type ValidPasswordType = {
@@ -16,6 +16,7 @@ type ValidPasswordType = {
 
 function PasswordResetPage() {
   const navigate = useNavigate();
+  const [searchParams, _] = useSearchParams();
   const { login } = useAuth();
   const [passwordValid, setPasswordValid] = useState<ValidPasswordType>({
     lengthVerified: false,
@@ -24,6 +25,13 @@ function PasswordResetPage() {
     containsSpecial: false,
   });
   const [loading, setLoading] = useState(false);
+  const isChangePassword: "reset" | "set" | undefined = _setState();
+
+  function _setState() {
+    if (searchParams.get("state") === "reset") return "reset";
+    if (searchParams.get("state") === "set") return "set";
+    return undefined;
+  }
 
   const fields = [
     {
@@ -109,12 +117,6 @@ function PasswordResetPage() {
   const handleReset = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.target as HTMLFormElement);
-    // const isAccountSetupAction = action === SETUP_ACCOUNT_ACTION;
-
-    // if (!token && !isAccountSetupAction) {
-    //   setError("Invalid or expired reset link.");
-    //   return;
-    // }
 
     // VALIDATE PASSWORD
     const password = data.get("password");
@@ -139,16 +141,18 @@ function PasswordResetPage() {
     setLoading(true);
 
     try {
-      // if (isAccountSetupAction) {
-      await http.post(`auth/set-password`, {
-        password,
-      });
-      // } else {
-      //   await axios.post(`${config.apiUrl}/api/auth/reset-password`, {
-      //     token,
-      //     password,
-      //   });
-      // }
+      if (isChangePassword === "reset") {
+        // CHANGE PASSWORD
+        console.log("Changing Password...");
+        await http.post(`auth/change-password`, {
+          password,
+        });
+      } else {
+        // CREATE A PASSWORD
+        await http.post(`auth/set-password`, {
+          password,
+        });
+      }
 
       toast.success("Password reset successful!");
       login(); // update auth context
@@ -172,7 +176,7 @@ function PasswordResetPage() {
             className="w-full max-w-xl inset-shadow-xs px-6 py-6 space-y-6"
           >
             <h1 className="text-2xl font-semibold text-primary">
-              Change Password
+              {isChangePassword === "reset" ? "Change" : "Create"} Password
             </h1>
 
             <div className="w-full flex flex-col gap-6">

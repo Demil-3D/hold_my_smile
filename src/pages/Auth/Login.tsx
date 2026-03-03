@@ -54,6 +54,12 @@ function LoginPage() {
           setOpenMagicLinkDialog(true);
           return;
         }
+      } else {
+        if (data.password) {
+          toast.error("Incorrect password!");
+        } else {
+          toast.error("Invalid email address!");
+        }
       }
     } catch {
       toast.error("Login failed. Please check your credentials.");

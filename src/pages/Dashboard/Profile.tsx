@@ -467,7 +467,7 @@ function ProfilePage() {
           <ul className="p-0 m-0 grid md:grid-cols-2 gap-3">
             <li>
               <Link
-                to="/password-reset"
+                to={`/password-reset?state=${profile?.has_password ? "reset" : "set"}`}
                 className="w-full p-3 bg-slate-100 border border-slate-200 insetshadow-sm flex gap-3 items-center"
               >
                 <KeyRoundIcon className="size-5" />

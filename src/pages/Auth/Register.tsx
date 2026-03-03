@@ -183,7 +183,6 @@ function RegisterPage() {
           postal_code: formData.get("postal_code"),
         },
       };
-      console.log(data);
     }
 
     // SEND REGISTRATION REQUEST
