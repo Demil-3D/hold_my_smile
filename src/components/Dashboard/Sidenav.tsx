@@ -35,6 +35,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { useState } from "react";
+import { ConfirmDialog } from "./ConfirmationDialog";
 
 // TODO: REMOVE PROFILE LINKS FROM HERE AND CREATE AVATAR DROPDOWN IN SIDENAV FOOTER
 const patientNavItems = [
@@ -130,6 +132,8 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
   const { state, toggleSidebar } = useSidebar();
   const collapsed = state === "collapsed";
   const { logout, isPatientAccount } = useAuth();
+  const [isConfirmLogoutDialogOpen, setIsConfirmLogoutDialogOpen] =
+    useState(false);
 
   const grouped = (
     isPatientAccount ? patientNavItems : clinicianNavItems
@@ -163,8 +167,8 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
       <SidebarContent className="py-6 pt-28 lg:pt-32 inset-shadow-xs">
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
-            <>
-              <SidebarGroup key={section.split(" ").join("")}>
+            <div key={section.split(" ").join("")}>
+              <SidebarGroup>
                 {section && <SidebarGroupLabel>{section}</SidebarGroupLabel>}
                 <SidebarGroupContent>
                   <SidebarMenu className="space-y-1">
@@ -193,7 +197,7 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
                 </SidebarGroupContent>
               </SidebarGroup>
               <Separator />
-            </>
+            </div>
           ))}
         </SidebarMenu>
       </SidebarContent>
@@ -250,7 +254,7 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
                     key={index}
                     variant="default"
                     onClick={() => onNavLinkClick(item.path)}
-                    className="flex gap-4 py-3 px-3 rounded-none"
+                    className="flex gap-4 py-3 px-3 rounded-none focus:bg-slate-100"
                   >
                     <Icon className="size-4.5" />
                     <span>{item.title}</span>
@@ -259,7 +263,7 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
               })}
               <DropdownMenuItem
                 variant="destructive"
-                onClick={() => logout()}
+                onClick={() => setIsConfirmLogoutDialogOpen(true)}
                 className="flex gap-4 py-3 px-3 rounded-none"
               >
                 <LogOutIcon className="w-5 h-5" />
@@ -269,6 +273,15 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
           </DropdownMenu>
         </SidebarMenu>
       </SidebarFooter>
+
+      <ConfirmDialog
+        open={isConfirmLogoutDialogOpen}
+        onConfirm={logout}
+        title="Confirm Sign Out!"
+        confirmText="Logout"
+        description="Are you sure you want to sign out of your account?"
+        onOpenChange={setIsConfirmLogoutDialogOpen}
+      />
     </Sidebar>
   );
 }
