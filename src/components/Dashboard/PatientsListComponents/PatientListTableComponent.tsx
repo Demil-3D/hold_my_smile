@@ -18,7 +18,6 @@ function PatientListTableComponent({ patients }: { patients: PatientProps[] }) {
   const [showOrdersDrawer, setShowOrdersDrawer] = useState(false);
 
   const showOrders = async (patientId: string) => {
-    // TODO: Add fetch orders logic here.
     try {
       const res = await http.get(`clinician/patients/${patientId}/orders`);
       if (res.ok) {

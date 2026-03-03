@@ -46,7 +46,6 @@ export default function PageHeader({ profile }: { profile: any }) {
         </div>
 
         {/* NOTIFICATION BELL */}
-        {/* TODO: TOGGLE NOTIFICATION POPUP DISPLAY AND CREATE NOTIFICATIONS PAGE */}
         <Popover>
           <PopoverTrigger asChild>
             <Button

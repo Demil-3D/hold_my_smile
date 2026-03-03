@@ -103,6 +103,7 @@ function ProfilePage() {
       label: "Clinician Name",
       required: true,
       classNames: ["md:col-span-2"],
+      disabled: clinicians.length === 0,
       defaultValue: isProfileNull
         ? undefined
         : `${profile.clinician?.first_name} ${profile.clinician?.last_name}`,
@@ -126,11 +127,7 @@ function ProfilePage() {
       field.name === "clinician" ||
       Array.isArray(field.choices);
 
-    const isDisabled = enableEdit
-      ? field.disabled === true
-        ? true
-        : false
-      : true;
+    const isDisabled = enableEdit ? field.disabled === true : true;
     const isOpen = openDropdownFor === field.name;
 
     const setQueryForField = (value: string) => {
@@ -225,6 +222,9 @@ function ProfilePage() {
                 : "border-none bg-slate-50",
             )}
           />
+          {field.helpText && (
+            <p className="text-sm text-muted-foreground">{field.helpText}</p>
+          )}
 
           {isAutocompleteField && isOpen && !isDisabled && (
             <div className="absolute z-50 mt-1 w-full border border-slate-200 bg-white shadow-sm max-h-60 overflow-auto">
@@ -401,9 +401,12 @@ function ProfilePage() {
 
         <div className="w-full grid gap-6 lg:grid-cols-2 md:px-2 pb-4">
           {/* PERSONAL DETAILS */}
-          <div className="w-full max-w-full space-y-4">
+          <div className="w-full max-w-full space-y-6">
             <legend className="text-lg font-semibold text-accent">
               Personal Details:
+              <p className="text-sm text-muted-foreground font-normal">
+                Your personal information.
+              </p>
             </legend>
 
             <div className="grid md:grid-cols-2 gap-4 md:px-2.5 w-full">
@@ -413,9 +416,13 @@ function ProfilePage() {
 
           {/* CLINICIAN DETAILS */}
           {isPatientAccount && (
-            <div className="w-full max-w-full space-y-4">
+            <div className="w-full max-w-full space-y-6">
               <legend className="text-lg font-semibold text-accent">
                 Clinician Info:
+                <p className="text-sm text-muted-foreground font-normal">
+                  Click on a practice from our available practice list and
+                  select your clinician.
+                </p>
               </legend>
 
               <div className="grid md:grid-cols-2 gap-4 md:px-2.5 w-full">

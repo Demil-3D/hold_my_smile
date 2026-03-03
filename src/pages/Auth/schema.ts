@@ -8,6 +8,7 @@ export type AuthField = {
   classNames: string[];
   defaultValue?: string;
   choices?: ChoiceProps[];
+  helpText?: string;
 };
 
 export type ChoiceProps = {

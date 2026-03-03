@@ -38,7 +38,6 @@ import {
 import { useState } from "react";
 import { ConfirmDialog } from "./ConfirmationDialog";
 
-// TODO: REMOVE PROFILE LINKS FROM HERE AND CREATE AVATAR DROPDOWN IN SIDENAV FOOTER
 const patientNavItems = [
   {
     title: "Dashboard",
