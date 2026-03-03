@@ -157,7 +157,8 @@ function RegisterPage() {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     formData.append("recaptcha_token", captchaToken ?? "");
-    const data = Object.fromEntries(formData);
+    let data: { [k: string]: FormDataEntryValue | object } =
+      Object.fromEntries(formData);
 
     // VALIDATE FORM FIELDS
     if (!captchaToken) {
@@ -171,6 +172,18 @@ function RegisterPage() {
         toast.error(`${field.label} is required`);
         return;
       }
+    }
+    if (!isPatientAccount) {
+      data = {
+        ...data,
+        address: {
+          street_address: formData.get("street_address"),
+          city: formData.get("city"),
+          country: formData.get("country"),
+          postal_code: formData.get("postal_code"),
+        },
+      };
+      console.log(data);
     }
 
     // SEND REGISTRATION REQUEST
