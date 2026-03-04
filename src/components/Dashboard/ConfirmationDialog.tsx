@@ -40,7 +40,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
 
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
-      <AlertDialogContent className="sm:max-w-md">
+      <AlertDialogContent className="sm:max-w-md rounded-none">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-lg font-semibold">
             {title}
@@ -53,14 +53,14 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={loading}>{cancelText}</AlertDialogCancel>
+          <AlertDialogCancel disabled={loading} className="rounded-none">
+            {cancelText}
+          </AlertDialogCancel>
 
           <AlertDialogAction
             onClick={handleConfirm}
             disabled={loading}
-            className={
-              variant === "destructive" ? "bg-red-600 hover:bg-red-700" : ""
-            }
+            className={`${variant === "destructive" ? "bg-red-600 hover:bg-red-700" : ""} rounded-none`}
           >
             {loading ? "Processing..." : confirmText}
           </AlertDialogAction>
