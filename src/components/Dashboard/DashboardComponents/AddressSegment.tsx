@@ -59,7 +59,7 @@ export default function AddressSegment() {
 
       {!address && (
         <div className="border-2 border-dashed border-slate-200">
-          <div className="w-full flex flex-col gap-4 text-center items-center px-6 py-12">
+          <div className="w-full flex flex-col gap-4 text-center items-center p-6">
             <MapPinOffIcon className="size-8 text-muted-foreground" />
             <legend className="font-medium text-primary/80">
               Add A Delivery Address
