@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowRight, SquareAsteriskIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
@@ -41,37 +41,20 @@ export function ForgotPasswordDialog({ children }: Props) {
 
   return (
     <Dialog>
-      <DialogTrigger>{children}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogOverlay className="z-99999999" />
       <DialogContent
         className="sm:max-w-115 p-0 overflow-hidden rounded-none z-99999999"
         showCloseButton={false}
       >
         {/* Top gradient header */}
-        <div className="relative px-6 pt-6 pb-5 bg-linear-to-b from-slate-50 to-white inset-shadow-sm border border-slate-200">
-          <div className="absolute inset-0 pointer-events-none opacity-60 mask-[radial-gradient(ellipse_at_top,black,transparent_65%)]">
-            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.25),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(99,102,241,0.18),transparent_40%)]" />
-          </div>
-
-          <DialogHeader className="relative">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-3">
-                <div className="grid h-11 w-11 place-items-center bg-white/70 border border-slate-200 inset-shadow-xs">
-                  <SquareAsteriskIcon className="h-5 w-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <DialogTitle className="text-lg">
-                    Forgot Password?
-                  </DialogTitle>
-                  <DialogDescription className="mt-1">
-                    Provide your account's email address and we'll send you a
-                    secure link to reset your password.
-                  </DialogDescription>
-                </div>
-              </div>
-            </div>
-          </DialogHeader>
-        </div>
+        <DialogHeader className="relative p-6">
+          <DialogTitle className="text-lg">Forgot Password?</DialogTitle>
+          <DialogDescription className="mt-1">
+            Provide your account's email address and we'll send you a secure
+            link to reset your password.
+          </DialogDescription>
+        </DialogHeader>
 
         <form
           method="post"

@@ -28,7 +28,6 @@ export default function TrustAndQualitySection() {
               className="text-4xl font-bold max-w-2xl mx-auto"
               data-aos="fade-up"
               data-aos-delay={0}
-              data-aos-duration={500}
             >
               Professionally Made.{" "}
               <span className="text-accent">Clinically Grounded.</span>
@@ -37,7 +36,6 @@ export default function TrustAndQualitySection() {
               className="text-lg whitespace-pre-wrap"
               data-aos="fade-up"
               data-aos-delay={200}
-              data-aos-duration={500}
             >
               {`Our retainers are manufactured using dental-grade materials and precise digital workflows. We work alongside dental professionals to ensure your retention plan remains aligned with your original orthodontic treatment.`}
             </p>
@@ -45,7 +43,6 @@ export default function TrustAndQualitySection() {
               className="text-lg whitespace-pre-wrap -mt-3"
               data-aos="fade-up"
               data-aos-delay={400}
-              data-aos-duration={500}
             >
               {`This isn't DIY dentistry.\nIt's structured, supervised retention support.`}
             </p>
@@ -68,7 +65,6 @@ export default function TrustAndQualitySection() {
                   key={index}
                   data-aos="fade-left"
                   data-aos-delay={150 * index}
-                  data-aos-duration={500}
                   className="p-4 border border-slate-300 flex gap-4 text-start"
                 >
                   <div className="size-6 font-bold text-accent bg-accent/20 grid place-items-center rounded-full">

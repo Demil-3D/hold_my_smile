@@ -18,12 +18,7 @@ function HomePage() {
         <HowItWorksSection />
         <TrustAndQualitySection />
 
-        <div
-          className="py-12 px-3"
-          data-aos="fade-up"
-          data-aos-delay={0}
-          data-aos-duration={500}
-        >
+        <div className="py-12 px-3" data-aos="fade-up" data-aos-delay={0}>
           <FAQComponent />
           <section className="w-full mx-auto px-6 md:px-12 lg:px-24 py-18">
             <div className="w-full border border-slate-200 inset-shadow-xs flex max-md:flex-col p-6 gap-6 items-center max-w-3xl mx-auto">

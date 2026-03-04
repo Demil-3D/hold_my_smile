@@ -14,7 +14,6 @@ export default function ClinicianFAQs() {
         className="font-bold text-3xl text-center"
         data-aos="fade-up"
         data-aos-delay={0}
-        data-aos-duration={500}
       >
         Frequently Asked <span className="text-accent">Questions</span>
       </legend>
@@ -27,7 +26,6 @@ export default function ClinicianFAQs() {
           className="rounded-none bg-slate-100 w-full"
           data-aos="fade-right"
           data-aos-delay={0}
-          data-aos-duration={500}
         >
           {clinician_faqs.map((faq_section, index) => (
             <TabsTrigger
@@ -52,7 +50,6 @@ export default function ClinicianFAQs() {
                   value={`faq-item-${index + 1}`}
                   data-aos="fade-up"
                   data-aos-delay={50 * index}
-                  data-aos-duration={500}
                 >
                   <AccordionTrigger className="text-lg">
                     {q.question}

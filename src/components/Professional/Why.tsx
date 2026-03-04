@@ -26,7 +26,6 @@ function Why() {
           className="text-4xl font-bold text-center max-w-2xl mx-auto"
           data-aos="fade-up"
           data-aos-delay={0}
-          data-aos-duration={500}
         >
           <span className="text-accent">Retention</span> shouldn't be the
           hardest part of your day.
@@ -35,7 +34,6 @@ function Why() {
           className="w-full max-w-3xl mx-auto space-y-6"
           data-aos="fade-up"
           data-aos-delay={150}
-          data-aos-duration={500}
         >
           <p className="text-lg text-center">
             Managing lost retainers, last-minute emergency appointments, and
@@ -53,7 +51,6 @@ function Why() {
                 className="gap-6 items-start bg-white/10 rounded-none"
                 data-aos="fade-right"
                 data-aos-delay={150 * (index + 2)}
-                data-aos-duration={500}
               >
                 <ItemMedia>{pillar.icon}</ItemMedia>
                 <div className="flex-1 space-y-1 text-wrap">

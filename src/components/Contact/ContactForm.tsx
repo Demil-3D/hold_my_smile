@@ -78,7 +78,6 @@ function ContactForm() {
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
           data-aos="fade-up"
           data-aos-delay={0}
-          data-aos-duration={500}
         />
         <Input
           id="email"
@@ -90,7 +89,6 @@ function ContactForm() {
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
           data-aos="fade-right"
           data-aos-delay={150}
-          data-aos-duration={500}
         />
         <Input
           id="phone_number"
@@ -102,7 +100,6 @@ function ContactForm() {
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
           data-aos="fade-left"
           data-aos-delay={500}
-          data-aos-duration={500}
         />
         <Textarea
           id="message"
@@ -113,7 +110,6 @@ function ContactForm() {
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
           data-aos="fade-up"
           data-aos-delay={750}
-          data-aos-duration={500}
         />
       </div>
 
@@ -126,7 +122,6 @@ function ContactForm() {
         className="w-full rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
         data-aos="fade-up"
         data-aos-delay={1000}
-        data-aos-duration={500}
       >
         Send Message
       </Button>

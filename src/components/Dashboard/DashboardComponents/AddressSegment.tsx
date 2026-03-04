@@ -1,10 +1,34 @@
-import { PencilLineIcon } from "lucide-react";
+import { MapPinOffIcon, PencilLineIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
+import type { AddressProps } from "@/pages/Dashboard/utils/schema/patient/adddress";
+import { http } from "@/utils/http";
+import { toast } from "sonner";
+import { AddressFormDialog } from "../AddressComponents/AddressFormDialog";
 
 export default function AddressSegment() {
-  const navigate = useNavigate();
+  const [address, setAddress] = useState<AddressProps | undefined>(undefined);
+
+  useEffect(() => {
+    async function loadAddresses() {
+      try {
+        const res = await http.get("patient/address");
+        const data = await res.json();
+        if (res.ok) {
+          setAddress(data);
+        } else {
+          toast.error("Failed to fetch address");
+        }
+      } catch {
+        toast.error("Connection Error!");
+      }
+    }
+
+    // CALL
+    loadAddresses();
+  }, []);
+
   return (
     <div className="w-full border inset-shadow-xs min-h-20 space-y-4 p-4">
       <legend className="font-semibold text-primary flex justify-between items-center">
@@ -15,19 +39,43 @@ export default function AddressSegment() {
       </legend>
 
       {/* SUBSCRIPTION DETAILS */}
-      <Button
-        variant={"secondary"}
-        size={"lg"}
-        className="rounded-none w-full py-6 bg-transparent text-start px-0 mt-2"
-        onClick={() => navigate("/portal/addresses")}
-      >
-        <div className="w-full flex gap-2 items-center whitespace-pre-wrap">
-          <div className="flex-1">
-            47 Hawthorne Crescent, Bristol, BS8 2LT, United Kingdom.
+      {address && (
+        <AddressFormDialog address={address}>
+          <Button
+            variant={"secondary"}
+            size={"lg"}
+            className="rounded-none w-full py-6 bg-transparent text-start px-0 mt-2"
+          >
+            <div className="w-full flex gap-2 items-center whitespace-pre-wrap">
+              <div className="flex-1">
+                {address.street_address}, {address.city}, {address.postal_code},{" "}
+                {address.country}.
+              </div>
+              <PencilLineIcon className="size-3" />
+            </div>
+          </Button>
+        </AddressFormDialog>
+      )}
+
+      {!address && (
+        <div className="border-2 border-dashed border-slate-200">
+          <div className="w-full flex flex-col gap-4 text-center items-center px-6 py-12">
+            <MapPinOffIcon className="size-8 text-muted-foreground" />
+            <legend className="font-medium text-primary/80">
+              Add A Delivery Address
+            </legend>
+            <AddressFormDialog>
+              <Button
+                variant={"default"}
+                size={"lg"}
+                className="rounded-none px-6"
+              >
+                Create Address
+              </Button>
+            </AddressFormDialog>
           </div>
-          <PencilLineIcon className="size-3" />
         </div>
-      </Button>
+      )}
     </div>
   );
 }

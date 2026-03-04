@@ -30,7 +30,6 @@ function AboutUsPage() {
               className="w-full md:flex-1 space-y-4 max-md:text-center"
               data-aos="fade-right"
               data-aos-delay={150}
-              data-aos-duration={500}
             >
               <h1 className="text-4xl text-primary font-bold">
                 Our <span className="text-accent">Mission</span>
@@ -51,7 +50,6 @@ function AboutUsPage() {
               className="w-full md:flex-1"
               data-aos="fade-left"
               data-aos-delay={0}
-              data-aos-duration={500}
             >
               <img
                 src={missionSectionImage}
@@ -76,7 +74,6 @@ function AboutUsPage() {
               className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
               data-aos="fade-up"
               data-aos-delay={0}
-              data-aos-duration={500}
             >
               <div
                 className="w-fit pb-2 font-bold text-accent"
@@ -95,7 +92,6 @@ function AboutUsPage() {
               className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
               data-aos="fade-up"
               data-aos-delay={150}
-              data-aos-duration={500}
             >
               <div
                 className="w-fit pb-2 font-bold text-accent"
@@ -115,7 +111,6 @@ function AboutUsPage() {
               className="w-full border border-slate-200 bg-slate-100 rounded-none text-start p-4"
               data-aos="fade-up"
               data-aos-delay={500}
-              data-aos-duration={500}
             >
               <div
                 className="w-fit pb-2 font-bold text-accent"
@@ -150,7 +145,6 @@ function AboutUsPage() {
             className="text-lg pt-3 mx-auto"
             data-aos="fade-up"
             data-aos-delay={0}
-            data-aos-duration={500}
           >
             By combining laboratory expertise, clinical insight, and a
             patient-first digital approach, we built Hold My Smile; a modern
@@ -163,7 +157,6 @@ function AboutUsPage() {
             className="text-lg max-w-3xl mx-auto"
             data-aos="fade-up"
             data-aos-delay={150}
-            data-aos-duration={500}
           >
             Hold My Smile supports orthodontic practices by removing friction
             from one of the most time-consuming post-treatment processes, while
@@ -175,7 +168,6 @@ function AboutUsPage() {
             className="text-lg max-w-2xl mx-auto"
             data-aos="fade-up"
             data-aos-delay={300}
-            data-aos-duration={500}
           >
             We don't replace the clinician-patient relationship. We reinforce it
             by ensuring retention is simple, compliant, and dependable.

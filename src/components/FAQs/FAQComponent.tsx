@@ -15,7 +15,6 @@ export default function FAQComponent() {
         className="font-bold text-3xl text-center"
         data-aos="fade-up"
         data-aos-delay={0}
-        data-aos-duration={500}
       >
         Frequently Asked <span className="text-accent">Questions</span>
       </legend>
@@ -33,7 +32,6 @@ export default function FAQComponent() {
               value={`faq-item-${index}`}
               data-aos="fade-up"
               data-aos-delay={50 * index}
-              data-aos-duration={500}
             >
               <AccordionTrigger className="text-xl">
                 {faq.question}

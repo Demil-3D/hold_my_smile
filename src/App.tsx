@@ -36,6 +36,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SupportPage from "./pages/Dashboard/CustomerSupport";
 import NotificationsPage from "./pages/Dashboard/Notifications";
+import AddressPage from "./pages/Dashboard/patient/Address";
 
 type PathProps = {
   path: string | null;
@@ -163,6 +164,10 @@ function App() {
           path: "/portal/orders",
           element: <OrdersPage />,
         },
+        {
+          path: "/portal/address",
+          element: <AddressPage />,
+        },
 
         // CLINICIAN PAGES
         {
@@ -242,7 +247,12 @@ function App() {
   }, [currentPage]);
 
   useEffect(() => {
-    AOS.init({ once: false, duration: 400 });
+    AOS.init({
+      offset: 200,
+      duration: 500,
+      easing: "ease-out",
+      once: false,
+    });
   }, []);
 
   return (

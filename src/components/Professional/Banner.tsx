@@ -24,7 +24,6 @@ export function HeroBanner() {
             className="w-full max-w-2xl lg:max-w-5xl max-lg:mx-auto h-full min-h-dvh flex items-center md:pt-12 pb-6"
             data-aos="fade-right"
             data-aos-delay={0}
-            data-aos-duration={500}
           >
             <div className="w-full text-start p-6 lg:p-24 flex flex-col gap-2 items-start ml-auto">
               <LargeLogo color="var(--primary)" />

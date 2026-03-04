@@ -53,7 +53,6 @@ function PracticeSupportSection() {
                   className="flex-col items-start gap-4 border border-shade-200 rounded-none inset-shadow-xs"
                   data-aos="fade-right"
                   data-aos-delay={150 * index}
-                  data-aos-duration={500}
                 >
                   <ItemMedia className="text-primary bg-primary/10 size-10">
                     {benefit.icon}
@@ -73,7 +72,6 @@ function PracticeSupportSection() {
             className={`${SECTION_CLASSES} max-w-5xl text-center space-y-6`}
             data-aos="fade-up"
             data-aos-delay={0}
-            data-aos-duration={500}
           >
             <p className="text-lg">
               {`Hold My Smile transforms orthodontic retention from a logistical burden into a sustainable practice asset. We manage the entire journey—from secure scan storage to automated annual delivery—freeing your team to focus on clinical excellence rather than administration. By bridging the gap between debonding and lifelong care, we provide your patients with peace of mind and your practice with a reliable, recurring revenue stream.`}

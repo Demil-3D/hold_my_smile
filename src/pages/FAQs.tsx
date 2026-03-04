@@ -39,7 +39,6 @@ function FAQPage() {
               className="rounded-none bg-slate-100 w-full"
               data-aos="fade-right"
               data-aos-delay={0}
-              data-aos-duration={500}
             >
               {clinician_faqs.map((faq_section, index) => (
                 <TabsTrigger
@@ -64,7 +63,6 @@ function FAQPage() {
                       value={`faq-item-${index + 1}`}
                       data-aos="fade-up"
                       data-aos-delay={50 * index}
-                      data-aos-duration={500}
                     >
                       <AccordionTrigger className="text-lg">
                         {q.question}

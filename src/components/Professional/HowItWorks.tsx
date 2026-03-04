@@ -52,7 +52,6 @@ function HowItWorksSection() {
                 className="w-full items-start gap-6"
                 data-aos="fade-up"
                 data-aos-delay={150 * index}
-                data-aos-duration={500}
               >
                 <ItemMedia>
                   <span className="text-4xl font-bold text-accent">
@@ -75,7 +74,6 @@ function HowItWorksSection() {
         className={`w-full mx-auto px-6 md:px-12 pb-12`}
         data-aos="flip-down"
         data-aos-delay={0}
-        data-aos-duration={500}
       >
         <div className="w-full max-w-5xl mx-auto inset-shadow-sm border p-4 md:p-8 flex max-md:flex-col items-start gap-12">
           <div className="flex-1 flex flex-col gap-4">

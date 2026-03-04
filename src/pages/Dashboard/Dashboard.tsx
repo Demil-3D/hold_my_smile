@@ -20,6 +20,7 @@ import { toast } from "sonner";
 import type { SubscriptionProps } from "./utils/schema/patient/subscription";
 import type { Order } from "./utils/schema/patient/orders";
 import type { PatientProps } from "./utils/schema/clinician/patients";
+import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
 
 type MasonryItem = {
   id: string;
@@ -176,10 +177,10 @@ export default function Dashboard() {
     },
 
     /* DEFAULT ADDRESS SECTION */
-    // {
-    //   id: "address",
-    //   content: <AddressSegment />,
-    // },
+    {
+      id: "address",
+      content: <AddressSegment />,
+    },
 
     /* HELPFUL LINKS */
     {

@@ -8,9 +8,9 @@ import {
   UserIcon,
   UsersRoundIcon,
   HeadsetIcon,
-  RefreshCcwIcon,
   ChevronsUpDownIcon,
   User2Icon,
+  MapPinnedIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -58,15 +58,15 @@ const patientNavItems = [
     section: "",
   },
   {
+    title: "Address",
+    path: "/portal/address",
+    icon: MapPinnedIcon,
+    section: "",
+  },
+  {
     title: "Contact Support",
     path: "/portal/support",
     icon: HeadsetIcon,
-    section: "More Links",
-  },
-  {
-    title: "Return Order",
-    path: "https://our-returns.dpd.co.uk/3DENTAL",
-    icon: RefreshCcwIcon,
     section: "More Links",
   },
 ];
