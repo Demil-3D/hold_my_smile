@@ -30,7 +30,7 @@ export default function AddressSegment() {
   }, []);
 
   return (
-    <div className="w-full border inset-shadow-xs min-h-20 space-y-4 p-4">
+    <div className="w-full border inset-shadow-xs min-h-20 space-y-2 p-4">
       <legend className="font-semibold text-primary flex justify-between items-center">
         Delivery Address:
         <Badge variant={"default"} className="rounded-none">

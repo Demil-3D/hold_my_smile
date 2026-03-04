@@ -19,11 +19,20 @@ import {
   DialogFooter,
   DialogHeader,
   DialogOverlay,
+  DialogPortal,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ShoppingCart } from "lucide-react";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import {
+  Item,
+  ItemActions,
+  ItemDescription,
+  ItemTitle,
+} from "@/components/ui/item";
+import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 function CheckoutPage() {
   const location = useLocation();
@@ -219,120 +228,122 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
         open={openConfirmDialog}
         onOpenChange={(isOpen) => setOpenConfirmDialog(isOpen)}
       >
-        <DialogOverlay className="z-99999999" />
-        <DialogContent
-          className="sm:max-w-115 p-0 overflow-hidden rounded-none z-99999999"
-          showCloseButton={false}
-        >
-          {/* Top gradient header */}
-          <div className="relative px-6 pt-6 pb-5 bg-linear-to-b from-slate-50 to-white inset-shadow-sm border border-slate-200">
-            <DialogHeader className="relative">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-start gap-3">
-                  <div className="grid h-11 w-11 place-items-center bg-white/70 border border-slate-200 inset-shadow-xs">
-                    <ShoppingCart className="h-5 w-5 text-primary" />
-                  </div>
+        <DialogPortal>
+          <DialogOverlay className="z-99999999" />
+          <DialogContent
+            className="sm:max-w-115 p-0 overflow-hidden rounded-none z-99999999"
+            showCloseButton={false}
+          >
+            {/* Top gradient header */}
+            <div className="relative px-6 pt-6 pb-5 bg-linear-to-b from-slate-50 to-white inset-shadow-sm border border-slate-200">
+              <DialogHeader className="relative">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="grid h-11 w-11 place-items-center bg-white/70 border border-slate-200 inset-shadow-xs">
+                      <ShoppingCart className="h-5 w-5 text-primary" />
+                    </div>
 
-                  <div>
-                    <DialogTitle className="text-lg">
-                      Confirm Order 🧾
-                    </DialogTitle>
-                    <DialogDescription className="mt-1">
-                      Please review the details below before completing your
-                      purchase.
-                    </DialogDescription>
+                    <div>
+                      <DialogTitle className="text-lg">
+                        Confirm Order 🧾
+                      </DialogTitle>
+                      <DialogDescription className="mt-1">
+                        Please review the details below.
+                      </DialogDescription>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </DialogHeader>
-          </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              checkout();
-            }}
-            className="px-6 pb-6 space-y-6"
-          >
-            {/* Order summary / confirmation text */}
-            <div className="border border-slate-200 inset-shadow-xs bg-white p-4 space-y-4">
-              <p className="text-sm text-slate-700">
-                Yes, I would like to purchase{" "}
-                <span className="font-medium text-slate-900">
-                  {product.name}
-                </span>{" "}
-                for{" "}
-                <span className="font-medium text-slate-900">
-                  {GBP.format(product.price)}
-                </span>
-                .
-              </p>
-
-              <Field
-                orientation={"horizontal"}
-                className="w-fit mx-auto items-start pt-2"
-              >
-                <Input
-                  id="agreeToTermsAndConditions"
-                  type="checkbox"
-                  className="w-5"
-                  required
-                />
-                <FieldLabel
-                  htmlFor="agreeToTermsAndConditions"
-                  className="flex-1 px-2 font-normal"
-                >
-                  <span>
-                    I have read and understood the{" "}
-                    <Link to="/terms-of-service" className="underline">
-                      Terms of Service
-                    </Link>
-                    ,{" "}
-                    <Link to="/privacy-policy" className="underline">
-                      Privacy Policy
-                    </Link>
-                    ,{" "}
-                    <Link to="/shipping-policy" className="underline">
-                      Shipping Policy
-                    </Link>
-                    , and{" "}
-                    <Link to="/refund-policy" className="underline">
-                      Refund Policy
-                    </Link>
-                  </span>
-                </FieldLabel>
-              </Field>
-
-              {/* Optional: tiny reassurance line */}
-              <p className="text-xs text-slate-500 text-center">
-                Payment will only be required after you confirm.
-              </p>
+              </DialogHeader>
             </div>
+            <ScrollArea className="w-full h-full max-h-[60vh]">
+              <>
+                <div className="w-full px-6 pb-6 space-y-6">
+                  <Item>
+                    <div className="flex-1">
+                      <ItemTitle>{product.name}</ItemTitle>
+                      <ItemDescription>Quantity: x1</ItemDescription>
+                    </div>
+                    <ItemActions>
+                      <span>{GBP.format(product.price)}</span>
+                    </ItemActions>
+                  </Item>
 
-            {/* Actions */}
-            <DialogFooter className="flex-col sm:flex-col gap-2 sm:gap-2">
-              <Button
-                variant={"secondary"}
-                size={"lg"}
-                className="w-full p-6 bg-accent flex items-center justify-center rounded-none text-primary"
-                type="submit"
-              >
-                Confirm purchase
-              </Button>
+                  <AddressSegment />
+                </div>
 
-              <DialogClose asChild>
-                <Button
-                  variant={"secondary"}
-                  size={"lg"}
-                  type="button"
-                  className="w-full p-6 rounded-none"
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    checkout();
+                  }}
+                  className="px-6 pt-4 pb-6 space-y-6"
                 >
-                  Cancel
-                </Button>
-              </DialogClose>
-            </DialogFooter>
-          </form>
-        </DialogContent>
+                  {/* Order summary / confirmation text */}
+                  <div className="border border-slate-200 inset-shadow-xs bg-white p-4 space-y-4">
+                    <Field
+                      orientation={"horizontal"}
+                      className="w-fit mx-auto items-start pt-2"
+                    >
+                      <Input
+                        id="agreeToTermsAndConditions"
+                        type="checkbox"
+                        className="w-5"
+                        required
+                      />
+                      <FieldLabel
+                        htmlFor="agreeToTermsAndConditions"
+                        className="flex-1 px-2 font-normal"
+                      >
+                        <span>
+                          I have read and understood the{" "}
+                          <Link to="/terms-of-service" className="underline">
+                            Terms of Service
+                          </Link>
+                          ,{" "}
+                          <Link to="/privacy-policy" className="underline">
+                            Privacy Policy
+                          </Link>
+                          ,{" "}
+                          <Link to="/shipping-policy" className="underline">
+                            Shipping Policy
+                          </Link>
+                          , and{" "}
+                          <Link to="/refund-policy" className="underline">
+                            Refund Policy
+                          </Link>
+                        </span>
+                      </FieldLabel>
+                    </Field>
+                  </div>
+
+                  {/* Actions */}
+                  <DialogFooter className="flex-col sm:flex-col gap-2 sm:gap-2">
+                    <Button
+                      variant={"secondary"}
+                      size={"lg"}
+                      className="w-full p-6 bg-accent flex items-center justify-center rounded-none text-primary"
+                      type="submit"
+                    >
+                      Confirm purchase
+                    </Button>
+
+                    <DialogClose asChild>
+                      <Button
+                        variant={"secondary"}
+                        size={"lg"}
+                        type="button"
+                        className="w-full p-6 rounded-none"
+                      >
+                        Cancel
+                      </Button>
+                    </DialogClose>
+                  </DialogFooter>
+                </form>
+              </>
+              <ScrollBar orientation="vertical" />
+            </ScrollArea>
+          </DialogContent>
+        </DialogPortal>
       </Dialog>
     </div>
   );

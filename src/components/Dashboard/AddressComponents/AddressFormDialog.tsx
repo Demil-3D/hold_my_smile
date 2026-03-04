@@ -65,7 +65,7 @@ export function AddressFormDialog({ children, address }: Props) {
       <DialogOverlay className="z-99999999" />
       <DialogContent
         className="sm:max-w-115 p-0 overflow-hidden rounded-none z-99999999"
-        showCloseButton={false}
+        showCloseButton={true}
       >
         {/* Top gradient header */}
         <DialogHeader className="relative p-4">
