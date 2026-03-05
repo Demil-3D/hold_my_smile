@@ -45,7 +45,7 @@ function ContactForm() {
       if (response.ok) {
         form.reset();
         toast.success(
-          "Thank you for reaching out to us! A member of our team will reach our to you shortly.",
+          "Thank you for reaching out to us! We will review your message and respond to you shortly.",
         );
       } else {
         const data = await response.json();

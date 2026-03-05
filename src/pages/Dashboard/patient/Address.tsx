@@ -25,7 +25,9 @@ function AddressPage() {
         if (res.ok) {
           setAddress(data);
         } else {
-          toast.error("Failed to fetch address");
+          if (!data) {
+            toast.error("Failed to fetch address");
+          }
         }
       } catch {
         toast.error("Connection Error!");

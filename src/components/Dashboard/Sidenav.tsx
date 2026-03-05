@@ -4,7 +4,6 @@ import {
   Package,
   ChartAreaIcon,
   LogOutIcon,
-  ReceiptTextIcon,
   UserIcon,
   UsersRoundIcon,
   HeadsetIcon,
@@ -79,18 +78,6 @@ const clinicianNavItems = [
     section: "",
   },
   {
-    title: "Profile",
-    path: "/portal/profile",
-    icon: UserIcon,
-    section: "Account",
-  },
-  {
-    title: "Settlement Logs",
-    path: "/portal/settlement-logs",
-    icon: ReceiptTextIcon,
-    section: "Account",
-  },
-  {
     title: "Patients",
     path: "/portal/patients",
     icon: UsersRoundIcon,
@@ -111,18 +98,26 @@ const patientProfileLinks = [
     icon: UserIcon,
     section: "Account",
   },
-  // {
-  //   title: "Addresses",
-  //   path: "/portal/addresses",
-  //   icon: MapIcon,
-  //   section: "Account",
-  // },
   {
     title: "Subscriptions",
     path: "/portal/subscriptions",
     icon: Repeat,
     section: "Account",
   },
+];
+const clinicianProfileLinks = [
+  {
+    title: "Profile",
+    path: "/portal/profile",
+    icon: UserIcon,
+    section: "Account",
+  },
+  // {
+  //   title: "Settlement Logs",
+  //   path: "/portal/settlement-logs",
+  //   icon: ReceiptTextIcon,
+  //   section: "Account",
+  // },
 ];
 
 export default function DashboardSideNav({ profile }: { profile: any }) {
@@ -207,46 +202,43 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <div
-                className={`"w-full" flex gap-4 items-center cursor-pointer px-3 py-2`}
+                className={`w-full flex gap-4 items-center cursor-pointer px-3 py-2`}
               >
-                <div className="size-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
+                <div className="w-8 h-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
                   <User2Icon className="size-5.5" />
                 </div>
-                <div className="flex-1">
-                  <div className="text-sm">
-                    <span className="line-clamp-1 font-semibold">
-                      <span>
-                        {profile !== null ? profile.first_name : "---"}
-                      </span>{" "}
-                      <span>{profile !== null ? profile.last_name : ""}</span>
-                    </span>
-                    <small className="line-clamp-1">
-                      {profile !== null ? profile.email : "---"}
-                    </small>
-                  </div>
+                <div className="flex-1 w-full text-wrap text-sm">
+                  <p className="line-clamp-1 font-semibold">
+                    <span>{profile !== null ? profile.first_name : "---"}</span>{" "}
+                    <span>{profile !== null ? profile.last_name : ""}</span>
+                  </p>
+                  <small className="line-clamp-1 break-all">
+                    {profile !== null ? profile.email : "---"}
+                  </small>
                 </div>
 
-                <ChevronsUpDownIcon className="ml-auto" />
+                <div className="w-fit">
+                  <ChevronsUpDownIcon className="size-4" />
+                </div>
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-68 p-2 rounded-none mx-2 shadow-lg">
               <DropdownMenuLabel className="p-2 flex gap-4">
-                <div className="flex-1">
-                  <div className="flex flex-col">
-                    <span className="line-clamp-1 font-semibold">
-                      <span>
-                        {profile !== null ? profile.first_name : "---"}
-                      </span>{" "}
-                      <span>{profile !== null ? profile.last_name : ""}</span>
-                    </span>
-                    <small className="line-clamp-1">
-                      {profile !== null ? profile.email : "---"}
-                    </small>
-                  </div>
+                <div className="flex-1 w-full text-wrap text-sm">
+                  <p className="line-clamp-1 font-semibold">
+                    <span>{profile !== null ? profile.first_name : "---"}</span>{" "}
+                    <span>{profile !== null ? profile.last_name : ""}</span>
+                  </p>
+                  <small className="line-clamp-1 break-all font-normal">
+                    {profile !== null ? profile.email : "---"}
+                  </small>
                 </div>
               </DropdownMenuLabel>
               <Separator className=" my-2" />
-              {patientProfileLinks.map((item, index) => {
+              {(isPatientAccount
+                ? patientProfileLinks
+                : clinicianProfileLinks
+              ).map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <DropdownMenuItem
