@@ -99,7 +99,7 @@ function ContactForm() {
           disabled={formDisabled}
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
           data-aos="fade-left"
-          data-aos-delay={500}
+          data-aos-delay={300}
         />
         <Textarea
           id="message"
@@ -109,7 +109,7 @@ function ContactForm() {
           disabled={formDisabled}
           className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
           data-aos="fade-up"
-          data-aos-delay={750}
+          data-aos-delay={450}
         />
       </div>
 
@@ -121,7 +121,7 @@ function ContactForm() {
         disabled={formDisabled}
         className="w-full rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
         data-aos="fade-up"
-        data-aos-delay={1000}
+        data-aos-delay={600}
       >
         Send Message
       </Button>

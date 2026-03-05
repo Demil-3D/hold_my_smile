@@ -98,7 +98,7 @@ function LinkList({
 function Footer() {
   return (
     <>
-      <footer className="w-full bg-slate-100 mt-12">
+      <footer className="w-full bg-linear-to-b from-slate-100 to-slate-300 mt-12">
         <div className="w-full grid md:grid-cols-3 lg:grid-cols-4 p-6 md:p-12 space-y-8 space-x-12">
           {/* BRAND */}
           <div className="w-full flex flex-col gap-7 md:col-span-2">

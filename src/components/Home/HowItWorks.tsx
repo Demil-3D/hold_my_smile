@@ -37,7 +37,7 @@ function HowItWorksSection() {
 
   return (
     <div
-      className="py-12  bg-linear-to-b from-slate-100 to-slate-200 from-70% bg-fixed"
+      className="py-12  bg-linear-to-b from-slate-100 to-slate-200 from-70%"
       id="about"
     >
       <section className={`${SECTION_CLASSES} text-start space-y-14`}>
@@ -55,7 +55,8 @@ function HowItWorksSection() {
                   key={index}
                   className="items-start gap-6"
                   data-aos="fade-right"
-                  data-aos-delay={150 * index}
+                  data-aos-duration={400}
+                  data-aos-delay={200 * index}
                 >
                   <ItemMedia>
                     <div className="size-10 bg-primary/10 text-primary grid place-items-center">

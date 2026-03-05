@@ -30,7 +30,7 @@ export default function PortalLayout() {
         <DashboardSideNav profile={profile} />
 
         {/* Main Area */}
-        <div className="w-full flex-1 max-w-full flex flex-col pt-28">
+        <div className="w-full flex-1 max-w-full flex flex-col pt-6">
           <PageHeader profile={profile} />
 
           <main className="flex-1 py-6 px-6 md:px-8">

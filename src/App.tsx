@@ -2,7 +2,6 @@ import "@/App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "@/pages/Home";
 import { useEffect, type JSX, type ReactElement } from "react";
-import NavBar from "@/components/NavBar";
 import AboutUsPage from "@/pages/AboutUs";
 import TrackOrder from "@/pages/TrackOrder";
 import PricingPage from "@/pages/Pricing";
@@ -257,7 +256,6 @@ function App() {
 
   return (
     <>
-      <NavBar />
       <main>
         <Routes>
           {ROUTES.map((route, index) => {

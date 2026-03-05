@@ -141,7 +141,7 @@ export function AboutSection() {
               <div
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={150 * index}
+                data-aos-delay={50 * index}
                 className="w-full flex flex-col gap-4 px-4 py-6 items-center max-md:border max-md:border-slate-200 md:border-x md:border-x-slate-200"
               >
                 {benefit.icon}

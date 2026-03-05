@@ -12,7 +12,7 @@ import {
   MapPinnedIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -20,6 +20,7 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -36,6 +37,7 @@ import {
 } from "../ui/dropdown-menu";
 import { useState } from "react";
 import { ConfirmDialog } from "./ConfirmationDialog";
+import { Logo } from "../Logo";
 
 const patientNavItems = [
   {
@@ -158,7 +160,14 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
         "border-r border-r-slate-200 bg-slate-100 transition-all sticky h-dvh",
       )}
     >
-      <SidebarContent className="py-6 pt-28 lg:pt-32 inset-shadow-xs">
+      <SidebarHeader className="py-4">
+        <div className="w-fit scale-80">
+          <Link to={"/"}>
+            <Logo />
+          </Link>
+        </div>
+      </SidebarHeader>
+      <SidebarContent className="py-6 inset-shadow-xs">
         <SidebarMenu>
           {Object.entries(grouped).map(([section, items]: any) => (
             <div key={section.split(" ").join("")}>
@@ -196,7 +205,7 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
         </SidebarMenu>
       </SidebarContent>
       <Separator />
-      <SidebarFooter className="my-3">
+      <SidebarFooter className="pb-4">
         <SidebarMenu>
           {/* USER PROFILE */}
           <DropdownMenu>

@@ -27,6 +27,7 @@ export default function TrustAndQualitySection() {
             <legend
               className="text-4xl font-bold max-w-2xl mx-auto"
               data-aos="fade-up"
+              data-aos-duration={500}
               data-aos-delay={0}
             >
               Professionally Made.{" "}
@@ -35,14 +36,16 @@ export default function TrustAndQualitySection() {
             <p
               className="text-lg whitespace-pre-wrap"
               data-aos="fade-up"
-              data-aos-delay={200}
+              data-aos-duration={500}
+              data-aos-delay={100}
             >
               {`Our retainers are manufactured using dental-grade materials and precise digital workflows. We work alongside dental professionals to ensure your retention plan remains aligned with your original orthodontic treatment.`}
             </p>
             <p
               className="text-lg whitespace-pre-wrap -mt-3"
               data-aos="fade-up"
-              data-aos-delay={400}
+              data-aos-duration={500}
+              data-aos-delay={200}
             >
               {`This isn't DIY dentistry.\nIt's structured, supervised retention support.`}
             </p>
@@ -50,7 +53,7 @@ export default function TrustAndQualitySection() {
         </div>
       </section>
 
-      <div className="py-12 bg-linear-to-b from-slate-100 to-slate-200 from-70% bg-fixed">
+      <div className="py-12 bg-linear-to-t from-slate-100 to-slate-200 from-70%">
         <section className={`${SECTION_CLASSES}`}>
           <div className="w-full max-w-5xl mx-auto text-center space-y-6 px-6">
             <legend className="text-4xl text-primary font-bold max-w-2xl mx-auto">
@@ -64,7 +67,7 @@ export default function TrustAndQualitySection() {
                 <div
                   key={index}
                   data-aos="fade-left"
-                  data-aos-delay={150 * index}
+                  data-aos-delay={50 * index}
                   className="p-4 border border-slate-300 flex gap-4 text-start"
                 >
                   <div className="size-6 font-bold text-accent bg-accent/20 grid place-items-center rounded-full">
