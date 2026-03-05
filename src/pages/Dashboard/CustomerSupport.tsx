@@ -78,7 +78,7 @@ export default function SupportPage() {
     // SUBMIT FORM
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/contact@holdmysmile.com",
+        "https://formsubmit.co/ajax/53188bf9e9ed409e9cc171a21cfb6253",
         {
           method: "POST",
           headers: { Accept: "application/json" },
