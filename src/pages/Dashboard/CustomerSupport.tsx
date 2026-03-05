@@ -148,13 +148,17 @@ export default function SupportPage() {
             title="Email Support"
             description="Response within 24h"
             action="Send Ticket"
-            onClick={() => openExternalLink("mailto:contact@holdmysmile.com")}
+            onClick={() =>
+              openExternalLink(
+                "mailto:contact@holdmysmile.com?subject=HoldMySmile: Customer Support Request",
+              )
+            }
           />
         </section>
 
         <section className="grid gap-10 lg:grid-cols-3">
           {/* FAQ SECTION */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-8 -mt-12">
             {isPatientAccount ? <FAQComponent /> : <ClinicianFAQs />}
           </div>
 

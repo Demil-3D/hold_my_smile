@@ -25,7 +25,6 @@ export default function ClinicianFAQs() {
         <TabsList
           className="rounded-none bg-slate-100 w-full"
           data-aos="fade-right"
-          data-aos-delay={0}
         >
           {clinician_faqs.map((faq_section, index) => (
             <TabsTrigger
@@ -49,7 +48,7 @@ export default function ClinicianFAQs() {
                   key={`faq-item-${index + 1}`}
                   value={`faq-item-${index + 1}`}
                   data-aos="fade-up"
-                  data-aos-delay={50 * index}
+                  data-aos-delay={5 * index}
                 >
                   <AccordionTrigger className="text-lg">
                     {q.question}

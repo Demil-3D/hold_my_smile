@@ -31,7 +31,7 @@ export default function FAQComponent() {
               key={`faq-item-${index}`}
               value={`faq-item-${index}`}
               data-aos="fade-up"
-              data-aos-delay={50 * index}
+              data-aos-delay={5 * index}
             >
               <AccordionTrigger className="text-xl">
                 {faq.question}
