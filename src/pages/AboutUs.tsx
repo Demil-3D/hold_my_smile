@@ -10,15 +10,17 @@ function AboutUsPage() {
         style={{ backgroundImage: `url(${bannerImage})` }}
       >
         <div className="bg-slate-200/30 backdrop-blur-md py-24 px-4 md:px-12">
-          <div className="w-full max-w-lg pt-12 grid grid-cols-1 gap-4">
-            <h1 className="text-center md:text-start text-primary font-bold text-5xl">
-              A Smarter Approach to{" "}
-              <span className="text-accent">Retention</span>
-            </h1>
-            <p className="text-black/80 text-xl">
-              A modern retention system designed to work beyond the treatment
-              room.
-            </p>
+          <div className="w-full max-w-2xl pt-12 grid grid-cols-1 gap-4">
+            <div className="w-full px-6 lg:px-16 py-6 space-y-4">
+              <h1 className="text-center md:text-start text-primary font-bold text-5xl">
+                A Smarter Approach to{" "}
+                <span className="text-accent">Retention</span>
+              </h1>
+              <p className="text-center md:text-start text-black/80 text-xl leading-relaxed">
+                A modern retention system designed to work beyond the treatment
+                room.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -153,12 +155,6 @@ function AboutUsPage() {
           patients, retention becomes effortless and accessible. <br />
           For practices, it becomes structured, reliable, and sustainable.
         </p>
-
-        {/* <p
-          className="text-lg max-w-2xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay={100}
-        ></p> */}
 
         <p
           className="text-lg max-w-3xl mx-auto"

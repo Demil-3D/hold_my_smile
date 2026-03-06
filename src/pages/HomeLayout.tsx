@@ -6,7 +6,9 @@ export default function HomeLayout() {
   return (
     <div className="w-full grid grid-cols-1">
       <NavBar />
-      <Outlet />
+      <div className="w-full overflow-hidden">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
