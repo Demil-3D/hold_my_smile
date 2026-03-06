@@ -28,6 +28,17 @@ async function putMethod(endpoint: string, requestBody: RequestBodyType) {
   return res;
 }
 
+async function patchMethod(endpoint: string, requestBody: RequestBodyType) {
+  const res = await fetch(`${config.apiUrl}/api/${endpoint}`, {
+    method: "PATCH",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(requestBody),
+  });
+
+  return res;
+}
+
 async function getMethod(endpoint: string) {
   const res = await fetch(`${config.apiUrl}/api/${endpoint}`, {
     credentials: "include",
@@ -40,4 +51,5 @@ export const http = {
   post: postMethod,
   get: getMethod,
   put: putMethod,
+  patch: patchMethod,
 };

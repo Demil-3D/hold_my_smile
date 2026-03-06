@@ -31,11 +31,11 @@ export default function PortalLayout() {
         <DashboardSideNav profile={profile} />
 
         {/* Main Area */}
-        <div className="w-full flex-1 max-w-full grid grid-cols-1 pt-2">
+        <div className="w-full flex-1 max-w-full grid grid-cols-1 pt-2 place-content-start">
           <PageHeader profile={profile} />
           <Separator className="mb-2" />
 
-          <main className="flex-1 py-6 px-6 md:px-8">
+          <main className="py-6 px-6 md:px-8">
             <Outlet />
           </main>
         </div>
