@@ -3,9 +3,21 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "../ui/dialog";
+import { CheckCircleIcon } from "lucide-react";
+import { Separator } from "../ui/separator";
 
 function ContactForm() {
   const [formDisabled, setFormDisabled] = useState(false);
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,9 +56,7 @@ function ContactForm() {
 
       if (response.ok) {
         form.reset();
-        toast.success(
-          "Thank you for reaching out to us! We will review your message and respond to you shortly.",
-        );
+        setShowConfirmationDialog(true);
       } else {
         const data = await response.json();
         toast.error(data.message || "Something went wrong.");
@@ -59,73 +69,121 @@ function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full max-w-2xl mx-auto flex flex-col items-center gap-8 px-4"
-    >
-      <legend className="text-primary text-4xl font-bold mb-4">
-        Get in Touch <span className="text-accent">Today</span>
-      </legend>
-
-      <div className="w-full grid md:grid-cols-2 gap-3">
-        <Input
-          id="full_name"
-          name="name"
-          type="text"
-          required
-          placeholder="Full name: *"
-          disabled={formDisabled}
-          className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
-          data-aos="fade-up"
-          data-aos-delay={0}
-        />
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder="Email: *"
-          disabled={formDisabled}
-          className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
-          data-aos="fade-right"
-          data-aos-delay={150}
-        />
-        <Input
-          id="phone_number"
-          name="phone"
-          type="tel"
-          required
-          placeholder="Phone Number: *"
-          disabled={formDisabled}
-          className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
-          data-aos="fade-left"
-          data-aos-delay={300}
-        />
-        <Textarea
-          id="message"
-          name="message"
-          required
-          placeholder="Message: *"
-          disabled={formDisabled}
-          className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
-          data-aos="fade-up"
-          data-aos-delay={450}
-        />
-      </div>
-
-      {/* Submit BTN */}
-      <Button
-        variant={"secondary"}
-        size={"lg"}
-        type="submit"
-        disabled={formDisabled}
-        className="w-full rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
-        data-aos="fade-up"
-        data-aos-delay={600}
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-2xl mx-auto flex flex-col items-center gap-8 px-4"
       >
-        Send Message
-      </Button>
-    </form>
+        <legend className="text-primary text-4xl font-bold mb-4">
+          Get in Touch <span className="text-accent">Today</span>
+        </legend>
+
+        <div className="w-full grid md:grid-cols-2 gap-3">
+          <Input
+            id="full_name"
+            name="name"
+            type="text"
+            required
+            placeholder="Full name: *"
+            disabled={formDisabled}
+            className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay={0}
+          />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Email: *"
+            disabled={formDisabled}
+            className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
+            data-aos="fade-right"
+            data-aos-delay={150}
+          />
+          <Input
+            id="phone_number"
+            name="phone"
+            type="tel"
+            required
+            placeholder="Phone Number: *"
+            disabled={formDisabled}
+            className="w-full py-6 px-4 border text-lg rounded-none border-black/30"
+            data-aos="fade-left"
+            data-aos-delay={300}
+          />
+          <Textarea
+            id="message"
+            name="message"
+            required
+            placeholder="Message: *"
+            disabled={formDisabled}
+            className="w-full py-6 px-4 border text-lg rounded-none border-black/30 md:col-span-2"
+            data-aos="fade-up"
+            data-aos-delay={450}
+          />
+        </div>
+
+        {/* Submit BTN */}
+        <Button
+          variant={"secondary"}
+          size={"lg"}
+          type="submit"
+          disabled={formDisabled}
+          className="w-full rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
+          data-aos="fade-up"
+          data-aos-delay={600}
+        >
+          Send Message
+        </Button>
+      </form>
+
+      <Dialog
+        open={showConfirmationDialog}
+        onOpenChange={setShowConfirmationDialog}
+      >
+        <DialogPortal>
+          <DialogOverlay className="z-9999" />
+          <DialogContent
+            showCloseButton={false}
+            className="sm:max-w-md bg-white inset-shadow-sm border border-slate-200 shadow-none z-9999 overflow-hidden rounded-none"
+          >
+            <DialogHeader className="relative">
+              <div className="flex items-center justify-start gap-4">
+                <div className="mx-auto flex h-11 w-11 items-center justify-center bg-green-100">
+                  <CheckCircleIcon className="h-7 w-7 text-green-700" />
+                </div>
+                <div className="flex-1">
+                  <DialogTitle className="text-lg flex justify-start gap-2">
+                    <div className="w-fit">Message Sent</div>
+                    <span className="-mt-1">📨</span>
+                  </DialogTitle>
+                </div>
+              </div>
+            </DialogHeader>
+            <Separator />
+            <div className="relative text-start pb-4 px-2">
+              {/* Message */}
+              <p className="mt-3 text-black/80 leading-relaxed">
+                Thank you for reaching out to us! We will review your message
+                and respond to you shortly.
+              </p>
+            </div>
+
+            <DialogFooter>
+              <Button
+                variant={"secondary"}
+                size={"lg"}
+                className="w-full bg-accent rounded-none items-center py-6 text-base"
+                onClick={() => setShowConfirmationDialog(false)}
+              >
+                Got it 👍
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </DialogPortal>
+      </Dialog>
+    </>
   );
 }
 

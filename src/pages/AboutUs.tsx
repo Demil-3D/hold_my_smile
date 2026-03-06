@@ -15,7 +15,7 @@ function AboutUsPage() {
               A Smarter Approach to{" "}
               <span className="text-accent">Retention</span>
             </h1>
-            <p className="text-muted-foreground text-xl">
+            <p className="text-black/80 text-xl">
               A modern retention system designed to work beyond the treatment
               room.
             </p>
@@ -66,8 +66,9 @@ function AboutUsPage() {
           Our <span className="text-accent">Story</span>
         </h1>
         <p className="text-lg pt-3 max-w-2xl mx-auto">
-          Hold My Smile was created by bringing together three perspectives on
-          the same persistent problem.
+          Hold My Smile was created by bringing together three perspectives
+          <br />
+          on the same persistent problem.
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-3">
           <div
@@ -137,20 +138,27 @@ function AboutUsPage() {
       {/* A SMARTER APPROACH TO RETENTION */}
       <section className="py-24 px-4 md:px-12 w-full max-w-4xl mx-auto space-y-4 text-center">
         <h1 className="text-4xl text-primary font-bold">
-          A <span className="text-accent">Smarter Approach</span> <br />
-          to Retention
+          Modernizing Orthodontic
+          <br />
+          <span className="text-accent">Retention</span>
         </h1>
         <p
-          className="text-lg pt-3 mx-auto"
+          className="text-lg max-w-3xl mx-auto"
           data-aos="fade-up"
           data-aos-delay={0}
         >
           By combining laboratory expertise, clinical insight, and a
           patient-first digital approach, we built Hold My Smile; a modern
           retention system designed to work beyond the treatment room. For
-          patients, retention becomes effortless and accessible. For practices,
-          it becomes structured, reliable, and sustainable.
+          patients, retention becomes effortless and accessible. <br />
+          For practices, it becomes structured, reliable, and sustainable.
         </p>
+
+        {/* <p
+          className="text-lg max-w-2xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay={100}
+        ></p> */}
 
         <p
           className="text-lg max-w-3xl mx-auto"

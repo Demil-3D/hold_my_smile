@@ -88,9 +88,10 @@ function HowItWorksSection() {
               {`Teeth don't “lock in place” permanently. They respond to pressure, age, and natural changes over time.`}
             </p>
             <p className="text-lg">
-              A subscription ensures You always have a backup, You replace worn
-              retainers before they lose effectiveness, and You never delay
-              replacement when it matters most.
+              A subscription ensures you always have a{" "}
+              <span className="text-accent font-medium">backup</span>, you
+              replace worn retainers before they lose effectiveness, and you
+              never delay replacement when it matters most.
             </p>
 
             <p className="text-lg">

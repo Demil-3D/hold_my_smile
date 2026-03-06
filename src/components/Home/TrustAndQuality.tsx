@@ -39,7 +39,7 @@ export default function TrustAndQualitySection() {
               data-aos-duration={500}
               data-aos-delay={100}
             >
-              {`Our retainers are manufactured using dental-grade materials and precise digital workflows. We work alongside dental professionals to ensure your retention plan remains aligned with your original orthodontic treatment.`}
+              {`Our retainers are manufactured using medical-grade materials and precise digital workflows. We work alongside dental professionals to ensure your retention plan remains aligned with your original orthodontic treatment.`}
             </p>
             <p
               className="text-lg whitespace-pre-wrap -mt-3"
