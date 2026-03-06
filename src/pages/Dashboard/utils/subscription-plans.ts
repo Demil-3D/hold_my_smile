@@ -10,7 +10,7 @@ export const SUBSCRIPTION_PLAN_PERKS: SubscriptionPlanPerkProperties[] = [
       "Remote Monitoring": false,
       "Clinical Feedback": false,
       "Relapse Correction": false,
-      "Annual Savings": GBP.format(60),
+      "Savings": GBP.format(60),
     },
   },
   {
@@ -21,7 +21,7 @@ export const SUBSCRIPTION_PLAN_PERKS: SubscriptionPlanPerkProperties[] = [
       "Remote Monitoring": false,
       "Clinical Feedback": false,
       "Relapse Correction": false,
-      "Annual Savings": GBP.format(300),
+      "Savings": GBP.format(300),
     },
   },
   {
@@ -32,7 +32,7 @@ export const SUBSCRIPTION_PLAN_PERKS: SubscriptionPlanPerkProperties[] = [
       "Remote Monitoring": true,
       "Clinical Feedback": true,
       "Relapse Correction": false,
-      "Annual Savings": GBP.format(60),
+      "Savings": GBP.format(60),
     },
   },
   {
@@ -43,7 +43,7 @@ export const SUBSCRIPTION_PLAN_PERKS: SubscriptionPlanPerkProperties[] = [
       "Remote Monitoring": true,
       "Clinical Feedback": true,
       "Relapse Correction": false,
-      "Annual Savings": GBP.format(420),
+      "Savings": GBP.format(420),
     },
   },
   {
@@ -54,7 +54,7 @@ export const SUBSCRIPTION_PLAN_PERKS: SubscriptionPlanPerkProperties[] = [
       "Remote Monitoring": true,
       "Clinical Feedback": true,
       "Relapse Correction": true,
-      "Annual Savings": GBP.format(800),
+      "Savings": GBP.format(800),
     },
   },
 ];

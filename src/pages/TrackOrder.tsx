@@ -5,7 +5,7 @@ function TrackOrder() {
   return (
     <>
       <TrackForm />
-      <div className="w-full mt-44 md:mt-24 lg:mt-12">
+      <div className="w-full mt-52 md:mt-32 lg:mt-20">
         <FAQComponent />
       </div>
     </>

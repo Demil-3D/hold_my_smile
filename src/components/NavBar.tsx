@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
@@ -17,6 +18,15 @@ import { useAuth } from "@/context/AuthContext";
 
 type NavLinkType = { path: string; label: string };
 
+const NAV_LINKS: NavLinkType[] = [
+  { path: "/", label: "Home" },
+  { path: "/professional", label: "Professional" },
+  { path: "/about-us", label: "About Us" },
+  { path: "/pricing", label: "Pricing" },
+  { path: "/track-item", label: "Track Order" },
+  { path: "/contact-us", label: "Contact Us" },
+];
+
 function MenuDrawer({
   menuLinks,
   isLoggedIn,
@@ -28,13 +38,13 @@ function MenuDrawer({
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>
-        <div className="p-2">
+        <div className="p-2 cursor-pointer">
           <MenuIcon />
         </div>
       </DrawerTrigger>
       <DrawerPortal>
-        <DrawerOverlay className="z-999999" />
-        <DrawerContent className="z-999999 bg-slate-100 border-slate-200 max-w-lg">
+        <DrawerOverlay className="z-9999 bg-black/40" />
+        <DrawerContent className="z-9999 bg-slate-100 border-slate-200 max-w-lg">
           {/* HEADER (LOGO) */}
           <DrawerHeader className="relative">
             <DrawerTitle>
@@ -44,32 +54,30 @@ function MenuDrawer({
 
           {/* MENU ITEMS */}
           <ul className="py-10 px-8 space-y-4 text-lg">
-            {menuLinks.map((link) => {
-              return (
-                <li
-                  key={`link-to-${link.label.replaceAll(" ", "")}`}
-                  className="flex items-center"
-                >
-                  <MinusIcon className="text-accent" />
-                  <DrawerClose asChild>
-                    <Button
-                      variant={"link"}
-                      size={"default"}
-                      className="text-lg font-normal"
-                      onClick={() => navigate(link.path)}
-                    >
-                      {link.label}
-                    </Button>
-                  </DrawerClose>
-                </li>
-              );
-            })}
+            {menuLinks.map((link) => (
+              <li
+                key={`link-to-${link.label.replace(/\s+/g, "")}`}
+                className="flex items-center"
+              >
+                <MinusIcon className="text-accent" />
+                <DrawerClose asChild>
+                  <Button
+                    variant="link"
+                    size="default"
+                    className="text-lg font-normal"
+                    onClick={() => navigate(link.path)}
+                  >
+                    {link.label}
+                  </Button>
+                </DrawerClose>
+              </li>
+            ))}
             <li className="flex items-center">
               <MoveLeftIcon className="text-accent" />
               <DrawerClose asChild>
                 <Button
-                  variant={"link"}
-                  size={"default"}
+                  variant="link"
+                  size="default"
                   className="text-lg font-normal"
                 >
                   Back
@@ -81,20 +89,16 @@ function MenuDrawer({
           {/* DRAWER FOOTER (CTA) */}
           <DrawerFooter>
             {isLoggedIn ? (
-              <>
-                <DrawerClose asChild>
-                  <Button
-                    variant={"default"}
-                    size={"lg"}
-                    onClick={() => {
-                      navigate("/portal/dashboard");
-                    }}
-                    className="w-full border-2 border-primary rounded-none"
-                  >
-                    Dashboard
-                  </Button>
-                </DrawerClose>
-              </>
+              <DrawerClose asChild>
+                <Button
+                  variant="default"
+                  size="lg"
+                  onClick={() => navigate("/portal/dashboard")}
+                  className="w-full border-2 border-primary rounded-none"
+                >
+                  Dashboard
+                </Button>
+              </DrawerClose>
             ) : (
               <div className="w-full grid grid-cols-2 gap-x-2 gap-y-4 py-4">
                 <div className="w-full col-span-2 text-center text-black/50 text-sm">
@@ -102,11 +106,9 @@ function MenuDrawer({
                 </div>
                 <DrawerClose asChild>
                   <Button
-                    variant={"outline"}
-                    size={"lg"}
-                    onClick={() => {
-                      navigate("/login");
-                    }}
+                    variant="outline"
+                    size="lg"
+                    onClick={() => navigate("/login")}
                     className="w-full bg-transparent border-2 border-primary text-primary rounded-none"
                   >
                     Login
@@ -114,11 +116,9 @@ function MenuDrawer({
                 </DrawerClose>
                 <DrawerClose asChild>
                   <Button
-                    variant={"default"}
-                    size={"lg"}
-                    onClick={() => {
-                      navigate("/register");
-                    }}
+                    variant="default"
+                    size="lg"
+                    onClick={() => navigate("/register")}
                     className="w-full border-2 border-primary rounded-none"
                   >
                     Register
@@ -136,101 +136,80 @@ function MenuDrawer({
 export default function NavBar() {
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
-  const NAV_LINKS: NavLinkType[] = [
-    {
-      path: "/",
-      label: "Home",
-    },
-    {
-      path: "/professional",
-      label: "Professional",
-    },
-    {
-      path: "/about-us",
-      label: "About Us",
-    },
-    {
-      path: "/pricing",
-      label: "Pricing",
-    },
-    {
-      path: "/track-item",
-      label: "Track Order",
-    },
-    {
-      path: "/contact-us",
-      label: "Contact Us",
-    },
-  ];
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      <nav
-        className={`w-full px-5 py-4 md:py-6 bg-slate-200 lg:border lg:border-slate-200 inset-shadow-xs backdrop-blur-2xl fixed mx-auto z-9999`}
-      >
-        <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
-          <Link to={"/"}>
-            <Logo color="var(--primary)" />
-          </Link>
+    <nav
+      className={`w-full px-5 py-4 md:py-6 fixed top-0 inset-x-0 z-9999 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-xl lg:border-b lg:border-slate-200 shadow-sm"
+          : "bg-linear-to-b from-white/50 to-transparent backdrop-blur-sm border-transparent"
+      }`}
+    >
+      <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
+        <Link to="/">
+          <Logo color="var(--primary)" />
+        </Link>
 
-          {/* NAV LINKS */}
-          <ul className="flex-1 flex gap-0 justify-center items-center max-xl:hidden text-black">
-            {NAV_LINKS.map((l, index) => {
-              return (
-                <li key={index}>
-                  <Link
-                    to={l.path}
-                    className="py-2 px-4 hover:underline text-[1.05rem]"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+        {/* NAV LINKS */}
+        <ul className="flex-1 flex gap-0 justify-center items-center max-xl:hidden text-black">
+          {NAV_LINKS.map((l, index) => (
+            <li key={index}>
+              <Link
+                to={l.path}
+                className="py-2 px-4 hover:underline text-[1.05rem]"
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          {/* ACTION BTNS */}
-          {isLoggedIn ? (
+        {/* ACTION BTNS */}
+        {isLoggedIn ? (
+          <Button
+            variant="default"
+            size="lg"
+            onClick={() => navigate("/portal/dashboard")}
+            className="border-2 border-primary rounded-none max-xl:hidden"
+          >
+            Dashboard
+          </Button>
+        ) : (
+          <div className="w-fit gap-2 flex items-center max-xl:hidden">
             <Button
-              variant={"default"}
-              size={"lg"}
-              onClick={() => {
-                navigate("/portal/dashboard");
-              }}
-              className="border-2 border-primary rounded-none  max-xl:hidden"
+              variant="outline"
+              size="lg"
+              onClick={() => navigate("/login")}
+              className="bg-transparent border-2 border-primary text-primary rounded-none"
             >
-              Dashboard
+              Login
             </Button>
-          ) : (
-            <div className="w-fit gap-2 flex items-center max-xl:hidden">
-              <Button
-                variant={"outline"}
-                size={"lg"}
-                onClick={() => {
-                  navigate("/login");
-                }}
-                className="bg-transparent border-2 border-primary text-primary rounded-none"
-              >
-                Login
-              </Button>
-              <Button
-                variant={"default"}
-                size={"lg"}
-                onClick={() => {
-                  navigate("/register");
-                }}
-                className="border-2 border-primary rounded-none"
-              >
-                Register
-              </Button>
-            </div>
-          )}
-
-          <div className="xl:hidden w-fit">
-            <MenuDrawer menuLinks={NAV_LINKS} isLoggedIn={isLoggedIn} />
+            <Button
+              variant="default"
+              size="lg"
+              onClick={() => navigate("/register")}
+              className="border-2 border-primary rounded-none"
+            >
+              Register
+            </Button>
           </div>
+        )}
+
+        <div className="xl:hidden w-fit">
+          <MenuDrawer menuLinks={NAV_LINKS} isLoggedIn={isLoggedIn} />
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }

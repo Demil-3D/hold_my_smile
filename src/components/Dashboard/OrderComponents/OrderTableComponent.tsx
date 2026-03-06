@@ -9,7 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import type {
   Order,
   VALID_ORDER_STATUS,
@@ -106,68 +113,79 @@ function OrderTableComponent({
         )}
 
         <div className="w-full md:px-4 py-4 text-nowrap">
-          <table className="w-full border-separate border-spacing-0 max-lg:hidden">
-            <thead>
-              <tr className="text-left text-xs text-muted-foreground">
-                <th className="px-3 py-3 font-medium">Order #</th>
-                <th className="px-3 py-3 font-medium">Item</th>
-                <th className="px-3 py-3 font-medium">Description</th>
-                <th className="px-3 py-3 font-medium text-center">Status</th>
-                <th className="px-3 py-3 font-medium">Date</th>
-                <th className="px-3 py-3 font-medium text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody>
+          <Table className="max-lg:hidden">
+            <TableHeader className="">
+              <TableRow>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Order #
+                </TableHead>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Item
+                </TableHead>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Description
+                </TableHead>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Status
+                </TableHead>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Date
+                </TableHead>
+                <TableHead className="px-3 py-3 font-medium text-xs text-muted-foreground">
+                  Action
+                </TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {filteredOrders.length === 0 && (
-                <tr>
-                  <td className="px-12 py-6" colSpan={6}>
+                <TableRow>
+                  <TableCell colSpan={6} className="px-12 py-6">
                     <EmptyContainer />
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               )}
-              {filteredOrders.map((p, idx) => (
-                <tr
-                  key={p.order_id}
-                  className={cn(
-                    "align-top",
-                    idx !== 0 && "border-t border-border",
-                  )}
-                >
-                  <td className="px-3 py-4">
-                    <span className="text-sm line-clamp-1 text-black/60">
-                      #{p.order_id}
-                    </span>
-                  </td>
-                  <td className="px-3 py-4">
-                    <span className="font-medium">{p.product_name}</span>
-                  </td>
-                  <td className="px-3 py-4">
-                    <p className="max-w-xl text-sm text-muted-foreground">
-                      {p.order_type}
-                    </p>
-                  </td>
-                  <td className="px-3 py-4 text-center">
-                    {p.status ? renderStatusBadge(p.status) : null}
-                  </td>
-                  <td className="px-3 py-4">
-                    <div className="text-sm text-black/60">{p.order_date}</div>
-                  </td>
-                  <td className="px-3 py-4 text-center">
-                    <Button
-                      onClick={() => handleTrackOrder(p)}
-                      className="rounded-none px-4"
-                      variant={"default"}
-                      size="icon-sm"
-                      aria-label="Track Order"
-                      title="Track Order"
-                    >
-                      <MapPinnedIcon className={`h-4 w-4`} />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+              {filteredOrders.map((p) => {
+                return (
+                  <TableRow key={p.order_id}>
+                    <TableCell className="px-3 py-4">
+                      <span className="text-sm line-clamp-1 text-black/60">
+                        #{p.order_id}
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-3 py-4">
+                      <span className="font-medium">{p.product_name}</span>
+                    </TableCell>
+                    <TableCell className="px-3 py-4">
+                      <p className="text-sm text-muted-foreground">
+                        {p.order_type}
+                      </p>
+                    </TableCell>
+                    <TableCell className="px-3 py-4">
+                      {p.status ? renderStatusBadge(p.status) : null}
+                    </TableCell>
+                    <TableCell className="px-3 py-4">
+                      <div className="text-sm text-black/60">
+                        {p.order_date}
+                      </div>
+                    </TableCell>
+                    <TableCell className="px-3 py-4">
+                      <Button
+                        onClick={() => handleTrackOrder(p)}
+                        className="rounded-none px-4"
+                        variant={"default"}
+                        size="icon-sm"
+                        aria-label="Track Order"
+                        title="Track Order"
+                      >
+                        <MapPinnedIcon className={`h-4 w-4`} />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
 
           <div className="w-full lg:hidden">
             <div className="w-full grid gap-4">

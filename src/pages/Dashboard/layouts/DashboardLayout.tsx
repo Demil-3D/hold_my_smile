@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { http } from "@/utils/http";
 import { toast } from "sonner";
 import PageHeader from "@/components/Dashboard/PageHeader";
+import { Separator } from "@/components/ui/separator";
 
 export default function PortalLayout() {
   const [profile, setProfile] = useState(null);
@@ -30,8 +31,9 @@ export default function PortalLayout() {
         <DashboardSideNav profile={profile} />
 
         {/* Main Area */}
-        <div className="w-full flex-1 max-w-full flex flex-col pt-6">
+        <div className="w-full flex-1 max-w-full grid grid-cols-1 pt-2">
           <PageHeader profile={profile} />
+          <Separator className="mb-2" />
 
           <main className="flex-1 py-6 px-6 md:px-8">
             <Outlet />

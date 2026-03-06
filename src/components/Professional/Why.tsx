@@ -50,7 +50,8 @@ function Why() {
                 key={index}
                 className="gap-6 items-start bg-white/10 rounded-none"
                 data-aos="fade-right"
-                data-aos-delay={150 * (index + 2)}
+                data-aos-duration={300}
+                data-aos-delay={100 * (index + 2)}
               >
                 <ItemMedia>{pillar.icon}</ItemMedia>
                 <div className="flex-1 space-y-1 text-wrap">

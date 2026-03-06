@@ -85,9 +85,9 @@ function PricingPage() {
       <div className="w-full text-center py-24 bg-slate-100">
         <div className="max-w-6xl mx-auto">
           <Accordion
-            type="single"
+            type="multiple"
             className="w-full space-y-4 border border-slate-200"
-            defaultValue={"0"}
+            defaultValue={["0", "1", "2"]}
           >
             {PLAN_TYPES.map((plan_type, index) => {
               const plans = subscriptionPlans.filter((p) =>

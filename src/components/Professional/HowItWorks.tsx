@@ -51,7 +51,7 @@ function HowItWorksSection() {
                 key={index}
                 className="w-full items-start gap-6"
                 data-aos="fade-up"
-                data-aos-delay={150 * index}
+                data-aos-delay={100 * index}
               >
                 <ItemMedia>
                   <span className="text-4xl font-bold text-accent">
