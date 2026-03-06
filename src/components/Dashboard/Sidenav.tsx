@@ -162,9 +162,11 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
     >
       <SidebarHeader className="py-4">
         <div className="w-fit scale-80">
-          <Link to={"/"}>
-            <Logo />
-          </Link>
+          {!collapsed && (
+            <Link to={"/"}>
+              <Logo />
+            </Link>
+          )}
         </div>
       </SidebarHeader>
       <SidebarContent className="py-6 inset-shadow-xs">
@@ -183,14 +185,15 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
                           <SidebarMenuButton
                             size={"lg"}
                             className={cn(
-                              "w-full relative px-4 text-sm font-medium transition-all gap-4 rounded-none cursor-pointer",
+                              "w-full relative px-4 text-base transition-all gap-4 rounded-none cursor-pointer",
                               active
-                                ? "bg-accent/20 text-accent"
+                                ? "bg-accent/20 text-accent font-medium"
                                 : "text-slate-600 hover:bg-slate-100",
+                              collapsed && "justify-center mx-auto",
                             )}
                             onClick={() => onNavLinkClick(item.path)}
                           >
-                            <Icon className="size-6" />
+                            <Icon className="w-6 h-6" />
                             {!collapsed && <span>{item.title}</span>}
                           </SidebarMenuButton>
                         </SidebarMenuItem>
@@ -211,24 +214,30 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <div
-                className={`w-full flex gap-4 items-center cursor-pointer px-3 py-2`}
+                className={`w-full flex gap-4 items-center cursor-pointer ${collapsed ? "justify-center" : "px-3"} py-2`}
               >
                 <div className="w-8 h-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
                   <User2Icon className="size-5.5" />
                 </div>
-                <div className="flex-1 w-full text-wrap text-sm">
-                  <p className="line-clamp-1 font-semibold">
-                    <span>{profile !== null ? profile.first_name : "---"}</span>{" "}
-                    <span>{profile !== null ? profile.last_name : ""}</span>
-                  </p>
-                  <small className="line-clamp-1 break-all">
-                    {profile !== null ? profile.email : "---"}
-                  </small>
-                </div>
+                {!collapsed && (
+                  <>
+                    <div className="flex-1 w-full text-wrap text-sm">
+                      <p className="line-clamp-1 font-semibold">
+                        <span>
+                          {profile !== null ? profile.first_name : "---"}
+                        </span>{" "}
+                        <span>{profile !== null ? profile.last_name : ""}</span>
+                      </p>
+                      <small className="line-clamp-1 break-all">
+                        {profile !== null ? profile.email : "---"}
+                      </small>
+                    </div>
 
-                <div className="w-fit">
-                  <ChevronsUpDownIcon className="size-4" />
-                </div>
+                    <div className="w-fit">
+                      <ChevronsUpDownIcon className="size-4" />
+                    </div>
+                  </>
+                )}
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-68 p-2 rounded-none mx-2 shadow-lg">

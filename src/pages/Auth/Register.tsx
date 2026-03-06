@@ -10,20 +10,23 @@ import {
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import type { AuthField } from "./schema";
 import { toast } from "sonner";
 import ReCAPTCHA from "react-google-recaptcha";
 import { recapchaKey } from "@/utils/envParser";
 import { SignInMagicLinkDialog } from "@/components/Auth/SignInMagicLinkDialog";
 import { http } from "@/utils/http";
+import { useAuth } from "@/context/AuthContext";
 
 function RegisterPage() {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [openMagicLinkDialog, setOpenMagicLinkDialog] = useState(false);
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   const defaultFields: AuthField[] = [
     {
@@ -201,6 +204,15 @@ function RegisterPage() {
       toast.error("Network error");
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      toast.info("You are already logged in! Redirecting to dashboard...");
+      setTimeout(() => {
+        navigate("/portal/dashboard");
+      }, 2000);
+    }
+  }, [isLoggedIn]);
 
   return (
     <>

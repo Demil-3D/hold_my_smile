@@ -62,13 +62,13 @@ export default function TrustAndQualitySection() {
             <p className="text-lg whitespace-pre-wrap">
               {`Designed For Patients Who:`}
             </p>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 pb-6">
+            <div className="w-full flex max-md:flex-col md:flex-wrap justify-center gap-4 pb-6">
               {PEOPLE_ITS_FOR.map((item, index) => (
                 <div
                   key={index}
                   data-aos="fade-left"
                   data-aos-delay={50 * index}
-                  className="p-4 border border-slate-300 flex gap-4 text-start"
+                  className="w-full md:w-[calc(50%-0.5rem)] p-4 border border-slate-300 flex gap-4 text-start"
                 >
                   <div className="size-6 font-bold text-accent bg-accent/20 grid place-items-center rounded-full">
                     {index + 1}

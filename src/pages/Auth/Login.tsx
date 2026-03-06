@@ -22,7 +22,12 @@ function LoginPage() {
   const [showPasswordField, setShowPasswordField] = useState(false);
 
   useEffect(() => {
-    if (isLoggedIn) navigate("/portal/dashboard");
+    if (isLoggedIn) {
+      toast.info("You are already logged in! Redirecting to dashboard...");
+      setTimeout(() => {
+        navigate("/portal/dashboard");
+      }, 3000);
+    }
   }, [isLoggedIn]);
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {

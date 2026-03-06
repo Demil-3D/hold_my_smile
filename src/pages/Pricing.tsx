@@ -104,7 +104,7 @@ function PricingPage() {
                     {plan_type.group}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                       {plans.map((plan, index) => (
                         <div
                           key={plan.id}
@@ -140,7 +140,7 @@ function PricingPage() {
             data-aos="fade-up"
             data-aos-delay={200}
           >
-            {`Orthodontic treatment straightens your teeth. Retention keeps them that way.\nTeeth move throughout life. After braces or aligners, they naturally shift back toward their original position. That isn’t failure. It’s biology. Without consistent retainers and periodic oversight, small changes can become costly corrections.`}
+            {`Orthodontic treatment straightens your teeth. Retention keeps them that way.\nTeeth move throughout life. After braces or aligners, they naturally shift back toward their original position. That isn’t failure. It’s biology. Without consistent retainers and periodic oversight, small changes \ncan become costly corrections.`}
           </div>
 
           <div className="w-full space-y-24 mt-14">

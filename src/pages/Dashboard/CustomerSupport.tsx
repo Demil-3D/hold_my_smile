@@ -140,7 +140,7 @@ export default function SupportPage() {
             icon={Phone}
             title="Phone Support"
             description="Mon-Fri · 8am-6pm"
-            action="Call Lab"
+            action="Call Lab ( 01913077018 )"
             onClick={() => openExternalLink("tel:01913077018")}
           />
           <ContactCard
