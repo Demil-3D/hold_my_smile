@@ -194,7 +194,7 @@ function RegisterPage() {
 
       if (!res.ok) {
         const json = await res.json();
-        toast.error(json.message || "Signup failed");
+        toast.error(json.details || "Failed to create account");
         return;
       }
 

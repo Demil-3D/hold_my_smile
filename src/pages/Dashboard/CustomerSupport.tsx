@@ -131,16 +131,16 @@ export default function SupportPage() {
           <ContactCard
             icon={MessageSquare}
             title="Chat"
-            description="Avg. response 2 mins"
+            description="Response within 24hrs"
             action="Send a Message"
             variant="default"
             onClick={() => setOpenContactForm(true)}
           />
           <ContactCard
             icon={Phone}
-            title="Phone Support"
-            description="Mon-Fri · 8am-6pm"
-            action="Call Lab ( 01913077018 )"
+            title="Phone Support (019130 77018)"
+            description="Mon-Fri · 9am-5pm"
+            action="Call Lab"
             onClick={() => openExternalLink("tel:01913077018")}
           />
           <ContactCard

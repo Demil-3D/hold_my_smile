@@ -15,6 +15,7 @@ import {
 } from "./ui/drawer";
 import { MenuIcon, MinusIcon, MoveLeftIcon } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import { cn } from "@/lib/utils";
 
 type NavLinkType = { path: string; label: string };
 
@@ -138,10 +139,28 @@ export default function NavBar() {
   const { isLoggedIn } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showFixedNav, setShowFixedNav] = useState(true);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // 1. Handle the background color/blur toggle
+      setIsScrolled(currentScrollY > 20);
+
+      // 2. Handle the hide/show nav toggle
+      if (currentScrollY < 150) {
+        setShowFixedNav(true);
+      } else if (currentScrollY > lastScrollY) {
+        setShowFixedNav(false);
+      } else if (currentScrollY < lastScrollY) {
+        setShowFixedNav(true);
+      }
+
+      // Update the tracker for the next scroll event
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -150,11 +169,14 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`w-full px-5 py-4 md:py-6 fixed top-0 inset-x-0 z-9999 transition-all duration-300 ease-in-out ${
+      className={cn(
+        "w-full px-5 py-4 md:py-6",
+        "fixed inset-x-0 z-9999 transition-all duration-500 ease-in-out",
+        showFixedNav ? "top-0" : "-top-full",
         isScrolled
           ? "bg-white/80 backdrop-blur-xl lg:border-b lg:border-slate-200 shadow-sm"
-          : "bg-linear-to-b from-white/50 to-transparent backdrop-blur-sm border-transparent"
-      }`}
+          : "bg-linear-to-b from-white/50 to-transparent backdrop-blur-sm border-transparent",
+      )}
     >
       <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
         <Link to="/">

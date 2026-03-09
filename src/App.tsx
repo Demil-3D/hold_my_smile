@@ -250,9 +250,14 @@ function App() {
       duration: 500,
       easing: "ease-out",
       once: false,
-      mirror: true,
       offset: 150,
     });
+
+    // Force AOS to recalculate after the DOM is ready
+    setTimeout(function () {
+      AOS.refresh();
+      console.log("refreshed");
+    }, 100);
   }, []);
 
   return (

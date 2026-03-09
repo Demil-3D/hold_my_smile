@@ -20,7 +20,7 @@ function Why() {
     },
   ];
   return (
-    <div className="w-full py-12 bg-linear-to-b from-primary/90 to-primary from-70% bg-fixed text-primary-foreground">
+    <div className="w-full py-12 bg-primary/90 from-70% bg-fixed text-primary-foreground">
       <div className="w-full max-w-5xl mx-auto space-y-6 py-16">
         <legend
           className="text-4xl font-bold text-center max-w-2xl mx-auto"
