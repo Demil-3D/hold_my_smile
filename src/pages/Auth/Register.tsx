@@ -194,7 +194,7 @@ function RegisterPage() {
 
       if (!res.ok) {
         const json = await res.json();
-        toast.error(json.details || "Failed to create account");
+        toast.error(json.details ?? "Failed to create account");
         recaptchaRef.current?.reset();
         return;
       }
