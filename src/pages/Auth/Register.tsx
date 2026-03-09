@@ -195,6 +195,7 @@ function RegisterPage() {
       if (!res.ok) {
         const json = await res.json();
         toast.error(json.details || "Failed to create account");
+        recaptchaRef.current?.reset();
         return;
       }
 
@@ -202,6 +203,7 @@ function RegisterPage() {
       setOpenMagicLinkDialog(true);
     } catch {
       toast.error("Network error");
+      recaptchaRef.current?.reset();
     }
   };
 

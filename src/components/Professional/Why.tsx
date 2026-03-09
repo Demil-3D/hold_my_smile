@@ -19,6 +19,7 @@ function Why() {
       text: "We store your patient scans safely and at no cost to the practice.",
     },
   ];
+
   return (
     <div className="w-full py-12 bg-primary/90 from-70% bg-fixed text-primary-foreground">
       <div className="w-full max-w-5xl mx-auto space-y-6 py-16">
