@@ -11,12 +11,25 @@ export function HeroBanner() {
     <>
       {/* #d5d6e6 */}
       <div className="w-full min-h-dvh relative">
-        <img
+        <div className="illusion-container relative h-full w-full min-h-dvh max-h-dvh">
+          <img
+            src={bannerImage}
+            alt="Base Layer"
+            className="grow-image base-layer absolute top-0 left-0 z-10 h-full w-full min-h-dvh max-h-dvh object-cover object-top"
+          />
+
+          <img
+            src={bannerImage}
+            alt="Top Animating Layer"
+            className="grow-image top-layer absolute top-0 left-0 z-20 h-full w-full min-h-dvh max-h-dvh object-cover object-top"
+          />
+        </div>
+        {/* <img
           src={bannerImage}
           alt=""
           className="h-full w-full min-h-dvh max-h-dvh object-cover object-top"
-        />
-        <div className="absolute top-0 right-0 z-10 w-full h-full inset-y-0 min-h-dvh bg-linear-to-r from-white/40 to-transparent to-60%">
+        /> */}
+        <div className="absolute top-0 right-0 z-50 w-full h-full inset-y-0 min-h-dvh bg-linear-to-r from-accent/5 to-transparent to-60% max-md:backdrop-blur-sm">
           <div className="w-full max-w-2xl lg:max-w-5xl max-lg:mx-auto h-full min-h-dvh flex items-center md:pt-12 pb-6">
             <div className="w-full text-center md:text-start p-6 lg:p-24 flex flex-col gap-2 items-center md:items-start">
               <div className="w-fit" data-aos="fade-left" data-aos-delay={0}>

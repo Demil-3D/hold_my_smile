@@ -148,7 +148,7 @@ export default function NavBar() {
       const currentScrollY = window.scrollY;
 
       // 1. Handle the background color/blur toggle
-      setIsScrolled(currentScrollY > 20);
+      setIsScrolled(currentScrollY > 50);
 
       // 2. Handle the hide/show nav toggle
       if (currentScrollY < 150) {
@@ -175,7 +175,7 @@ export default function NavBar() {
         showFixedNav ? "top-0" : "-top-full",
         isScrolled
           ? "bg-white/80 backdrop-blur-xl lg:border-b lg:border-slate-200 shadow-sm"
-          : "bg-linear-to-b from-white/50 to-transparent backdrop-blur-sm border-transparent",
+          : "bg-linear-to-b from-accent/5 to-transparent backdrop-blur-sm border-transparent",
       )}
     >
       <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
