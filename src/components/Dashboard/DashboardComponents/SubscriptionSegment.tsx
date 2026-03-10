@@ -11,7 +11,7 @@ export default function SubscriptionSegment({
 }) {
   const navigate = useNavigate();
   return (
-    <div className="w-full border inset-shadow-xs min-h-40 space-y-4 p-4">
+    <div className="w-full border inset-shadow-xs min-h-40 space-y-4 p-4 bg-white/60">
       <legend className="font-semibold text-primary">
         Manage Subscription
       </legend>

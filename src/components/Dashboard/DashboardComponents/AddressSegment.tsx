@@ -2,7 +2,7 @@ import { MapPinOffIcon, PencilLineIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import type { AddressProps } from "@/pages/Dashboard/utils/schema/patient/adddress";
+import type { AddressProps } from "@/pages/Dashboard/utils/schema/patient/address";
 import { http } from "@/utils/http";
 import { toast } from "sonner";
 import { AddressFormDialog } from "../AddressComponents/AddressFormDialog";
@@ -32,7 +32,7 @@ export default function AddressSegment() {
   }, []);
 
   return (
-    <div className="w-full border inset-shadow-xs min-h-20 space-y-2 p-4">
+    <div className="w-full border inset-shadow-xs min-h-20 space-y-2 p-4 bg-white/60">
       <legend className="font-semibold text-primary flex justify-between items-center">
         Delivery Address:
         <Badge variant={"default"} className="rounded-none">

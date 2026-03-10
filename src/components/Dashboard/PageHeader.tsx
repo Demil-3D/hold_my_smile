@@ -58,7 +58,7 @@ export default function PageHeader({ profile }: { profile: any }) {
 
   return (
     <>
-      <header className="w-full bg-white flex items-start p-6 gap-6">
+      <header className="w-full flex items-start p-6 gap-6">
         <Button
           variant={"secondary"}
           size={"icon-lg"}

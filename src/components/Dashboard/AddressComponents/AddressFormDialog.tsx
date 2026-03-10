@@ -15,7 +15,7 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Field, FieldLabel } from "@/components/ui/field";
-import type { AddressProps } from "@/pages/Dashboard/utils/schema/patient/adddress";
+import type { AddressProps } from "@/pages/Dashboard/utils/schema/patient/address";
 import { useState } from "react";
 
 type Props = {

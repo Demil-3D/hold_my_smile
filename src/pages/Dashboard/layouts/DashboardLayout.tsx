@@ -25,7 +25,7 @@ export default function PortalLayout() {
   }, []);
 
   return (
-    <div className="h-dvh bg-white relative">
+    <div className="h-fit min-h-dvh relative bg-slate-50">
       <SidebarProvider>
         {/* Sidebar */}
         <DashboardSideNav profile={profile} />

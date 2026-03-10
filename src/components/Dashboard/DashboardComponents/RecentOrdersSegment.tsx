@@ -9,7 +9,7 @@ function RecentOrdersSegment({ orders }: { orders: Order[] }) {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full md:col-span-2 md:row-span-2 min-h-48 space-y-4">
+    <div className="w-full md:col-span-2 md:row-span-2 min-h-48 space-y-4 py-2 md:p-2 bg-white/60">
       <legend className="font-semibold text-primary flex justify-between items-center">
         <span>Recent Orders</span>
         <Button

@@ -28,6 +28,7 @@ import { Field, FieldLabel } from "@/components/ui/field";
 import { useState } from "react";
 import { toast } from "sonner";
 import { http } from "@/utils/http";
+import GradientBg from "@/components/GradientBg";
 
 const VIDEO_GUIDES = [
   { title: "Optimizing your iTero Scans", duration: "3:45" },
@@ -111,23 +112,23 @@ export default function SupportPage() {
   };
 
   return (
-    <div className="min-h-screen bg-muted/40 pb-16">
+    <div className="min-h-screen bg-muted/40 pb-16 pt-6">
       {/* Hero */}
-      <section className="bg-primary pt-20 pb-36 px-4 text-primary-foreground">
-        <div className="container max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl font-semibold tracking-tight">
-            How can we support you today?
-          </h1>
-          <p className="mt-4 text-primary-foreground/80">
-            Access clinical guides, track shipments, or connect directly with
-            our lab technicians.
-          </p>
-        </div>
-      </section>
+      <GradientBg paddingMd={12} paddingSm={6}>
+        <section className="text-primary">
+          <div className="container max-w-xl text-start">
+            <h1 className="text-4xl font-semibold tracking-tight">
+              How can we support you today?
+            </h1>
+            <p className="mt-4 text-primary/80">
+              Access clinical guides, track shipments, or connect directly with
+              our lab technicians.
+            </p>
+          </div>
+        </section>
 
-      <main className="container -mt-16 max-w-6xl mx-auto space-y-12">
         {/* Contact Grid */}
-        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-10 px-4">
           <ContactCard
             icon={MessageSquare}
             title="Chat"
@@ -155,7 +156,9 @@ export default function SupportPage() {
             }
           />
         </section>
+      </GradientBg>
 
+      <main className="container max-w-6xl mt-12 mx-auto space-y-12 z-10">
         <section className="grid gap-10 lg:grid-cols-3">
           {/* FAQ SECTION */}
           <div className="lg:col-span-2 space-y-8 -mt-12">
@@ -286,17 +289,19 @@ function ContactCard({
   onClick?: () => void;
 }) {
   return (
-    <Card className="transition hover:shadow-md rounded-none">
+    <Card className="transition-all duration-300 shadow-md hover:shadow-lg rounded-none bg-white/60">
       <CardContent className="space-y-4">
-        <Icon className="h-6 w-6 text-primary" />
-        <div>
-          <h3 className="font-medium">{title}</h3>
-          <p className="text-xs text-muted-foreground mt-1">{description}</p>
+        <div className="flex gap-4">
+          <Icon className="h-6 w-6 text-primary" />
+          <div className="flex-1">
+            <h3 className="font-medium">{title}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{description}</p>
+          </div>
         </div>
         <Button
           variant={variant}
           size="lg"
-          className="w-full rounded-none"
+          className="w-fit rounded-none"
           onClick={onClick}
         >
           {action}

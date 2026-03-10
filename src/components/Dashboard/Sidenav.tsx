@@ -152,75 +152,102 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
   };
 
   return (
-    <Sidebar
-      side="left"
-      variant="sidebar"
-      collapsible="icon"
-      className={cn(
-        "border-r border-r-slate-200 bg-slate-100 transition-all sticky h-dvh",
-      )}
-    >
-      <SidebarHeader className="py-4">
-        <div className="w-fit scale-80">
-          {!collapsed && (
-            <Link to={"/"}>
-              <Logo />
-            </Link>
-          )}
-        </div>
-      </SidebarHeader>
-      <SidebarContent className="py-6 inset-shadow-xs">
-        <SidebarMenu>
-          {Object.entries(grouped).map(([section, items]: any) => (
-            <div key={section.split(" ").join("")}>
-              <SidebarGroup>
-                {section && <SidebarGroupLabel>{section}</SidebarGroupLabel>}
-                <SidebarGroupContent>
-                  <SidebarMenu className="space-y-1">
-                    {items.map((item: any) => {
-                      const Icon = item.icon;
-                      const active = location.pathname === item.path;
-                      return (
-                        <SidebarMenuItem key={item.path}>
-                          <SidebarMenuButton
-                            size={"lg"}
-                            className={cn(
-                              "w-full relative px-4 text-base transition-all gap-4 rounded-none cursor-pointer",
-                              active
-                                ? "bg-accent/20 text-accent font-medium"
-                                : "text-slate-600 hover:bg-slate-100",
-                              collapsed && "justify-center mx-auto",
-                            )}
-                            onClick={() => onNavLinkClick(item.path)}
-                          >
-                            <Icon className="w-6 h-6" />
-                            {!collapsed && <span>{item.title}</span>}
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      );
-                    })}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-              <Separator />
+    <>
+      <Sidebar
+        side="left"
+        variant="sidebar"
+        collapsible="icon"
+        className={cn("transition-all sticky h-dvh")}
+      >
+        <div className="w-full h-dvh bg-linear-to-br from-[#eef2fd] to-[#faf4fd] via-white via-60% flex flex-col shadow-lg">
+          <SidebarHeader className="py-4 bg-transparent">
+            <div className="w-fit scale-75">
+              {!collapsed && (
+                <Link to={"/"}>
+                  <Logo />
+                </Link>
+              )}
             </div>
-          ))}
-        </SidebarMenu>
-      </SidebarContent>
-      <Separator />
-      <SidebarFooter className="pb-4">
-        <SidebarMenu>
-          {/* USER PROFILE */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <div
-                className={`w-full flex gap-4 items-center cursor-pointer ${collapsed ? "justify-center" : "px-3"} py-2`}
-              >
-                <div className="w-8 h-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
-                  <User2Icon className="size-5.5" />
+          </SidebarHeader>
+          <SidebarContent className="py-6 inset-shadow-xs bg-transparent">
+            <SidebarMenu>
+              {Object.entries(grouped).map(([section, items]: any) => (
+                <div key={section.split(" ").join("")}>
+                  <SidebarGroup>
+                    {section && (
+                      <SidebarGroupLabel>{section}</SidebarGroupLabel>
+                    )}
+                    <SidebarGroupContent>
+                      <SidebarMenu
+                        className={`${collapsed ? "space-y-4" : "space-y-1"}`}
+                      >
+                        {items.map((item: any) => {
+                          const Icon = item.icon;
+                          const active = location.pathname === item.path;
+                          return (
+                            <SidebarMenuItem key={item.path}>
+                              <SidebarMenuButton
+                                size={"lg"}
+                                className={cn(
+                                  "w-full relative px-6 py-7 text-base transition-all duration-300 gap-4 rounded-none cursor-pointer",
+                                  active
+                                    ? "bg-linear-to-r from-accent/20 to-accent/10 text-accent font-medium shadow-md hover:bg-accent/20 hover:text-accent"
+                                    : "text-slate-600 hover:bg-slate-100",
+                                  collapsed && "justify-center mx-auto",
+                                )}
+                                onClick={() => onNavLinkClick(item.path)}
+                              >
+                                <Icon className="w-6 h-6" />
+                                {!collapsed && <span>{item.title}</span>}
+                              </SidebarMenuButton>
+                            </SidebarMenuItem>
+                          );
+                        })}
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </SidebarGroup>
+                  <Separator />
                 </div>
-                {!collapsed && (
-                  <>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+          <Separator />
+          <SidebarFooter className="pb-4 bg-transparent">
+            <SidebarMenu>
+              {/* USER PROFILE */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <div
+                    className={`w-full flex gap-4 items-center cursor-pointer ${collapsed ? "justify-center" : "px-3"} py-2`}
+                  >
+                    <div className="w-8 h-8 rounded-full grid place-items-center bg-primary text-primary-foreground">
+                      <User2Icon className="size-5.5" />
+                    </div>
+                    {!collapsed && (
+                      <>
+                        <div className="flex-1 w-full text-wrap text-sm">
+                          <p className="line-clamp-1 font-semibold">
+                            <span>
+                              {profile !== null ? profile.first_name : "---"}
+                            </span>{" "}
+                            <span>
+                              {profile !== null ? profile.last_name : ""}
+                            </span>
+                          </p>
+                          <small className="line-clamp-1 break-all">
+                            {profile !== null ? profile.email : "---"}
+                          </small>
+                        </div>
+
+                        <div className="w-fit">
+                          <ChevronsUpDownIcon className="size-4" />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-68 p-2 rounded-none mx-2 shadow-lg">
+                  <DropdownMenuLabel className="p-2 flex gap-4">
                     <div className="flex-1 w-full text-wrap text-sm">
                       <p className="line-clamp-1 font-semibold">
                         <span>
@@ -228,61 +255,43 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
                         </span>{" "}
                         <span>{profile !== null ? profile.last_name : ""}</span>
                       </p>
-                      <small className="line-clamp-1 break-all">
+                      <small className="line-clamp-1 break-all font-normal">
                         {profile !== null ? profile.email : "---"}
                       </small>
                     </div>
-
-                    <div className="w-fit">
-                      <ChevronsUpDownIcon className="size-4" />
-                    </div>
-                  </>
-                )}
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-68 p-2 rounded-none mx-2 shadow-lg">
-              <DropdownMenuLabel className="p-2 flex gap-4">
-                <div className="flex-1 w-full text-wrap text-sm">
-                  <p className="line-clamp-1 font-semibold">
-                    <span>{profile !== null ? profile.first_name : "---"}</span>{" "}
-                    <span>{profile !== null ? profile.last_name : ""}</span>
-                  </p>
-                  <small className="line-clamp-1 break-all font-normal">
-                    {profile !== null ? profile.email : "---"}
-                  </small>
-                </div>
-              </DropdownMenuLabel>
-              <Separator className=" my-2" />
-              {(isPatientAccount
-                ? patientProfileLinks
-                : clinicianProfileLinks
-              ).map((item, index) => {
-                const Icon = item.icon;
-                return (
+                  </DropdownMenuLabel>
+                  <Separator className=" my-2" />
+                  {(isPatientAccount
+                    ? patientProfileLinks
+                    : clinicianProfileLinks
+                  ).map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <DropdownMenuItem
+                        key={index}
+                        variant="default"
+                        onClick={() => onNavLinkClick(item.path)}
+                        className="flex gap-4 py-3 px-3 rounded-none focus:bg-slate-100"
+                      >
+                        <Icon className="size-4.5" />
+                        <span>{item.title}</span>
+                      </DropdownMenuItem>
+                    );
+                  })}
                   <DropdownMenuItem
-                    key={index}
-                    variant="default"
-                    onClick={() => onNavLinkClick(item.path)}
-                    className="flex gap-4 py-3 px-3 rounded-none focus:bg-slate-100"
+                    variant="destructive"
+                    onClick={() => setIsConfirmLogoutDialogOpen(true)}
+                    className="flex gap-4 py-3 px-3 rounded-none"
                   >
-                    <Icon className="size-4.5" />
-                    <span>{item.title}</span>
+                    <LogOutIcon className="w-5 h-5" />
+                    <span>Logout</span>
                   </DropdownMenuItem>
-                );
-              })}
-              <DropdownMenuItem
-                variant="destructive"
-                onClick={() => setIsConfirmLogoutDialogOpen(true)}
-                className="flex gap-4 py-3 px-3 rounded-none"
-              >
-                <LogOutIcon className="w-5 h-5" />
-                <span>Logout</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </SidebarMenu>
-      </SidebarFooter>
-
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenu>
+          </SidebarFooter>
+        </div>
+      </Sidebar>
       <ConfirmDialog
         open={isConfirmLogoutDialogOpen}
         onConfirm={logout}
@@ -291,6 +300,6 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
         description="Are you sure you want to sign out of your account?"
         onOpenChange={setIsConfirmLogoutDialogOpen}
       />
-    </Sidebar>
+    </>
   );
 }

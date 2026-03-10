@@ -1,4 +1,4 @@
-import bannerImage from "@/assets/images/main-banner.png";
+import bannerImage from "@/assets/images/image.png";
 import missionSectionImage from "@/assets/images/collage-1.png";
 import ContactForm from "@/components/Contact/ContactForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,20 +40,21 @@ function AboutUsPage() {
         id="mission-section"
       >
         <div className="w-full flex max-md:flex-col items-center gap-12">
-          <div
-            className="w-full md:flex-1 space-y-4 max-md:text-center"
-            data-aos="fade-right"
-            data-aos-delay={150}
-          >
-            <h1 className="text-4xl text-primary font-bold">
+          <div className="w-full md:flex-1 space-y-4 max-md:text-center">
+            <h1
+              className="text-4xl text-primary font-bold mb-4"
+              data-aos="fade-right"
+              data-aos-delay={150}
+              data-aos-offset={0}
+            >
               Our <span className="text-accent">Mission</span>
             </h1>
-            <p className="text-lg">
+            <p className="text-lg" data-aos="fade-right" data-aos-delay={150}>
               To simplify orthodontic retention, improving patient access and
               compliance, reducing relapse, and helping practices deliver better
               long-term outcomes with less administrative burden.
             </p>
-            <p className="text-lg">
+            <p className="text-lg" data-aos="fade-right" data-aos-delay={150}>
               {`Orthodontic treatment doesn't end when braces or aligners come
                 off. Retention is what protects the result, and yet it's often
                 the most fragmented, inconvenient, and underestimated part of
@@ -88,7 +89,11 @@ function AboutUsPage() {
         {/* Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-left">
           {/* Laboratory Card */}
-          <Card className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none">
+          <Card
+            className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none"
+            data-aos="fade-up"
+            data-aos-delay={50}
+          >
             <CardHeader>
               <Microscope className="w-8 h-8 text-[#d19bc2] mb-2" />
               <CardTitle className="text-[#d19bc2] text-sm font-bold uppercase tracking-wider">
@@ -105,7 +110,11 @@ function AboutUsPage() {
           </Card>
 
           {/* Clinical Card */}
-          <Card className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none">
+          <Card
+            className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none"
+            data-aos="fade-up"
+            data-aos-delay={100}
+          >
             <CardHeader>
               <Stethoscope className="w-8 h-8 text-[#d19bc2] mb-2" />
               <CardTitle className="text-[#d19bc2] text-sm font-bold uppercase tracking-wider">
@@ -122,7 +131,11 @@ function AboutUsPage() {
           </Card>
 
           {/* Patient Card */}
-          <Card className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none">
+          <Card
+            className="bg-slate-50/50 border-0 border-t-4 border-t-[#d19bc2] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded-none"
+            data-aos="fade-up"
+            data-aos-delay={150}
+          >
             <CardHeader>
               <User className="w-8 h-8 text-[#d19bc2] mb-2" />
               <CardTitle className="text-[#d19bc2] text-sm font-bold uppercase tracking-wider">

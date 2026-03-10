@@ -13,8 +13,8 @@ export default function FAQComponent() {
     <section className="w-full mx-auto px-6 md:px-12 lg:px-24 py-24 max-w-6xl space-y-12">
       <legend
         className="font-bold text-3xl text-center"
-        data-aos="fade-up"
-        data-aos-delay={0}
+        // data-aos="fade-up"
+        // data-aos-delay={0}
       >
         Frequently Asked <span className="text-accent">Questions</span>
       </legend>

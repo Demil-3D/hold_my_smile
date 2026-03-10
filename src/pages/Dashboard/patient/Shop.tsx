@@ -16,6 +16,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import type { Product } from "../utils/schema/patient/shop";
 import { http } from "@/utils/http";
+import SubscriptionBanner from "@/components/Dashboard/ShopComponents/SubscriptionBanner";
 
 type PriceSortType = null | "price-asc" | "price-desc";
 
@@ -78,6 +79,10 @@ function ShopPage() {
   return (
     <>
       <div className="w-full flex flex-col gap-6">
+        {/* SUBSCRIPTION BANNER */}
+        <SubscriptionBanner />
+
+        {/* PRODUCTS */}
         <div className="w-full flex max-md:flex-col justify-between md:items-center gap-3">
           <legend className="text-xl font-semibold text-primary">
             Products
@@ -98,7 +103,7 @@ function ShopPage() {
           </div>
         </div>
 
-        <div className="w-full md:px-4 py-4">
+        <div className="w-full md:px-4 py-4 lg:bg-white/60 lg:shadow-lg">
           <table className="w-full border-separate border-spacing-0 max-lg:hidden">
             <thead>
               <tr className="text-left text-xs text-muted-foreground">
@@ -200,6 +205,9 @@ function ShopPage() {
             </div>
           </div>
         </div>
+
+        {/* BOTTOM PAD */}
+        <div className="w-full h-[25vh]"></div>
       </div>
     </>
   );

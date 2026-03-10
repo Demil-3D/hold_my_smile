@@ -6,7 +6,7 @@ export default function ClinicianSegment({
   clinician: ProfileProps["clinician"] | null;
 }) {
   return (
-    <div className="w-full border inset-shadow-xs min-h-32 space-y-4 p-4">
+    <div className="w-full border inset-shadow-xs min-h-32 space-y-4 p-4 bg-white/60">
       <legend className="font-semibold text-primary">Clinician Info:</legend>
 
       {/* CLINICIAN DETAILS */}

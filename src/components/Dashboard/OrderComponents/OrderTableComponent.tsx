@@ -112,7 +112,7 @@ function OrderTableComponent({
           </div>
         )}
 
-        <div className="w-full md:px-4 py-4 text-nowrap">
+        <div className="w-full md:px-4 py-4 text-nowrap lg:bg-white/60 lg:shadow-lg">
           <Table className="max-lg:hidden">
             <TableHeader className="">
               <TableRow>

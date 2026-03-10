@@ -122,12 +122,14 @@ export function MasonryGrid({
     <div
       ref={gridRef}
       className={[
-        "grid grid-cols-1 lg:grid-cols-3 gap-3",
+        "grid grid-cols-1 lg:grid-cols-3 gap-3.5",
         "grid-flow-dense",
         "items-start",
         className,
       ].join(" ")}
-      style={{ gridAutoRows: `${rowUnitPx}px` }}
+      style={{
+        gridAutoRows: `${rowUnitPx}px`,
+      }}
     >
       {items.map((item) => (
         <div

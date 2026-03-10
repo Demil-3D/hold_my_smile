@@ -34,7 +34,7 @@ export default function QuickLinksSegment() {
     },
   ];
   return (
-    <div className="w-full border inset-shadow-xs min-h-32 space-y-4 p-4">
+    <div className="w-full border inset-shadow-xs min-h-32 space-y-4 p-4 bg-white/60">
       <legend className="font-semibold text-primary">Quick Links:</legend>
 
       {/* SUBSCRIPTION DETAILS */}
