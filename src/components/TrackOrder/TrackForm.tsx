@@ -1,4 +1,3 @@
-import bannerImage from "@/assets/images/main-banner.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -6,6 +5,13 @@ import { http } from "@/utils/http";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "../ui/dialog";
+import GradientBg from "../GradientBg";
 
 type OrderStatusType =
   | "ORDER RECEIVED"
@@ -21,15 +27,6 @@ function TrackForm() {
     undefined,
   );
   const [trackingNumber, setTrackingNumber] = useState<string>("");
-  const TRACKING_STAGES: OrderStatusType[] = [
-    "ORDER RECEIVED",
-    "ORDER ACCEPTED",
-    "MANUFACTURING",
-    "DISPATCHED",
-  ];
-  const CURRENT_STAGE_INDEX = orderStatus
-    ? TRACKING_STAGES.indexOf(orderStatus)
-    : -1;
 
   const handleTrackEvent = async (formData: FormData) => {
     const data = Object.fromEntries(formData);
@@ -67,16 +64,21 @@ function TrackForm() {
 
   return (
     <>
-      <div className="relative">
-        <div
-          className="w-full h-75 bg-cover bg-top bg-no-repeat"
-          style={{ backgroundImage: `url(${bannerImage})` }}
-        >
-          <div className="w-full h-75 max-h-75 bg-slate-200/30 backdrop-blur-md"></div>
-        </div>
+      <section className="w-full py-24 bg-slate-50 flex justify-center relative">
+        <div className="absolute -top-24 -left-24 size-75 md:size-87.5 bg-blue-200/40 blur-3xl rounded-full" />
+        <div className="absolute -bottom-24 -right-24 size-75 md:size-87.5 bg-purple-200/40 blur-3xl rounded-full" />
 
-        {/* FORM */}
-        <div className="absolute bottom-0 left-0 right-0 translate-y-3/5 lg:translate-y-2/5 px-2 md:px-6">
+        <div className="max-w-7xl w-full px-6">
+          <div className="text-center py-12">
+            <h2 className="text-4xl font-semibold text-slate-900">
+              Track Your Order
+            </h2>
+            <p className="text-slate-600 mt-4">
+              See the real-time status of your aligners and delivery.
+            </p>
+          </div>
+
+          {/* FORM HERE */}
           <form
             ref={trackFormRef}
             method="get"
@@ -84,150 +86,190 @@ function TrackForm() {
               e.preventDefault();
               handleTrackEvent(new FormData(e.target as HTMLFormElement));
             }}
-            className="w-full max-w-4xl bg-white px-6 md:px-8 pt-8 pb-4 mx-auto inset-shadow-sm border-4 border-white shadow-xl"
+            className="w-full max-w-2xl mx-auto"
           >
-            {CURRENT_STAGE_INDEX == -1 ? (
-              <div className="w-full space-y-8 relative">
-                <legend className="text-primary text-3xl font-bold text-start md:text-center">
-                  Track Your Order
-                </legend>
-
-                {!hideReferenceForm ? (
-                  // REFERENCE FORM
-                  <div className="flex-1 flex flex-col gap-4">
-                    <label
-                      htmlFor="reference_number"
-                      className="text-lg text-accent font-semibold"
-                    >
-                      Reference Number *
-                    </label>
-                    <div className="w-full flex max-md:flex-col items-stretch gap-4">
-                      <Input
-                        type="text"
-                        id="reference_number"
-                        name="reference_number"
-                        placeholder="e.g. AA12345GHZ"
-                        defaultValue={
-                          searchParams.get("tracking_number") ?? undefined
-                        }
-                        required
-                        className="w-full py-6 px-4 border-2 text-lg rounded-none border-black/30"
-                      />
-                      <Button
-                        variant={"default"}
-                        size={"lg"}
-                        type="submit"
-                        className="rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
-                      >
-                        Track Order
-                      </Button>
-                    </div>
-                  </div>
-                ) : (
-                  // PERSONAL DETAILS FORM
-                  <div className="flex-1 flex flex-col gap-4">
-                    <label
-                      htmlFor="patient_name"
-                      className="text-lg text-accent font-semibold"
-                    >
-                      Full Name & DOB *
-                    </label>
-                    <div className="w-full flex max-md:flex-col items-stretch gap-4">
-                      <Input
-                        type="text"
-                        id="patient_name"
-                        name="patient_name"
-                        placeholder="e.g. John Doe"
-                        required
-                        className="w-full py-6 px-4 border-2 text-lg rounded-none border-black/30"
-                      />
-                      <Input
-                        type="date"
-                        id="patient_dob"
-                        name="patient_dob"
-                        required
-                        className="w-full py-6 px-4 border-2 text-lg rounded-none border-black/30"
-                      />
-                      <Button
-                        variant={"default"}
-                        size={"lg"}
-                        type="submit"
-                        className="rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
-                      >
-                        Track Order
-                      </Button>
-                    </div>
-                  </div>
-                )}
-
-                <div className="w-full">
+            <div className="w-full space-y-8 relative text-center">
+              {/* REFERENCE FORM */}
+              {!hideReferenceForm && (
+                <>
+                  <Input
+                    type="text"
+                    id="reference_number"
+                    name="reference_number"
+                    placeholder="e.g. AA12345GHZ"
+                    defaultValue={
+                      searchParams.get("tracking_number") ?? undefined
+                    }
+                    required
+                    className="w-full py-8 px-4 border text-xl text-center font-medium rounded-none border-black/20 shadow-lg"
+                  />
                   <Button
-                    variant={"link"}
-                    type="button"
-                    size={"default"}
-                    onClick={() => setHideReferenceForm(!hideReferenceForm)}
-                    className="p-0 m-0 cursor-pointer"
+                    variant={"secondary"}
+                    size={"lg"}
+                    type="submit"
+                    className="rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
                   >
-                    {hideReferenceForm
-                      ? `Remember your reference number?`
-                      : `No reference number?`}
+                    Track Order
                   </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="w-full space-y-6 relative">
-                <legend className="text-primary text-xl md:text-2xl font-bold text-center">
-                  Track Your Order: <br />({trackingNumber})
-                </legend>
+                </>
+              )}
 
-                <div className="w-full md:px-4 pt-6 md:pt-10 pb-16 md:pb-20">
-                  <div className="w-full relative h-1 bg-slate-200 rounded-full">
-                    {/* PROGRESS */}
-                    <div
-                      className={cn(
-                        "h-1 bg-primary rounded-full transition-all duration-300",
-                      )}
-                      style={{
-                        width: `${((CURRENT_STAGE_INDEX + 1) / 4) * 100}%`,
-                      }}
+              {/* PERSONAL DETAILS FORM */}
+              {hideReferenceForm && (
+                <>
+                  <div className="w-full flex max-sm:flex-col gap-4">
+                    <Input
+                      type="text"
+                      id="patient_name"
+                      name="patient_name"
+                      placeholder="e.g. John Doe"
+                      required
+                      className="w-full sm:flex-2 py-8 px-4 border text-lg rounded-none border-black/20 shadow-lg"
                     />
-
-                    {/* STAGES */}
-                    <div className="w-full absolute -top-1.75 left-0 sm:left-4 flex">
-                      {TRACKING_STAGES.map((stage, index) => {
-                        const isActive = index <= CURRENT_STAGE_INDEX;
-                        return (
-                          <div
-                            key={index}
-                            className="flex-1 flex flex-col justify-start items-center gap-3 text-center"
-                          >
-                            <div
-                              className={cn(
-                                "size-4 grid place-items-center rounded-full shadow-lg",
-                                isActive
-                                  ? "bg-primary text-slate-100"
-                                  : "bg-slate-300 text-primary border border-slate-200",
-                              )}
-                            />
-
-                            <span className="text-[10px] sm:text-sm text-primary capitalize">
-                              {stage
-                                .toLocaleLowerCase()
-                                .replace("order", "")
-                                .trim()}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <Input
+                      type="date"
+                      id="patient_dob"
+                      name="patient_dob"
+                      required
+                      className="w-full sm:flex-1 py-8 px-4 border text-lg rounded-none border-black/20 shadow-lg"
+                    />
                   </div>
-                </div>
+                  <Button
+                    variant={"secondary"}
+                    size={"lg"}
+                    type="submit"
+                    className="rounded-none py-6 px-6 border-2 border-accent bg-accent text-black"
+                  >
+                    Track Order
+                  </Button>
+                </>
+              )}
+              <div className="w-full">
+                <Button
+                  variant={"link"}
+                  type="button"
+                  size={"default"}
+                  onClick={() => setHideReferenceForm(!hideReferenceForm)}
+                  className="p-0 m-0 cursor-pointer"
+                >
+                  {hideReferenceForm
+                    ? `Remember your reference number?`
+                    : `No reference number?`}
+                </Button>
               </div>
-            )}
+            </div>
           </form>
         </div>
-      </div>
+      </section>
+
+      <OrderStatusDialog
+        orderStatus={orderStatus}
+        setOrderStatus={setOrderStatus}
+        trackingNumber={trackingNumber}
+      />
     </>
+  );
+}
+
+type OrderStatusDialogProps = {
+  orderStatus?: OrderStatusType;
+  setOrderStatus: (status: OrderStatusType | undefined) => void;
+  trackingNumber: string;
+};
+
+function OrderStatusDialog({
+  orderStatus,
+  setOrderStatus,
+  trackingNumber,
+}: OrderStatusDialogProps) {
+  const TRACKING_STAGES: OrderStatusType[] = [
+    "ORDER RECEIVED",
+    "ORDER ACCEPTED",
+    "MANUFACTURING",
+    "DISPATCHED",
+  ];
+  const CURRENT_STAGE_INDEX = orderStatus
+    ? TRACKING_STAGES.indexOf(orderStatus)
+    : -1;
+  const [progress, setProgress] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (orderStatus !== undefined) {
+        setProgress(true);
+      } else {
+        setProgress(false);
+      }
+    }, 300);
+  }, [orderStatus]);
+
+  return (
+    <Dialog
+      open={orderStatus !== undefined}
+      onOpenChange={() => {
+        setOrderStatus(undefined);
+      }}
+    >
+      <DialogContent showCloseButton={false} className="p-0 rounded-none">
+        <GradientBg>
+          <div className="w-full space-y-6 relative">
+            <div className="w-full text-center">
+              <DialogTitle>
+                <legend className="text-primary text-xl md:text-2xl font-bold">
+                  Order Status: <br />({trackingNumber})
+                </legend>
+              </DialogTitle>
+              <DialogDescription>Last updated at ---</DialogDescription>
+            </div>
+
+            <div className="w-full md:px-4 pt-6 md:pt-10 pb-16 md:pb-20">
+              <div className="w-full relative h-1 bg-slate-200 rounded-full">
+                {/* PROGRESS */}
+                <div
+                  className={cn(
+                    "h-1 bg-primary rounded-full transition-all duration-500",
+                  )}
+                  style={{
+                    width: progress
+                      ? `${((CURRENT_STAGE_INDEX + 1) / 4) * 100}%`
+                      : "0%",
+                  }}
+                />
+
+                {/* STAGES */}
+                <div className="w-full absolute -top-1.75 left-0 sm:left-4 flex">
+                  {TRACKING_STAGES.map((stage, index) => {
+                    const isActive = index <= CURRENT_STAGE_INDEX;
+                    return (
+                      <div
+                        key={index}
+                        className="flex-1 flex flex-col justify-start items-center gap-3 text-center"
+                      >
+                        <div
+                          className={cn(
+                            "size-4 grid place-items-center rounded-full shadow-lg transition-all duration-500",
+                            isActive && progress
+                              ? "bg-primary text-slate-100"
+                              : "bg-slate-300 text-primary border border-slate-200",
+                          )}
+                        />
+
+                        <span className="text-[10px] sm:text-sm text-primary capitalize">
+                          {stage
+                            .toLocaleLowerCase()
+                            .replace("order", "")
+                            .trim()}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </GradientBg>
+      </DialogContent>
+    </Dialog>
   );
 }
 
