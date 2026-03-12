@@ -1,0 +1,1091 @@
+[
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5000",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-10-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5001",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-10-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5002",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-22T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5003",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-10-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5004",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-10-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5005",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5006",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5007",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5008",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-10-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5009",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-10-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5010",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-10-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5011",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-10-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5012",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-10-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5013",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-10-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5014",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-10-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5015",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-10-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5016",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-10-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5017",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5018",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-10-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5019",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-10-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5020",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-11-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5021",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-11-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5022",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-22T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5023",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-11-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5024",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-11-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5025",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5026",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5027",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5028",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-11-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5029",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-11-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5030",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-11-23T09:00:00Z",
+    "status": "Failed"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5031",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-11-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5032",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-11-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5033",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-11-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5034",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-11-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5035",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-11-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5036",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-11-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5037",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5038",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-11-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5039",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-11-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5040",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-12-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5041",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-12-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5042",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-22T09:00:00Z",
+    "status": "Failed"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5043",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-12-19T09:00:00Z",
+    "status": "Failed"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5044",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-12-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5045",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5046",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5047",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5048",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-12-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5049",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-12-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5050",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-12-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5051",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-12-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5052",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-12-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5053",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2025-12-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5054",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2025-12-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5055",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-12-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5056",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2025-12-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5057",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5058",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2025-12-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5059",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2025-12-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5060",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-01-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5061",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-01-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5062",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-22T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5063",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-01-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5064",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-01-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5065",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5066",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5067",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5068",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-01-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5069",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-01-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5070",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-01-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5071",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-01-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5072",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-01-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5073",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-01-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5074",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-01-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5075",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-01-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5076",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-01-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5077",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5078",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-01-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5079",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-01-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5080",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-02-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5081",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-02-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5082",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-22T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5083",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-02-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5084",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-02-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5085",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5086",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5087",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5088",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-02-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5089",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-02-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5090",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-02-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5091",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-02-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5092",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-02-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5093",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-02-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5094",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-02-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5095",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-02-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5096",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-02-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5097",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5098",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-02-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5099",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-02-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Demilade Ayinde",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5100",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-03-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Sarah Jenkins",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5101",
+    "amount_paid": 39.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-03-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Marcus Thorne",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5102",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-22T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Emily Chen",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5103",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-03-19T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Liam O'Connor",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5104",
+    "amount_paid": 49.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-03-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Aisha Patel",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5105",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Carlos Mendoza",
+    "product": "Retention Standard",
+    "payment_id": "txn_5106",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-01T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Zoe Kravitz",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5107",
+    "amount_paid": 39.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "David Kim",
+    "product": "Retention Premium",
+    "payment_id": "txn_5108",
+    "amount_paid": 24.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-03-08T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fiona Gallagher",
+    "product": "Retention Standard",
+    "payment_id": "txn_5109",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-03-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "James Holden",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5110",
+    "amount_paid": 39.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-03-23T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Naomi Nagata",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5111",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-03-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Amos Burton",
+    "product": "Monitoring Standard",
+    "payment_id": "txn_5112",
+    "amount_paid": 39.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-03-25T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Chrisjen Avasarala",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5113",
+    "amount_paid": 49.99,
+    "payment_method": "ApplePay",
+    "payment_date": "2026-03-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Monitoring Premium",
+    "payment_id": "txn_5114",
+    "amount_paid": 49.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-03-12T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Bobbie Draper",
+    "product": "Replacement Retainer",
+    "payment_id": "txn_5115_ONE_OFF",
+    "amount_paid": 149.99,
+    "payment_method": "PayPal",
+    "payment_date": "2026-03-14T14:30:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Alex Kamal",
+    "product": "Retention Standard",
+    "payment_id": "txn_5116",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-03-09T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Clarissa Mao",
+    "product": "Retention Premium",
+    "payment_id": "txn_5117",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_1234",
+    "payment_date": "2026-03-18T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Josephus Miller",
+    "product": "Retention Premium",
+    "payment_id": "txn_5118",
+    "amount_paid": 24.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-03T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Fred Johnson",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5119",
+    "amount_paid": 19.99,
+    "payment_method": "Visa_9012",
+    "payment_date": "2026-03-27T09:00:00Z",
+    "status": "Paid"
+  },
+  {
+    "patient_name": "Camina Drummer",
+    "product": "Monitoring Lite",
+    "payment_id": "txn_5120",
+    "amount_paid": 19.99,
+    "payment_method": "Mastercard_5678",
+    "payment_date": "2026-03-19T09:00:00Z",
+    "status": "Paid"
+  }
+]

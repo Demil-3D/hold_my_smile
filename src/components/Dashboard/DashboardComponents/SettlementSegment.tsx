@@ -11,10 +11,10 @@ export default function SettlementSegment() {
 
       {/* SUBSCRIPTION DETAILS */}
       <div className="w-full text-start space-y-3 px-2">
-        <legend className="text-sm font-bold text-accent">Upcoming:</legend>
+        <legend className="text-sm font-normal text-accent">Upcoming:</legend>
         <div className="w-full flex gap-4">
           <div className="flex-1 text-start">
-            <p className="text-xl font-semibold">{GBP.format(0)}</p>
+            <p className="text-xl font-bold">{GBP.format(4178.82)}</p>
           </div>
           <div className="w-fit text-xs text-end">
             <span className="text-secondary-foreground">Due Date:</span>
