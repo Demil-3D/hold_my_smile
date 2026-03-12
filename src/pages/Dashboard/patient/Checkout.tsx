@@ -22,17 +22,17 @@ import {
   DialogPortal,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ShoppingCart } from "lucide-react";
-import { Field, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import {
-  Item,
-  ItemActions,
-  ItemDescription,
-  ItemTitle,
-} from "@/components/ui/item";
+  Field,
+  FieldContent,
+  FieldLabel,
+  FieldTitle,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Separator } from "@/components/ui/separator";
 
 function CheckoutPage() {
   const location = useLocation();
@@ -58,6 +58,10 @@ function CheckoutPage() {
 
 function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
   const [api, setApi] = useState<CarouselApi | null>(null);
+  type OrderTypeValues = "upper" | "lower" | "both";
+  const orderTypes: OrderTypeValues[] = ["both", "upper", "lower"];
+  const [selectedOrderType, setSelectedOrderType] =
+    useState<OrderTypeValues>("both");
   const [current, setCurrent] = useState(0);
   const [showError, setShowError] = useState(false);
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
@@ -127,7 +131,7 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
     try {
       const response = await http.post(`patient/orders`, {
         id: product.id,
-        order_type: "both",
+        order_type: selectedOrderType,
         answers: answers,
         sub_level: product.sub_level,
       });
@@ -238,35 +242,69 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
             <div className="relative px-6 pt-6 pb-5 bg-linear-to-b from-slate-50 to-white inset-shadow-sm border border-slate-200">
               <DialogHeader className="relative">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
-                    <div className="grid h-11 w-11 place-items-center bg-white/70 border border-slate-200 inset-shadow-xs">
-                      <ShoppingCart className="h-5 w-5 text-primary" />
-                    </div>
-
-                    <div>
-                      <DialogTitle className="text-lg">
-                        Confirm Order 🧾
-                      </DialogTitle>
-                      <DialogDescription className="mt-1">
-                        Please review the details below.
-                      </DialogDescription>
-                    </div>
+                  <div className="flex-1">
+                    <DialogTitle className="text-xl">
+                      {product.name}
+                    </DialogTitle>
+                    <DialogDescription className="mt-1">
+                      Quantity: x1
+                    </DialogDescription>
                   </div>
+                  <span className="text-xl">{GBP.format(product.price)}</span>
                 </div>
               </DialogHeader>
             </div>
             <ScrollArea className="w-full h-full max-h-[60vh]">
               <>
                 <div className="w-full px-6 pb-6 space-y-6">
-                  <Item>
-                    <div className="flex-1">
-                      <ItemTitle>{product.name}</ItemTitle>
-                      <ItemDescription>Quantity: x1</ItemDescription>
-                    </div>
-                    <ItemActions>
-                      <span>{GBP.format(product.price)}</span>
-                    </ItemActions>
-                  </Item>
+                  {product.type === "standard" && (
+                    <>
+                      <div className="w-full space-y-4">
+                        <legend className="text-primary font-semibold">
+                          Items Required: {product.type}
+                        </legend>
+                        <RadioGroup
+                          name="order_type"
+                          value={selectedOrderType}
+                          onValueChange={(val: OrderTypeValues) =>
+                            setSelectedOrderType(val)
+                          }
+                          className="py-2 px-4"
+                        >
+                          <div className="w-full flex gap-2 flex-wrap">
+                            {orderTypes.map((orderType) => (
+                              <Field
+                                orientation="horizontal"
+                                key={orderType}
+                                className="w-fit"
+                              >
+                                <FieldLabel
+                                  htmlFor={orderType}
+                                  className="border rounded-none p-3 lg:p-4 bg-slate-100 border-slate-200 has-data-[state=checked]:bg-slate-100 has-data-[state=checked]:border-slate-200"
+                                >
+                                  <FieldContent>
+                                    <FieldTitle className="capitalize">
+                                      {orderType}{" "}
+                                      {orderType === "both"
+                                        ? "Upper & Lower"
+                                        : "Only"}
+                                    </FieldTitle>
+                                  </FieldContent>
+                                  <RadioGroupItem
+                                    value={orderType}
+                                    id={orderType}
+                                    className="border-2 shadow-none border-black/40"
+                                  />
+                                </FieldLabel>
+                              </Field>
+                            ))}
+                          </div>
+                        </RadioGroup>
+                      </div>
+
+                      <Separator />
+                    </>
+                  )}
 
                   <AddressSegment />
                 </div>

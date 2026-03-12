@@ -13,17 +13,16 @@ import {
 } from "../ui/dialog";
 import GradientBg from "../GradientBg";
 
-type OrderStatusType =
-  | "ORDER RECEIVED"
-  | "ORDER ACCEPTED"
-  | "MANUFACTURING"
-  | "DISPATCHED";
+type OrderStatusType = {
+  status: "ORDER RECEIVED" | "ORDER ACCEPTED" | "MANUFACTURING" | "DISPATCHED";
+  updated_at: string;
+};
 
 function TrackForm() {
   const [searchParams, _] = useSearchParams();
   const trackFormRef = useRef<HTMLFormElement | null>(null);
   const [hideReferenceForm, setHideReferenceForm] = useState(false);
-  const [orderStatus, setOrderStatus] = useState<OrderStatusType | undefined>(
+  const [orderStatus, setOrderStatus] = useState<OrderStatusType[] | undefined>(
     undefined,
   );
   const [trackingNumber, setTrackingNumber] = useState<string>("");
@@ -41,7 +40,7 @@ function TrackForm() {
           toast.error("No matching order found.");
           return;
         }
-        setOrderStatus(responseData.status as OrderStatusType);
+        setOrderStatus(responseData.status_timeline as OrderStatusType[]);
         setTrackingNumber(responseData.tracking_number);
       } catch {
         toast.error("Network error: Failed to connect to server!");
@@ -172,8 +171,8 @@ function TrackForm() {
 }
 
 type OrderStatusDialogProps = {
-  orderStatus?: OrderStatusType;
-  setOrderStatus: (status: OrderStatusType | undefined) => void;
+  orderStatus?: OrderStatusType[];
+  setOrderStatus: (status: OrderStatusType[] | undefined) => void;
   trackingNumber: string;
 };
 
@@ -182,16 +181,26 @@ function OrderStatusDialog({
   setOrderStatus,
   trackingNumber,
 }: OrderStatusDialogProps) {
-  const TRACKING_STAGES: OrderStatusType[] = [
+  const TRACKING_STAGES: OrderStatusType["status"][] = [
     "ORDER RECEIVED",
     "ORDER ACCEPTED",
     "MANUFACTURING",
     "DISPATCHED",
   ];
-  const CURRENT_STAGE_INDEX = orderStatus
-    ? TRACKING_STAGES.indexOf(orderStatus)
-    : -1;
+  const CURRENT_STAGE_INDEX = getCurrentIndex();
   const [progress, setProgress] = useState(false);
+
+  function getCurrentIndex() {
+    if (orderStatus === undefined) return -1;
+
+    if (orderStatus.length > 0) {
+      return Math.max(
+        ...orderStatus.map((log) => TRACKING_STAGES.indexOf(log.status)),
+      );
+    }
+
+    return -1;
+  }
 
   useEffect(() => {
     setTimeout(() => {

@@ -10,6 +10,7 @@ import {
   ChevronsUpDownIcon,
   User2Icon,
   MapPinnedIcon,
+  ReceiptTextIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -35,9 +36,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ConfirmDialog } from "./ConfirmationDialog";
 import { Logo } from "../Logo";
+import { http } from "@/utils/http";
+import type { SubscriptionProps } from "@/pages/Dashboard/utils/schema/patient/subscription";
+import { toast } from "sonner";
+import { Button } from "../ui/button";
 
 const patientNavItems = [
   {
@@ -83,7 +88,13 @@ const clinicianNavItems = [
     title: "Patients",
     path: "/portal/patients",
     icon: UsersRoundIcon,
-    section: "Records",
+    section: "",
+  },
+  {
+    title: "Income Logs",
+    path: "/portal/settlement-logs",
+    icon: ReceiptTextIcon,
+    section: "",
   },
   {
     title: "Contact Support",
@@ -114,12 +125,6 @@ const clinicianProfileLinks = [
     icon: UserIcon,
     section: "Account",
   },
-  // {
-  //   title: "Settlement Logs",
-  //   path: "/portal/settlement-logs",
-  //   icon: ReceiptTextIcon,
-  //   section: "Account",
-  // },
 ];
 
 export default function DashboardSideNav({ profile }: { profile: any }) {
@@ -130,6 +135,7 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
   const { logout, isPatientAccount } = useAuth();
   const [isConfirmLogoutDialogOpen, setIsConfirmLogoutDialogOpen] =
     useState(false);
+  const [showSubscriptionAd, setShowSubscriptionAd] = useState(false);
 
   const grouped = (
     isPatientAccount ? patientNavItems : clinicianNavItems
@@ -150,6 +156,24 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
     }
     if (window.innerWidth < 1024) toggleSidebar();
   };
+
+  useEffect(() => {
+    async function loadSubscription() {
+      if (!isPatientAccount) return;
+
+      try {
+        const res = await http.get("patient/subscriptions");
+        const data = await res.json();
+        setShowSubscriptionAd(
+          (data.active_subscriptions as Array<SubscriptionProps>).length === 0,
+        );
+      } catch (err) {
+        toast.error("Network error!\n\nFailed to load subscription data.");
+      }
+    }
+
+    loadSubscription();
+  }, []);
 
   return (
     <>
@@ -212,8 +236,37 @@ export default function DashboardSideNav({ profile }: { profile: any }) {
             </SidebarMenu>
           </SidebarContent>
           <Separator />
+          <Separator />
           <SidebarFooter className="pb-4 bg-transparent">
             <SidebarMenu>
+              {/* SUBSCRIPTION AD */}
+              {showSubscriptionAd && (
+                <>
+                  <div className="px-2">
+                    <div className="w-full flex gap-2 p-3 bg-primary shadow-lg">
+                      <div className="flex-1">
+                        <legend className="text-white tracking-tight font-semibold text-sm">
+                          Get new retainers <br />
+                          every year.
+                        </legend>
+                        <span className="text-xs text-accent">
+                          Choose a plan now!
+                        </span>
+                      </div>
+                      <Button
+                        variant={"secondary"}
+                        size={"xs"}
+                        className="rounded-none bg-accent"
+                        onClick={() => navigate("/portal/subscriptions")}
+                      >
+                        Join
+                      </Button>
+                    </div>
+                  </div>
+                  <Separator className="my-1" />
+                </>
+              )}
+
               {/* USER PROFILE */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

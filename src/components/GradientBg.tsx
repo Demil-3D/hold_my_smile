@@ -23,7 +23,7 @@ export default function GradientBg({
         className={`w-${blobSize} aspect-square rounded-full bg-purple-700 absolute bottom-0 right-0`}
       />
       <div
-        className={`w-full min-h-40 p-${paddingSm} md:p-${paddingMd} bg-white/80 backdrop-blur-3xl`}
+        className={`w-full p-${paddingSm} md:p-${paddingMd} bg-white/80 backdrop-blur-3xl`}
       >
         {children}
       </div>
