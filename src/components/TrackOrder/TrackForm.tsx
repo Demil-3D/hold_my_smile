@@ -12,6 +12,9 @@ import {
   DialogTitle,
 } from "../ui/dialog";
 import GradientBg from "../GradientBg";
+import { formatDate } from "@/utils/config";
+import { CircleIcon } from "lucide-react";
+import { ScrollArea } from "../ui/scroll-area";
 
 type OrderStatusType = {
   status: "ORDER RECEIVED" | "ORDER ACCEPTED" | "MANUFACTURING" | "DISPATCHED";
@@ -41,7 +44,7 @@ function TrackForm() {
           return;
         }
         setOrderStatus(responseData.status_timeline as OrderStatusType[]);
-        setTrackingNumber(responseData.tracking_number);
+        setTrackingNumber(responseData.reference_number);
       } catch {
         toast.error("Network error: Failed to connect to server!");
       }
@@ -221,17 +224,25 @@ function OrderStatusDialog({
     >
       <DialogContent showCloseButton={false} className="p-0 rounded-none">
         <GradientBg>
-          <div className="w-full space-y-6 relative">
+          <div className="w-full flex flex-col gap-4 items-center relative">
             <div className="w-full text-center">
               <DialogTitle>
                 <legend className="text-primary text-xl md:text-2xl font-bold">
                   Order Status: <br />({trackingNumber})
                 </legend>
               </DialogTitle>
-              <DialogDescription>Last updated at ---</DialogDescription>
+              <DialogDescription className="mt-2 text-primary/80">
+                Last updated at{" "}
+                {orderStatus !== undefined
+                  ? formatDate(
+                      orderStatus[CURRENT_STAGE_INDEX].updated_at,
+                      true,
+                    )
+                  : "---"}
+              </DialogDescription>
             </div>
 
-            <div className="w-full md:px-4 pt-6 md:pt-10 pb-16 md:pb-20">
+            <div className="w-full md:px-4 py-8">
               <div className="w-full relative h-1 bg-slate-200 rounded-full">
                 {/* PROGRESS */}
                 <div
@@ -246,7 +257,7 @@ function OrderStatusDialog({
                 />
 
                 {/* STAGES */}
-                <div className="w-full absolute -top-1.75 left-0 sm:left-4 flex">
+                <div className="w-full absolute -top-1.75 left-0 flex">
                   {TRACKING_STAGES.map((stage, index) => {
                     const isActive = index <= CURRENT_STAGE_INDEX;
                     return (
@@ -263,7 +274,7 @@ function OrderStatusDialog({
                           )}
                         />
 
-                        <span className="text-[10px] sm:text-sm text-primary capitalize">
+                        <span className="text-xs text-primary capitalize">
                           {stage
                             .toLocaleLowerCase()
                             .replace("order", "")
@@ -275,6 +286,37 @@ function OrderStatusDialog({
                 </div>
               </div>
             </div>
+
+            {orderStatus !== undefined && (
+              <ScrollArea className="w-full h-[30vh] pt-6">
+                <div className="w-full md:px-4">
+                  {orderStatus.map((statusTimeline, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="w-full flex items-stretch gap-3"
+                      >
+                        <div className="w-fit flex flex-col items-center">
+                          <CircleIcon className="size-3 text-primary" />
+                          <div className="w-px h-full bg-primary"></div>
+                        </div>
+                        <div className="flex-1 pb-4">
+                          <div className="text-base py-2 px-3 bg-primary/10">
+                            <span className="font-semibold capitalize text-primary">
+                              {statusTimeline.status.toLocaleLowerCase()}
+                            </span>
+                            <br />
+                            <span className="text-xs text-primary/80">
+                              {formatDate(statusTimeline.updated_at, true)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </ScrollArea>
+            )}
           </div>
         </GradientBg>
       </DialogContent>

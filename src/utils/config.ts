@@ -7,7 +7,10 @@ export const GBP = new Intl.NumberFormat("en-GB", {
   currency: "GBP",
 });
 
-export function formatDate(dateString: string): string {
+export function formatDate(
+  dateString: string,
+  withTime: boolean = false,
+): string {
   const date = new Date(dateString);
 
   if (isNaN(date.getTime())) {
@@ -18,5 +21,8 @@ export function formatDate(dateString: string): string {
     day: "numeric",
     month: "short",
     year: "numeric",
+    hour: withTime ? "2-digit" : undefined,
+    minute: withTime ? "2-digit" : undefined,
+    second: withTime ? "2-digit" : undefined,
   }).format(date);
 }
