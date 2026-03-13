@@ -46,14 +46,14 @@ interface RiskMetrics {
 }
 
 // --- CALCULATION FUNCTIONS ---
+const PRODUCTION_COST = 22;
 
 function calculateFinancialMetrics(
   logs: Array<IncomeLogProps>,
-  costPerPatient: number = 180,
-  clinicianCut: number = 0.37,
+  clinicianCut: number = 0.45,
 ): FinancialMetrics {
   const uniquePatients = new Set(logs.map((log) => log.patient_name)).size;
-  const totalProductionCosts = uniquePatients * costPerPatient;
+  const totalProductionCosts = uniquePatients * PRODUCTION_COST;
 
   const paidLogs = logs
     .filter((log) => log.status === "Paid")
@@ -88,6 +88,7 @@ function calculateFinancialMetrics(
 
 function calculatePatientValueMetrics(
   logs: Array<IncomeLogProps>,
+  clinicianCut: number = 0.45,
 ): PatientValueMetrics {
   const paidLogs = logs.filter((log) => log.status === "Paid");
 
@@ -95,9 +96,11 @@ function calculatePatientValueMetrics(
     (sum, log) => sum + log.amount_paid,
     0,
   );
+  const uniquePatients = new Set(logs.map((log) => log.patient_name)).size;
+  const totalProductionCosts = uniquePatients * PRODUCTION_COST;
+  const totalProfit = totalGrossRevenue - totalProductionCosts;
   const uniquePatientsCount = new Set(logs.map((log) => log.patient_name)).size;
-  const arpp =
-    uniquePatientsCount > 0 ? totalGrossRevenue / uniquePatientsCount : 0;
+  const arpp = uniquePatientsCount > 0 ? totalProfit / uniquePatientsCount : 0;
 
   const patientPlans: Record<string, string> = {};
   for (const log of logs) {
@@ -116,7 +119,8 @@ function calculatePatientValueMetrics(
   );
   const oneOffPurchases: OneOffPurchases = {
     totalCount: oneOffLogs.length,
-    totalRevenue: oneOffLogs.reduce((sum, log) => sum + log.amount_paid, 0),
+    totalRevenue:
+      oneOffLogs.reduce((sum, log) => sum + log.amount_paid, 0) * clinicianCut,
     patients: Array.from(new Set(oneOffLogs.map((log) => log.patient_name))),
   };
 
@@ -160,7 +164,7 @@ function calculateRiskMetrics(logs: Array<IncomeLogProps>): RiskMetrics {
 // --- MAIN COMPONENT ---
 
 export default function Metrics() {
-  const financialMetrics = calculateFinancialMetrics(incomeLogs, 180, 0.37);
+  const financialMetrics = calculateFinancialMetrics(incomeLogs, 0.45);
   const patientMetrics = calculatePatientValueMetrics(incomeLogs);
   const riskMetrics = calculateRiskMetrics(incomeLogs);
 
@@ -180,23 +184,21 @@ export default function Metrics() {
   return (
     <div className="flex flex-col gap-8 w-full mt-8">
       {/* TOP SECTION: MY POCKET & PATIENT VALUE */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1  gap-4">
         {/* MY POCKET (Now slightly wider to accommodate more metrics) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {/* GROSS REVENUE */}
           <Card className="p-4 flex flex-col gap-2 rounded-none shadow-none border border-slate-200">
             <div>
-              <p className="text-sm font-normal text-slate-500">
-                Total Gross Revenue
-              </p>
+              <p className="text-sm font-normal text-slate-500">Total Profit</p>
               <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                {financialMetrics.totalGrossRevenue}
+                {financialMetrics.totalProfit}
               </h3>
             </div>
           </Card>
 
           {/* PRODUCTION COST */}
-          <Card className="p-4 flex flex-col gap-2 rounded-none shadow-none border border-slate-200">
+          {/* <Card className="p-4 flex flex-col gap-2 rounded-none shadow-none border border-slate-200">
             <div>
               <p className="text-sm font-normal text-slate-500">
                 Total Production Cost
@@ -205,19 +207,18 @@ export default function Metrics() {
                 {financialMetrics.totalProductionCosts}
               </h3>
             </div>
-          </Card>
+          </Card> */}
 
           {/* PROFIT */}
           <Card className="p-4 flex flex-col gap-2 rounded-none shadow-none border border-slate-200">
             <div>
-              <p className="text-sm font-normal text-slate-500">Total Profit</p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                {financialMetrics.totalProfit}
+              <p className="text-sm font-normal text-slate-500">
+                Take Home (45%)
+              </p>
+              <h3 className="text-2xl font-bold text-emerald-700 mt-1">
+                {financialMetrics.takeHomePay}
               </h3>
 
-              <p className="text-xs font-normal text-emerald-700 mt-1">
-                Take Home: {financialMetrics.takeHomePay} (37%)
-              </p>
               <p className="text-xs font-normal text-slate-500 mt-1">
                 Break Even: {financialMetrics.breakEvenMonth || "Not Reached"}
               </p>
@@ -228,14 +229,11 @@ export default function Metrics() {
           <Card className="p-4 flex flex-col gap-2 rounded-none shadow-none border border-slate-200">
             <div>
               <p className="text-sm font-normal text-slate-500">
-                Total Defaults
+                Defaults Rate
               </p>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                {riskMetrics.totalDefaultAmount}
+              <h3 className="text-2xl font-bold text-red-700 mt-1">
+                {riskMetrics.defaultRate}
               </h3>
-              <p className="text-xs font-normal text-red-700 mt-1">
-                Rate: {riskMetrics.defaultRate}
-              </p>
             </div>
           </Card>
         </div>
