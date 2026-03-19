@@ -13,7 +13,7 @@ export default function QuickLinksSegment() {
   const navigate = useNavigate();
   const LINKS = [
     {
-      href: "/terms-of-service",
+      href: "/terms",
       label: "Terms and Conditions",
       icon: <HandshakeIcon className="size-4" />,
     },

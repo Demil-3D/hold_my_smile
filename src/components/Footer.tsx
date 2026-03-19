@@ -41,7 +41,7 @@ const FOOTER_LINKS: FooterLinkType[] = [
     menuGroup: "Actions",
   },
   {
-    href: "/terms-of-service",
+    href: "/terms",
     label: "Terms and Conditions",
     menuGroup: "Policies",
   },

@@ -342,7 +342,7 @@ function RegisterPage() {
                 <Input type="checkbox" className="w-5" required />
                 <FieldLabel className="flex-1 px-1 text-center flex flex-wrap">
                   Agree to our{" "}
-                  <Link to="/terms-of-service" className="underline">
+                  <Link to="/terms" className="underline">
                     Terms of Service
                   </Link>{" "}
                   and{" "}

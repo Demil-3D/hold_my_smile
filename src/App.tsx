@@ -108,7 +108,7 @@ function App() {
           element: <PasswordResetPage />,
         },
         {
-          path: "/terms-of-service",
+          path: "/terms",
           element: <TermsOfService />,
         },
         {
@@ -220,7 +220,7 @@ function App() {
       case "/reset-password":
         setPageTitle("Change Password | HoldMySmile");
         break;
-      case "/terms-of-service":
+      case "/terms":
         setPageTitle("Terms of Service | HoldMySmile");
         break;
       case "/privacy-policy":

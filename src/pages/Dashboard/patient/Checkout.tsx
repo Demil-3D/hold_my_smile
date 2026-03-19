@@ -334,7 +334,7 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
                       >
                         <span>
                           I have read and understood the{" "}
-                          <Link to="/terms-of-service" className="underline">
+                          <Link to="/terms" className="underline">
                             Terms of Service
                           </Link>
                           ,{" "}
