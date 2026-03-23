@@ -51,7 +51,7 @@
         },
         {
           "question": "How does it work for my practice?",
-          "response": "We reduce your workload and generate additional income by giving you a 50% margin on every retainer sold via Hold My Smile in exchange for access to your patient base. This creates a passive revenue stream without increasing chair time."
+          "response": "We reduce your workload and generate additional income by giving you a percentage margin on every retainer sold via Hold My Smile in exchange for access to your patient base. This creates a passive revenue stream without increasing chair time."
         },
         {
           "question": "How does it integrate with my practice’s workflow?",
@@ -59,10 +59,10 @@
         },
         {
           "question": "What’s in it for Hold My Smile?",
-          "response": "We share 50% of revenue gained on each retainer sale and, by making ordering easier for patients, increase the total number of sales for both us and your practice."
+          "response": "We share a percentage of the revenue gained on each retainer sale and, by making ordering easier for patients, increase the total number of sales for both us and your practice."
         },
         {
-          "question": "Why share 50% margin to Hold My Smile?",
+          "question": "Why share the margin with Hold My Smile?",
           "response": "Currently, 30–70% of patients relapse within five years, often because they’ve lost or damaged their retainer and can’t get to the practice in time. We solve these problems by providing a platform where patients can get a retainer ASAP, improving patient satisfaction and keeping them connected to your practice without taking up clinical time for replacements."
         }
       ]
