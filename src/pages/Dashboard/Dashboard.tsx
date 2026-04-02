@@ -4,7 +4,7 @@ import PatientListSegment from "@/components/Dashboard/DashboardComponents/Patie
 import ProfileSegment from "@/components/Dashboard/DashboardComponents/ProfileSegment";
 import QuickLinksSegment from "@/components/Dashboard/DashboardComponents/QuickLinksSegment";
 import RecentOrdersSegment from "@/components/Dashboard/DashboardComponents/RecentOrdersSegment";
-import SettlementSegment from "@/components/Dashboard/DashboardComponents/SettlementSegment";
+// import SettlementSegment from "@/components/Dashboard/DashboardComponents/SettlementSegment";
 import SubscriptionSegment from "@/components/Dashboard/DashboardComponents/SubscriptionSegment";
 import { useAuth } from "@/context/AuthContext";
 import React, {
@@ -206,10 +206,10 @@ export default function Dashboard() {
     },
 
     /* SETTLEMENT SECTION */
-    {
-      id: "settlement",
-      content: <SettlementSegment />,
-    },
+    // {
+    //   id: "settlement",
+    //   content: <SettlementSegment />,
+    // },
 
     /* HELPFUL LINKS */
     {

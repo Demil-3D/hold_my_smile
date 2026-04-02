@@ -10,7 +10,7 @@ import {
   ChevronsUpDownIcon,
   User2Icon,
   MapPinnedIcon,
-  ReceiptTextIcon,
+  // ReceiptTextIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -90,12 +90,12 @@ const clinicianNavItems = [
     icon: UsersRoundIcon,
     section: "",
   },
-  {
-    title: "Income Logs",
-    path: "/portal/settlement-logs",
-    icon: ReceiptTextIcon,
-    section: "",
-  },
+  // {
+  //   title: "Income Logs",
+  //   path: "/portal/settlement-logs",
+  //   icon: ReceiptTextIcon,
+  //   section: "",
+  // },
   {
     title: "Contact Support",
     path: "/portal/support",
