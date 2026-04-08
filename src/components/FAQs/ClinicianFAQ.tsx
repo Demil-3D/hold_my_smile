@@ -9,7 +9,7 @@ import { clinician_faqs } from "@/utils/faqs.json";
 
 export default function ClinicianFAQs() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 space-y-12">
+    <section className="w-full max-w-6xl mx-auto px-6 py-24 space-y-12">
       <legend
         className="font-bold text-3xl text-center"
         data-aos="fade-up"

@@ -1,15 +1,7 @@
 "use client";
-import {
-  MessageSquare,
-  Phone,
-  Mail,
-  FileText,
-  ExternalLink,
-  PlayCircle,
-  Clock,
-} from "lucide-react";
+import { MessageSquare, Phone, Mail } from "lucide-react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/context/AuthContext";
@@ -30,11 +22,11 @@ import { toast } from "sonner";
 import { http } from "@/utils/http";
 import GradientBg from "@/components/GradientBg";
 
-const VIDEO_GUIDES = [
-  { title: "Optimizing your iTero Scans", duration: "3:45" },
-  { title: "Adjusting Wire Tension", duration: "5:20" },
-  { title: "Platform Onboarding", duration: "10:15" },
-];
+// const VIDEO_GUIDES = [
+//   { title: "Optimizing your iTero Scans", duration: "3:45" },
+//   { title: "Adjusting Wire Tension", duration: "5:20" },
+//   { title: "Platform Onboarding", duration: "10:15" },
+// ];
 
 export default function SupportPage() {
   const { isPatientAccount } = useAuth();
@@ -159,16 +151,16 @@ export default function SupportPage() {
       </GradientBg>
 
       <main className="container max-w-6xl mt-12 mx-auto space-y-12 z-10">
-        <section className="grid gap-10 lg:grid-cols-3">
+        <section className="flex max-md:flex-col gap-10">
           {/* FAQ SECTION */}
-          <div className="lg:col-span-2 space-y-8 -mt-12">
+          <div className="lg:col-span-2 space-y-8 -mt-12 lg:flex-2">
             {isPatientAccount ? <FAQComponent /> : <ClinicianFAQs />}
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
-            {/* VIDEO TUTORIAL SECTION */}
-            <Card className="rounded-none">
+          {/* <div className="space-y-6 lg:flex-1"> */}
+          {/* VIDEO TUTORIAL SECTION */}
+          {/* <Card className="rounded-none">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base">
                   Video Tutorials
@@ -200,10 +192,10 @@ export default function SupportPage() {
                   View All Videos
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
-            {/* ADDITIONAL DOCUMENTS SECTION */}
-            <Card className="rounded-none">
+          {/* ADDITIONAL DOCUMENTS SECTION */}
+          {/* <Card className="rounded-none">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-base">
                   <FileText className="h-4 w-4 text-primary" />
@@ -225,8 +217,8 @@ export default function SupportPage() {
                   </div>
                 ))}
               </CardContent>
-            </Card>
-          </div>
+            </Card> */}
+          {/* </div> */}
         </section>
       </main>
 

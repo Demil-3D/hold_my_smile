@@ -14,7 +14,7 @@ function ProfessionalPage() {
         <HowItWorksSection />
         <PracticeSupportSection />
 
-        <div className="pb-12 space-y-24">
+        <div className="pb-12 space-y-8 -mt-10">
           <ClinicianFAQs />
           <ContactForm />
         </div>
