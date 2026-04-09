@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import type { SubscriptionPlanProperties } from "../utils/schema/patient/subscription";
@@ -33,6 +33,7 @@ import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSe
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
+import { QUESTIONNAIRE } from "@/utils/questionnaire";
 
 function CheckoutPage() {
   const location = useLocation();
@@ -71,37 +72,11 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
     dentalChanges: null as boolean | null,
     regularCheckups: null as boolean | null,
   });
-
-  const questionnaire = [
-    {
-      key: "wearingRetainers",
-      text: "Have you been wearing your retainers as prescribed by your orthodontist prior to requiring more?",
-      errorMessage:
-        "Cannot proceed: Please contact your practice to get the latest scan.",
-      valueRequired: "Yes",
-    },
-    {
-      key: "withoutRetainer7Days",
-      text: "Have you been without your retainer for more than 7 days?",
-      errorMessage:
-        "Cannot proceed: Please contact your practice to get the latest scan.",
-      valueRequired: "No",
-    },
-    {
-      key: "dentalChanges",
-      text: "Since your retainers were fitted, have you had any treatment that may have changed the shape of your teeth?",
-      errorMessage:
-        "Cannot proceed: Please contact your practice to get the latest scan.",
-      valueRequired: "No",
-    },
-    {
-      key: "regularCheckups",
-      text: "Routine regular dental check-ups with your dentist are required as standard. Do you have a general dentist which you see for regular checkups?",
-      errorMessage:
-        "Cannot proceed: You must have a general dentist for regular checkups.",
-      valueRequired: "Yes",
-    },
-  ];
+  const questionnaire = useMemo(() => {
+    return QUESTIONNAIRE.filter((question) =>
+      question.categories.some((category) => product.category === category),
+    );
+  }, [QUESTIONNAIRE]);
 
   const moveToNext = useCallback(() => {
     if (!api) return;
@@ -131,6 +106,7 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
     try {
       const response = await http.post(`patient/orders`, {
         id: product.id,
+        product_category: product.category,
         order_type: selectedOrderType,
         answers: answers,
         sub_level: product.sub_level,
@@ -138,9 +114,13 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
       const data = await response.json();
       window.location.replace(data.payment_url);
     } catch (error) {
-      toast.error(`Order Error: ${error}`);
+      toast.error(`${error}`);
     }
   };
+
+  useEffect(() => {
+    if (questionnaire.length === 0) setOpenConfirmDialog(true);
+  }, [questionnaire]);
 
   return (
     <div className="w-full min-w-0 max-w-3xl mx-auto contain-[layout_paint] mt-2">
@@ -160,7 +140,18 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
             {GBP.format(product.price)}
           </p>
         </div>
-        <div className="w-fit flex"></div>
+        <div className="w-fit flex">
+          {questionnaire.length === 0 && (
+            <Button
+              variant={"default"}
+              size={"lg"}
+              className="rounded-none"
+              onClick={() => setOpenConfirmDialog(true)}
+            >
+              Buy Now
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* QUESTIONNAIRE */}
@@ -247,10 +238,20 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
                       {product.name}
                     </DialogTitle>
                     <DialogDescription className="mt-1">
-                      Quantity: x1
+                      Quantity: {selectedOrderType === "both" ? "x2" : "x1"}
                     </DialogDescription>
                   </div>
-                  <span className="text-xl">{GBP.format(product.price)}</span>
+                  <div className="w-fit text-end">
+                    <span className="text-xl">
+                      {GBP.format(
+                        selectedOrderType === "both"
+                          ? product.price * 2
+                          : product.price,
+                      )}
+                    </span>
+                    <br />
+                    <span className="text-xs">* excluding shipping *</span>
+                  </div>
                 </div>
               </DialogHeader>
             </div>

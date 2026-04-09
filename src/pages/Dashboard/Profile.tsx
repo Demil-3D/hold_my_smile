@@ -5,12 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 import type { AuthField, ChoiceProps, ProfileProps } from "@/pages/Auth/schema";
 import { http } from "@/utils/http";
-import {
-  CheckIcon,
-  KeyRoundIcon,
-  LinkIcon,
-  PencilLineIcon,
-} from "lucide-react";
+import { CheckIcon, KeyRoundIcon, PencilLineIcon } from "lucide-react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -427,32 +422,6 @@ function ProfilePage() {
 
               <div className="grid md:grid-cols-2 gap-4 md:px-2.5 w-full">
                 {clinicianInfoFields.map((field) => renderField(field))}
-                <Field>
-                  <FieldLabel>Clinician Email</FieldLabel>
-                  <Link
-                    to={`mailto:${profile !== null ? profile.clinician?.email : ""}`}
-                    className="flex flex-wrap items-center gap-2 px-4 w-full overflow-clip"
-                  >
-                    <span>
-                      {profile !== null ? profile.clinician?.email : "None"}
-                    </span>
-                    <LinkIcon className="size-3 text-accent" />
-                  </Link>
-                </Field>
-                <Field>
-                  <FieldLabel>Clinician Phone Number</FieldLabel>
-                  <Link
-                    to={`tel:${profile !== null ? profile.clinician?.phone_number : ""}`}
-                    className="flex flex-wrap items-center gap-2 px-4 w-full overflow-clip"
-                  >
-                    <span>
-                      {profile !== null
-                        ? profile.clinician?.phone_number
-                        : "None"}
-                    </span>
-                    <LinkIcon className="size-3 text-accent" />
-                  </Link>
-                </Field>
               </div>
             </div>
           )}

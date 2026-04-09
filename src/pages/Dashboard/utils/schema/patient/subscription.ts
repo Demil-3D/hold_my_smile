@@ -2,6 +2,7 @@ export type SubscriptionPlanProperties = {
   id: string;
   name: string;
   type: string;
+  category: "retainer" | "monitoring" | "kit";
   price: number;
   desc: string;
   sub_level: string;
