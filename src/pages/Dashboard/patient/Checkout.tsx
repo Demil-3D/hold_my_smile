@@ -238,13 +238,18 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
                       {product.name}
                     </DialogTitle>
                     <DialogDescription className="mt-1">
-                      Quantity: {selectedOrderType === "both" ? "x2" : "x1"}
+                      Quantity:{" "}
+                      {selectedOrderType === "both" &&
+                      product.category !== "kit"
+                        ? "x2"
+                        : "x1"}
                     </DialogDescription>
                   </div>
                   <div className="w-fit text-end">
                     <span className="text-xl">
                       {GBP.format(
-                        selectedOrderType === "both"
+                        selectedOrderType === "both" &&
+                          product.category !== "kit"
                           ? product.price * 2
                           : product.price,
                       )}
