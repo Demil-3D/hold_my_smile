@@ -390,8 +390,7 @@ export function NewAccountActions({
                     Make your first purchase
                   </ItemTitle>
                   <ItemDescription className="text-sm mt-1">
-                    Select a retention / monitoring plan to proceed with your
-                    treatment.
+                    Select a retention / monitoring plan for reliable treatment.
                   </ItemDescription>
                 </ItemContent>
                 <ItemActions className="mt-3">
