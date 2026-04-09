@@ -45,7 +45,7 @@ export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
                     Check your email 📬
                   </DialogTitle>
                   <DialogDescription className="mt-1">
-                    We've sent you a secure login link to finish signing in.
+                    We've sent you a secure login link to your inbox.
                   </DialogDescription>
                 </div>
               </div>
@@ -57,8 +57,8 @@ export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
           {/* Email preview / instructions */}
           <div className="border border-slate-200 inset-shadow-xs bg-white p-4">
             <p className="text-sm text-slate-700">
-              Open your inbox and click the login link. If you don't see it,
-              check your spam or promotions folder.
+              Open your mail and click the login link. If you don't see the
+              email, please check your spam/junk folder.
             </p>
 
             <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -70,7 +70,7 @@ export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
           </div>
 
           {/* Actions */}
-          <DialogFooter className="flex-col sm:flex-col gap-2 sm:gap-2">
+          <DialogFooter className="flex-col sm:flex-col gap-2 sm:gap-2 items-center">
             <DialogClose asChild>
               <Button
                 variant={"secondary"}
@@ -84,6 +84,20 @@ export function SignInMagicLinkDialog({ open, onOpenChange, email }: Props) {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </DialogClose>
+            {/* <div className="w-full mt-3 flex flex-col text-wrap font-normal items-center text-center text-sm">
+              <span>
+                Still looking? We can contact you directly with a temporary
+                password.
+              </span>
+              <Button
+                variant={"link"}
+                size={"default"}
+                onClick={() => {}}
+                className="w-fit rounded-none p-0 font-normal text-accent"
+              >
+                Click here
+              </Button>
+            </div> */}
           </DialogFooter>
         </div>
       </DialogContent>
