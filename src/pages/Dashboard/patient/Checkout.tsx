@@ -104,13 +104,24 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
 
   const checkout = async () => {
     try {
-      const response = await http.post(`patient/orders`, {
-        id: product.id,
-        product_category: product.category,
-        order_type: selectedOrderType,
-        answers: answers,
-        sub_level: product.sub_level,
-      });
+      const isKit = product.category === "kit";
+      let payload;
+      if (isKit) {
+        payload = {
+          id: product.id,
+          product_category: product.category,
+        };
+      } else {
+        payload = {
+          id: product.id,
+          product_category: product.category,
+          order_type: selectedOrderType,
+          answers: answers,
+          sub_level: product.sub_level,
+        };
+      }
+
+      const response = await http.post(`patient/orders`, payload);
       const data = await response.json();
       window.location.replace(data.payment_url);
     } catch (error) {
