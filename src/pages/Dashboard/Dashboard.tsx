@@ -21,6 +21,24 @@ import type { SubscriptionProps } from "./utils/schema/patient/subscription";
 import type { Order } from "./utils/schema/patient/orders";
 import type { PatientProps } from "./utils/schema/clinician/patients";
 import AddressSegment from "@/components/Dashboard/DashboardComponents/AddressSegment";
+import { useNavigate } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/ui/item";
+import { Button } from "@/components/ui/button";
+import { CheckCircleIcon, CircleDashedIcon } from "lucide-react";
 
 type MasonryItem = {
   id: string;
@@ -289,10 +307,108 @@ export default function Dashboard() {
   return (
     <>
       <div className="w-full space-y-6">
+        <NewAccountActions
+          patientProfileComplete={
+            profile !== null &&
+            profile.clinician !== null &&
+            profile.clinician !== undefined
+          }
+          hasPurchases={orders.length > 0}
+        />
+
         <MasonryGrid
           items={isPatientAccount ? patientSegments : clinicianSegments}
         />
       </div>
     </>
+  );
+}
+
+export function NewAccountActions({
+  patientProfileComplete,
+  hasPurchases,
+}: {
+  patientProfileComplete: boolean;
+  hasPurchases: boolean;
+}) {
+  const { isPatientAccount } = useAuth();
+  const navigate = useNavigate();
+
+  // Hide entirely if the user isn't a patient or has already completed all steps
+  if (!isPatientAccount || (patientProfileComplete && hasPurchases)) {
+    return null;
+  }
+
+  return (
+    <div className="w-full mx-auto bg-linear-to-br shadow-md border inset-shadow-sm py-2 px-6">
+      <Accordion type="single" collapsible defaultValue="lastSteps">
+        <AccordionItem value="lastSteps" className="border-none">
+          <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+            Finish Setting Up Your Account
+          </AccordionTrigger>
+          <AccordionContent>
+            <ItemGroup className="flex flex-col gap-4 pt-2">
+              <Item className="bg-primary-foreground/10 rounded-md p-4 max-md:flex-col max-md:items-start">
+                <ItemMedia>
+                  {!patientProfileComplete ? (
+                    <CircleDashedIcon className="size-6 text-muted-foreground" />
+                  ) : (
+                    <CheckCircleIcon className="size-6 text-accent" />
+                  )}
+                </ItemMedia>
+                <ItemContent>
+                  <ItemTitle className="font-medium">
+                    Link a Clinician
+                  </ItemTitle>
+                  <ItemDescription className="text-sm mt-1">
+                    Connect with your practice to share your dental scans and
+                    progress.
+                  </ItemDescription>
+                </ItemContent>
+                <ItemActions className="mt-3">
+                  <Button
+                    variant="default"
+                    className="w-full sm:w-auto rounded-none"
+                    onClick={() => navigate("/portal/profile")}
+                  >
+                    Link Clinician
+                  </Button>
+                </ItemActions>
+              </Item>
+
+              {/* IS SUBSCRIBED */}
+              <Item className="bg-primary-foreground/10 rounded-md p-4 max-md:flex-col max-md:items-start">
+                <ItemMedia>
+                  {!hasPurchases ? (
+                    <CircleDashedIcon className="size-6 text-muted-foreground" />
+                  ) : (
+                    <CheckCircleIcon className="size-6 text-accent" />
+                  )}
+                </ItemMedia>
+                <ItemContent>
+                  <ItemTitle className="font-medium">
+                    Make your first purchase
+                  </ItemTitle>
+                  <ItemDescription className="text-sm mt-1">
+                    Select a retention / monitoring plan to proceed with your
+                    treatment.
+                  </ItemDescription>
+                </ItemContent>
+                <ItemActions className="mt-3">
+                  <Button
+                    variant="default"
+                    className="w-full sm:w-auto rounded-none"
+                    // Update this route to match your actual subscription page
+                    onClick={() => navigate("/portal/subscriptions")}
+                  >
+                    View Plans
+                  </Button>
+                </ItemActions>
+              </Item>
+            </ItemGroup>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
   );
 }
