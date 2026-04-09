@@ -258,54 +258,55 @@ function CheckoutForm({ product }: { product: SubscriptionPlanProperties }) {
             <ScrollArea className="w-full h-full max-h-[60vh]">
               <>
                 <div className="w-full px-6 pb-6 space-y-6">
-                  {product.type === "standard" && (
-                    <>
-                      <div className="w-full space-y-4">
-                        <legend className="text-primary font-semibold">
-                          Items Required: {product.type}
-                        </legend>
-                        <RadioGroup
-                          name="order_type"
-                          value={selectedOrderType}
-                          onValueChange={(val: OrderTypeValues) =>
-                            setSelectedOrderType(val)
-                          }
-                          className="py-2 px-4"
-                        >
-                          <div className="w-full flex gap-2 flex-wrap">
-                            {orderTypes.map((orderType) => (
-                              <Field
-                                orientation="horizontal"
-                                key={orderType}
-                                className="w-fit"
-                              >
-                                <FieldLabel
-                                  htmlFor={orderType}
-                                  className="border rounded-none p-3 lg:p-4 bg-slate-100 border-slate-200 has-data-[state=checked]:bg-slate-100 has-data-[state=checked]:border-slate-200"
+                  {product.type === "standard" &&
+                    product.category !== "kit" && (
+                      <>
+                        <div className="w-full space-y-4">
+                          <legend className="text-primary font-semibold">
+                            Items Required: {product.type}
+                          </legend>
+                          <RadioGroup
+                            name="order_type"
+                            value={selectedOrderType}
+                            onValueChange={(val: OrderTypeValues) =>
+                              setSelectedOrderType(val)
+                            }
+                            className="py-2 px-4"
+                          >
+                            <div className="w-full flex gap-2 flex-wrap">
+                              {orderTypes.map((orderType) => (
+                                <Field
+                                  orientation="horizontal"
+                                  key={orderType}
+                                  className="w-fit"
                                 >
-                                  <FieldContent>
-                                    <FieldTitle className="capitalize">
-                                      {orderType}{" "}
-                                      {orderType === "both"
-                                        ? "Upper & Lower"
-                                        : "Only"}
-                                    </FieldTitle>
-                                  </FieldContent>
-                                  <RadioGroupItem
-                                    value={orderType}
-                                    id={orderType}
-                                    className="border-2 shadow-none border-black/40"
-                                  />
-                                </FieldLabel>
-                              </Field>
-                            ))}
-                          </div>
-                        </RadioGroup>
-                      </div>
+                                  <FieldLabel
+                                    htmlFor={orderType}
+                                    className="border rounded-none p-3 lg:p-4 bg-slate-100 border-slate-200 has-data-[state=checked]:bg-slate-100 has-data-[state=checked]:border-slate-200"
+                                  >
+                                    <FieldContent>
+                                      <FieldTitle className="capitalize">
+                                        {orderType}{" "}
+                                        {orderType === "both"
+                                          ? "Upper & Lower"
+                                          : "Only"}
+                                      </FieldTitle>
+                                    </FieldContent>
+                                    <RadioGroupItem
+                                      value={orderType}
+                                      id={orderType}
+                                      className="border-2 shadow-none border-black/40"
+                                    />
+                                  </FieldLabel>
+                                </Field>
+                              ))}
+                            </div>
+                          </RadioGroup>
+                        </div>
 
-                      <Separator />
-                    </>
-                  )}
+                        <Separator />
+                      </>
+                    )}
 
                   <AddressSegment />
                 </div>
