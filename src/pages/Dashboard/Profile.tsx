@@ -1,44 +1,63 @@
 import { Button } from "@/components/ui/button";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
 import type { AuthField, ChoiceProps, ProfileProps } from "@/pages/Auth/schema";
 import { http } from "@/utils/http";
-import { CheckIcon, KeyRoundIcon, PencilLineIcon } from "lucide-react";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import {
+  CheckIcon,
+  KeyRoundIcon,
+  PencilLineIcon,
+  SearchIcon,
+  ArrowLeftIcon,
+} from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { Item, ItemGroup } from "@/components/ui/item";
 
 function ProfilePage() {
   const [profile, setProfile] = useState<ProfileProps | null>(null);
   const isProfileNull = profile === null;
   const [enableEdit, setEnableEdit] = useState(false);
   const { isPatientAccount } = useAuth();
+
+  // Clinician & Practice Data
   const [practices, setPractices] = useState<ChoiceProps[]>([]);
   const [clinicians, setClinicians] = useState<ChoiceProps[]>([]);
-  const [selectedClinicianId, setSelectedClinicianId] = useState<
-    string | number
-  >("");
-  const practiceRef = useRef<HTMLInputElement | null>(null);
-  const clinicianRef = useRef<HTMLInputElement | null>(null);
 
-  const [openDropdownFor, setOpenDropdownFor] = useState<string | null>(null);
+  // Display states for the disabled form inputs
+  const [displayPractice, setDisplayPractice] = useState("");
+  const [displayClinician, setDisplayClinician] = useState("");
+  const [displayClinicianId, setDisplayClinicianId] = useState("");
 
-  const [practiceQuery, setPracticeQuery] = useState("");
-  const [clinicianQuery, setClinicianQuery] = useState("");
+  // Dialog States
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogStep, setDialogStep] = useState<"practice" | "clinician">(
+    "practice",
+  );
+  const [dialogSearch, setDialogSearch] = useState("");
+  const [tempPracticeId, setTempPracticeId] = useState<string>("");
 
   const filteredPractices = useMemo(() => {
-    const q = practiceQuery.trim().toLowerCase();
+    const q = dialogSearch.trim().toLowerCase();
     if (!q) return practices;
     return practices.filter((p) => p.label.toLowerCase().includes(q));
-  }, [practiceQuery, practices]);
+  }, [dialogSearch, practices]);
 
   const filteredClinicians = useMemo(() => {
-    const q = clinicianQuery.trim().toLowerCase();
+    const q = dialogSearch.trim().toLowerCase();
     if (!q) return clinicians;
     return clinicians.filter((c) => c.label.toLowerCase().includes(q));
-  }, [clinicianQuery, clinicians]);
+  }, [dialogSearch, clinicians]);
 
   const personalDetailsFields: AuthField[] = [
     {
@@ -65,7 +84,7 @@ function ProfilePage() {
       placeHolder: "e.g. m@example.com",
       label: "Email",
       required: true,
-      disabled: true,
+      disabled: true, // Always disabled
       classNames: ["md:col-span-2"],
       defaultValue: isProfileNull ? undefined : profile.email,
     },
@@ -80,179 +99,12 @@ function ProfilePage() {
     },
   ];
 
-  const clinicianInfoFields: AuthField[] = [
-    {
-      name: "practice",
-      type: "text",
-      placeHolder: "",
-      label: "Practice Name",
-      required: true,
-      classNames: ["md:col-span-2"],
-      defaultValue: isProfileNull ? undefined : profile.clinician?.practice,
-      choices: filteredPractices,
-    },
-    {
-      name: "clinician",
-      type: "text",
-      placeHolder: "e.g. David Marcus",
-      label: "Clinician Name",
-      required: true,
-      classNames: ["md:col-span-2"],
-      disabled: clinicians.length === 0,
-      defaultValue: isProfileNull
-        ? undefined
-        : `${profile.clinician?.first_name} ${profile.clinician?.last_name}`,
-      choices: filteredClinicians,
-    },
-    {
-      name: "clinician_id",
-      type: "hidden",
-      placeHolder: "",
-      label: "",
-      required: true,
-      classNames: ["md:col-span-2"],
-      defaultValue: isProfileNull ? undefined : profile.clinician?.id,
-    },
-  ];
-
-  const renderField = (field: AuthField) => {
-    // Autocomplete should be enabled even when the list is currently empty.
-    const isAutocompleteField =
-      field.name === "practice" ||
-      field.name === "clinician" ||
-      Array.isArray(field.choices);
-
-    const isDisabled = enableEdit ? field.disabled === true : true;
-    const isOpen = openDropdownFor === field.name;
-
-    const setQueryForField = (value: string) => {
-      if (field.name === "practice") setPracticeQuery(value);
-      if (field.name === "clinician") setClinicianQuery(value);
-    };
-
-    const pickChoice = (choice: ChoiceProps) => {
-      if (field.name === "practice") {
-        setPracticeQuery(choice.label);
-        // When practice changes, clear clinician + clinician_id before fetching
-        setClinicianQuery("");
-        const hidden = document.querySelector<HTMLInputElement>(
-          "input[name='clinician_id']",
-        );
-        if (hidden) hidden.value = "";
-
-        practiceRef.current?.focus();
-        handleUpdateCliniciansList(choice.value);
-      }
-
-      if (field.name === "clinician") {
-        setClinicianQuery(choice.label);
-        clinicianRef.current?.focus();
-
-        setSelectedClinicianId(choice.value);
-        // const hidden = document.querySelector<HTMLInputElement>(
-        //   "input[name='clinician_id']",
-        // );
-        // if (hidden) hidden.value = String(choice.value);
-      }
-
-      setOpenDropdownFor(null);
-    };
-
-    const inputRef =
-      field.name === "practice"
-        ? practiceRef
-        : field.name === "clinician"
-          ? clinicianRef
-          : undefined;
-
-    const controlledValue =
-      field.name === "practice"
-        ? practiceQuery
-        : field.name === "clinician"
-          ? clinicianQuery
-          : "";
-
-    // Even if empty, use an array so we can show "No matches".
-    const choiceList: ChoiceProps[] = Array.isArray(field.choices)
-      ? field.choices
-      : [];
-
-    return (
-      <Field key={field.name} className={cn(field.classNames)}>
-        <FieldLabel htmlFor={field.name}>{field.label}</FieldLabel>
-
-        <div className="relative" data-autocomplete-root="true">
-          <Input
-            ref={inputRef}
-            id={field.name}
-            name={field.name}
-            type={field.type}
-            placeholder={field.placeHolder}
-            required={field.required}
-            disabled={isDisabled}
-            {...(isAutocompleteField
-              ? {
-                  value: controlledValue,
-                  onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-                    setQueryForField(e.target.value);
-                    setOpenDropdownFor(field.name);
-                  },
-                }
-              : field.name === "clinician_id"
-                ? {
-                    value: selectedClinicianId,
-                  }
-                : {
-                    defaultValue: field.defaultValue,
-                  })}
-            onFocus={() => {
-              if (isAutocompleteField && !isDisabled)
-                setOpenDropdownFor(field.name);
-            }}
-            autoComplete="off"
-            className={cn(
-              "w-full py-6 px-4 rounded-none shadow-none inset-shadow-xs text-lg disabled:opacity-100",
-              enableEdit
-                ? "border border-slate-200 bg-slate-100"
-                : "border-none bg-slate-50",
-            )}
-          />
-          {field.helpText && (
-            <p className="text-sm text-muted-foreground">{field.helpText}</p>
-          )}
-
-          {isAutocompleteField && isOpen && !isDisabled && (
-            <div className="absolute z-50 mt-1 w-full border border-slate-200 bg-white shadow-sm max-h-60 overflow-auto">
-              {choiceList.length === 0 ? (
-                <div className="px-4 py-3 text-sm text-slate-500">
-                  No matches
-                </div>
-              ) : (
-                choiceList.slice(0, 50).map((choice) => (
-                  <button
-                    key={String(choice.value)}
-                    type="button"
-                    className="w-full text-left px-4 py-3 text-sm hover:bg-slate-50"
-                    onMouseDown={(e) => e.preventDefault()} // keep focus
-                    onClick={() => pickChoice(choice)}
-                  >
-                    {choice.label}
-                  </button>
-                ))
-              )}
-            </div>
-          )}
-        </div>
-      </Field>
-    );
-  };
-
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.target as HTMLFormElement);
     const dataObj = Object.fromEntries(formData);
+
     try {
-      // UPDATE USER PROFILE
       await http.put(`profile`, dataObj);
       toast.success("Profile Updated Successfully!");
       setEnableEdit(false);
@@ -262,7 +114,6 @@ function ProfilePage() {
     }
   };
 
-  // HANDLE FETCH CLINICIAN LIST
   const handleUpdateCliniciansList = async (practiceId: string) => {
     try {
       const res = await http.get(`practices/${practiceId}/clinicians`);
@@ -274,88 +125,83 @@ function ProfilePage() {
         },
       ] = await res.json();
       setClinicians(
-        data.map((clinician) => {
-          return {
-            label: `${clinician.first_name} ${clinician.last_name}`,
-            value: clinician.clinician_id.toString(),
-          };
-        }),
+        data.map((clinician) => ({
+          label: `${clinician.first_name} ${clinician.last_name}`,
+          value: clinician.clinician_id.toString(),
+        })),
       );
     } catch (err) {
       toast.error("Failed to load clinician options");
     }
   };
 
+  // Dialog Flow Handlers
+  const handlePracticeSelect = async (practice: ChoiceProps) => {
+    setTempPracticeId(practice.value.toString());
+    setDialogSearch("");
+    setDialogStep("clinician");
+    await handleUpdateCliniciansList(practice.value.toString());
+  };
+
+  const handleClinicianSelect = (clinician: ChoiceProps) => {
+    const selectedPractice = practices.find(
+      (p) => p.value.toString() === tempPracticeId,
+    );
+
+    // Update the form display variables
+    if (selectedPractice) setDisplayPractice(selectedPractice.label);
+    setDisplayClinician(clinician.label);
+    setDisplayClinicianId(clinician.value.toString());
+
+    // Close and reset dialog
+    setIsDialogOpen(false);
+    resetDialog();
+  };
+
+  const resetDialog = () => {
+    setDialogStep("practice");
+    setDialogSearch("");
+    setTempPracticeId("");
+  };
+
   // ON PAGE LOAD
   async function onLoad() {
     try {
-      // SET PROFILE DATA
       const profileRes = await http.get(`profile`);
       const profileData = await profileRes.json();
       setProfile(profileData);
 
-      // SET PRACTICE DATA
       const practiceRes = await http.get("practices");
       const practiceData: [
-        {
-          practice_id: number | string;
-          practice_name: string;
-        },
+        { practice_id: number | string; practice_name: string },
       ] = await practiceRes.json();
       setPractices(
-        practiceData.map((practice) => {
-          return {
-            label: practice.practice_name,
-            value: practice.practice_id.toString(),
-          };
-        }),
+        practiceData.map((practice) => ({
+          label: practice.practice_name,
+          value: practice.practice_id.toString(),
+        })),
       );
-
-      if (profile?.clinician) {
-        /* TODO: CALL LOAD CLINICIANS LIST FOR CURRENT PRACTICE IF CLINICIAN PROPERTY IN PROFILE DATA EXISTS */
-        // handleUpdateCliniciansList();
-      }
     } catch (err) {
       toast.error("Network error!\n\nFailed to load user profile.");
     }
   }
 
   useEffect(() => {
-    const onDocMouseDown = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest("[data-autocomplete-root='true']")) {
-        setOpenDropdownFor(null);
-      }
-    };
-
-    const onEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenDropdownFor(null);
-    };
-
-    document.addEventListener("mousedown", onDocMouseDown);
-    document.addEventListener("keydown", onEsc);
-
     onLoad();
-
-    return () => {
-      document.removeEventListener("mousedown", onDocMouseDown);
-      document.removeEventListener("keydown", onEsc);
-    };
   }, []);
 
-  // PRELOAD CLINICIAN PROFILE FORM STATE
+  // PRELOAD FORM STATE
   useEffect(() => {
     if (!profile) return;
-    setPracticeQuery(profile.clinician?.practice ?? "");
-    setClinicianQuery(
+    setDisplayPractice(profile.clinician?.practice ?? "");
+    setDisplayClinician(
       profile.clinician
         ? `${profile.clinician.first_name ?? ""} ${profile.clinician.last_name ?? ""}`.trim()
         : "",
     );
-    setSelectedClinicianId(profile.clinician?.id ?? "");
+    setDisplayClinicianId(profile.clinician?.id ?? "");
   }, [profile]);
 
-  // RENDER PROFILE FORM
   return (
     <>
       <form
@@ -405,7 +251,27 @@ function ProfilePage() {
             </legend>
 
             <div className="grid md:grid-cols-2 gap-4 md:px-2.5 w-full">
-              {personalDetailsFields.map((field) => renderField(field))}
+              {personalDetailsFields.map((field) => (
+                <Field key={field.name} className={cn(field.classNames)}>
+                  <FieldLabel htmlFor={field.name}>{field.label}</FieldLabel>
+                  <Input
+                    id={field.name}
+                    name={field.name}
+                    type={field.type}
+                    placeholder={field.placeHolder}
+                    required={field.required}
+                    disabled={enableEdit ? field.disabled === true : true}
+                    defaultValue={field.defaultValue}
+                    autoComplete="off"
+                    className={cn(
+                      "w-full py-6 px-4 rounded-none shadow-none inset-shadow-xs text-lg disabled:opacity-100",
+                      enableEdit
+                        ? "border border-slate-200 bg-slate-100"
+                        : "border-none bg-slate-50",
+                    )}
+                  />
+                </Field>
+              ))}
             </div>
           </div>
 
@@ -415,19 +281,60 @@ function ProfilePage() {
               <legend className="text-lg font-semibold text-accent">
                 Clinician Info:
                 <p className="text-sm text-muted-foreground font-normal">
-                  Click on a practice from our available practice list and
-                  select your clinician.
+                  Your assigned practice and clinician.
                 </p>
               </legend>
 
-              <div className="grid md:grid-cols-2 gap-4 md:px-2.5 w-full">
-                {clinicianInfoFields.map((field) => renderField(field))}
+              <div className="grid gap-4 md:px-2.5 w-full">
+                <Field>
+                  <FieldLabel>Practice Name</FieldLabel>
+                  <Input
+                    name="practice"
+                    value={displayPractice}
+                    readOnly
+                    disabled
+                    className="w-full py-6 px-4 rounded-none shadow-none text-lg border-none bg-slate-50 disabled:opacity-100"
+                  />
+                </Field>
+
+                <Field>
+                  <FieldLabel>Clinician Name</FieldLabel>
+                  <Input
+                    name="clinician"
+                    value={displayClinician}
+                    readOnly
+                    disabled
+                    className="w-full py-6 px-4 rounded-none shadow-none text-lg border-none bg-slate-50 disabled:opacity-100"
+                  />
+                </Field>
+
+                {/* Hidden ID field for form submission */}
+                <input
+                  type="hidden"
+                  name="clinician_id"
+                  value={displayClinicianId}
+                />
+
+                {enableEdit && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="mt-2 w-fit h-11 rounded-none text-primary border-primary bg-transparent"
+                    onClick={() => {
+                      resetDialog();
+                      setIsDialogOpen(true);
+                    }}
+                  >
+                    Change Clinician
+                  </Button>
+                )}
               </div>
             </div>
           )}
         </div>
       </form>
 
+      {/* MORE OPTIONS SECTION */}
       <div className="w-full py-12 space-y-6">
         <legend className="text-base text-primary font-semibold">
           More Options:
@@ -437,7 +344,7 @@ function ProfilePage() {
             <li>
               <Link
                 to={`/reset-password?state=${profile?.has_password ? "reset" : "set"}`}
-                className="w-full p-3 bg-slate-100 border border-slate-200 insetshadow-sm flex gap-3 items-center"
+                className="w-full p-3 bg-slate-100 border border-slate-200 inset-shadow-sm flex gap-3 items-center"
               >
                 <KeyRoundIcon className="size-5" />
                 <span>
@@ -450,6 +357,84 @@ function ProfilePage() {
           </ul>
         )}
       </div>
+
+      {/* PRACTICE & CLINICIAN SELECTION DIALOG */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md min-h-100 flex flex-col rounded-none">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              {dialogStep === "clinician" && (
+                <button
+                  onClick={() => setDialogStep("practice")}
+                  className="p-1 hover:bg-slate-100 rounded"
+                >
+                  <ArrowLeftIcon className="size-4" />
+                </button>
+              )}
+              {dialogStep === "practice"
+                ? "Select a Practice"
+                : "Select a Clinician"}
+            </DialogTitle>
+            <DialogDescription>
+              {dialogStep === "practice"
+                ? "Search and select your practice from the list below."
+                : "Choose your clinician from the selected practice."}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="relative mt-2">
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+            <Input
+              placeholder="Search..."
+              value={dialogSearch}
+              onChange={(e) => setDialogSearch(e.target.value)}
+              className="pl-9 rounded-none h-10"
+            />
+          </div>
+
+          <ItemGroup className="divide-y">
+            {dialogStep === "practice" && (
+              <>
+                {filteredPractices.length === 0 ? (
+                  <Item className="text-center p-3 text-sm text-slate-500">
+                    No practices found.
+                  </Item>
+                ) : (
+                  filteredPractices.map((practice) => (
+                    <Item
+                      key={practice.value}
+                      onClick={() => handlePracticeSelect(practice)}
+                      className="hover:bg-slate-100 cursor-pointer rounded-none"
+                    >
+                      {practice.label}
+                    </Item>
+                  ))
+                )}
+              </>
+            )}
+
+            {dialogStep === "clinician" && (
+              <>
+                {filteredClinicians.length === 0 ? (
+                  <Item className="p-4 text-center text-sm text-slate-500">
+                    No clinicians found for this practice.
+                  </Item>
+                ) : (
+                  filteredClinicians.map((clinician) => (
+                    <Item
+                      key={clinician.value}
+                      onClick={() => handleClinicianSelect(clinician)}
+                      className="hover:bg-slate-100 cursor-pointer rounded-none"
+                    >
+                      {clinician.label}
+                    </Item>
+                  ))
+                )}
+              </>
+            )}
+          </ItemGroup>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

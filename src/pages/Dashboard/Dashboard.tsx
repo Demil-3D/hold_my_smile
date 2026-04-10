@@ -360,7 +360,7 @@ export function NewAccountActions({
                   <ItemTitle className="font-medium">
                     Link a Clinician
                   </ItemTitle>
-                  <ItemDescription className="text-sm mt-1">
+                  <ItemDescription className="text-[15px] mt-1">
                     Connect with your practice to share your dental scans and
                     progress.
                   </ItemDescription>
@@ -389,7 +389,7 @@ export function NewAccountActions({
                   <ItemTitle className="font-medium">
                     Make your first purchase
                   </ItemTitle>
-                  <ItemDescription className="text-sm mt-1">
+                  <ItemDescription className="text-[15px] mt-1">
                     Select a retention / monitoring plan for reliable treatment.
                   </ItemDescription>
                 </ItemContent>
