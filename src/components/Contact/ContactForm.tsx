@@ -46,7 +46,7 @@ function ContactForm() {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/53188bf9e9ed409e9cc171a21cfb6253",
+        "https://formsubmit.co/ajax/32fe63d950bd58bca554f4b065d363b6",
         {
           method: "POST",
           headers: { Accept: "application/json" },
