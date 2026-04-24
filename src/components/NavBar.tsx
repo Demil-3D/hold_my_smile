@@ -141,16 +141,11 @@ export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       // 1. Handle the background color/blur toggle
       setIsScrolled(currentScrollY > 50);
-
-      // Update the tracker for the next scroll event
-      lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -164,7 +159,7 @@ export default function NavBar() {
         "fixed top-0 inset-x-0 z-9999 transition-all duration-500 ease-in-out",
         isScrolled
           ? "bg-white/80 backdrop-blur-xl lg:border-b lg:border-slate-200 shadow-sm"
-          : "bg-linear-to-r from-white/10 to-white/30 backdrop-blur-md shadow-sm border-transparent",
+          : "bg-linear-to-r from-white/10 to-white/60 backdrop-blur-md shadow-sm border-transparent",
       )}
     >
       <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">
