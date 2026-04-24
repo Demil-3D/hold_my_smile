@@ -190,7 +190,11 @@ function App() {
   ];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+      left: 0,
+    });
 
     switch (currentPage.pathname) {
       case "/":
@@ -233,7 +237,7 @@ function App() {
         setPageTitle("Shipping Policy | HoldMySmile");
         break;
       case "/faqs":
-        setPageTitle("Shipping Policy | HoldMySmile");
+        setPageTitle("Frequently Asked Questions | HoldMySmile");
         break;
       case "/portal/support":
         setPageTitle("Support | HoldMySmile");

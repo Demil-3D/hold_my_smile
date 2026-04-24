@@ -139,7 +139,6 @@ export default function NavBar() {
   const { isLoggedIn } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showFixedNav, setShowFixedNav] = useState(true);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -149,15 +148,6 @@ export default function NavBar() {
 
       // 1. Handle the background color/blur toggle
       setIsScrolled(currentScrollY > 50);
-
-      // 2. Handle the hide/show nav toggle
-      if (currentScrollY < 150) {
-        setShowFixedNav(true);
-      } else if (currentScrollY > lastScrollY) {
-        setShowFixedNav(false);
-      } else if (currentScrollY < lastScrollY) {
-        setShowFixedNav(true);
-      }
 
       // Update the tracker for the next scroll event
       lastScrollY = currentScrollY;
@@ -171,11 +161,10 @@ export default function NavBar() {
     <nav
       className={cn(
         "w-full px-5 py-4 md:py-6",
-        "fixed inset-x-0 z-9999 transition-all duration-500 ease-in-out",
-        showFixedNav ? "top-0" : "-top-full",
+        "fixed top-0 inset-x-0 z-9999 transition-all duration-500 ease-in-out",
         isScrolled
           ? "bg-white/80 backdrop-blur-xl lg:border-b lg:border-slate-200 shadow-sm"
-          : "bg-linear-to-b from-accent/5 to-transparent backdrop-blur-sm border-transparent",
+          : "bg-linear-to-r from-white/10 to-white/30 backdrop-blur-md shadow-sm border-transparent",
       )}
     >
       <div className="w-full lg:w-[98%] mx-auto flex justify-between items-center">

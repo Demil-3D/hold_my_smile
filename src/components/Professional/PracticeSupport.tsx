@@ -13,7 +13,7 @@ function PracticeSupportSection() {
       icon: <HandCoinsIcon className="size-6" />,
       title: "Discover a Steady New Income Stream",
       description:
-        "Unlock a predictable, recurring revenue source from your existing patient base with zero additional labor or overhead.",
+        "Unlock a predictable, recurring revenue source from your existing patient base with zero additional labour or overhead.",
     },
     {
       icon: <ShieldPlusIcon className="size-6" />,
@@ -41,7 +41,7 @@ function PracticeSupportSection() {
         {/* BENEFITS */}
         <section className={`${SECTION_CLASSES} text-center space-y-12`}>
           <legend className="text-2xl md:text-4xl font-bold text-primary max-w-2xl mx-auto">
-            A Partnership Built on{" "}
+            A Partnership Built on <br />
             <span className="text-accent">Clinical Excellence.</span>
           </legend>
 
@@ -75,7 +75,7 @@ function PracticeSupportSection() {
             data-aos-delay={0}
           >
             <p className="text-lg">
-              {`Hold My Smile transforms orthodontic retention from a logistical burden into a sustainable practice asset. We manage the entire journey—from secure scan storage to automated annual delivery—freeing your team to focus on clinical excellence rather than administration. By bridging the gap between debonding and lifelong care, we provide your patients with peace of mind and your practice with a reliable, recurring revenue stream.`}
+              {`Hold My Smile transforms orthodontic retention from a logistical burden into a sustainable practice asset. We manage the entire journey - from secure scan storage to automated annual delivery - freeing your team to focus on clinical excellence rather than administration. By bridging the gap between debonding and lifelong care, we provide your patients with peace of mind and your practice with a reliable, recurring revenue stream.`}
             </p>
           </section>
         </section>

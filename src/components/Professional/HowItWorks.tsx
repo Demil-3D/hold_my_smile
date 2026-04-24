@@ -31,7 +31,7 @@ function HowItWorksSection() {
       icon: <CircleQuestionMarkIcon />,
       title: "Shared Success",
       description:
-        "Your practice receives a share of the recurring revenue with zero additional labor.",
+        "Your practice receives a share of the recurring revenue with zero additional labour.",
     },
   ];
 
@@ -84,7 +84,7 @@ function HowItWorksSection() {
               }}
             >
               <sub className="text-4xl">“</sub>{" "}
-              {`For over 20 years, we've been dedicated to creating healthy, confident smiles. In a small number of cases, we've had to provide treatment a second time—always due to retainers not being worn consistently or replaced when necessary. Thankfully, we now have a solution that ensures this will no longer happen`}{" "}
+              {`For over 20 years, we've been dedicated to creating healthy, confident smiles. In a small number of cases, we've had to provide treatment a second time - always due to retainers not being worn consistently or replaced when necessary. Thankfully, we now have a solution that ensures this will no longer happen`}{" "}
               <sub className="text-4xl">”</sub>
             </p>
             <div className="w-full">

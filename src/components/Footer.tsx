@@ -60,6 +60,11 @@ const FOOTER_LINKS: FooterLinkType[] = [
     label: "Privacy Policy",
     menuGroup: "Policies",
   },
+  {
+    href: "/faqs",
+    label: "FAQs",
+    menuGroup: "Policies",
+  },
 ];
 
 const groupedLinks = FOOTER_LINKS.reduce<Record<string, FooterLinkType[]>>(
@@ -77,16 +82,12 @@ function LinkList({
   title: string;
   links: FooterLinkType[];
 }) {
-  const onClickLink = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <div className="w-full">
       <h3 className="text-2xl font-bold text-primary">{title}</h3>
       <div className="flex flex-col gap-2 mt-4">
         {links?.map((l, index) => (
-          <Link key={index} to={l.href} onClick={onClickLink}>
+          <Link key={index} to={l.href}>
             <span className="pl-2 hover:underline">- {l.label}</span>
           </Link>
         ))}

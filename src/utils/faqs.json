@@ -2,15 +2,15 @@
   "patient_faqs": [
     {
       "question": "How can I place an order?",
-      "response": "Ordering is quick and easy! Just visit our website from any device — phone, tablet, laptop, or desktop — and follow the simple steps to get started. If you need any help along the way, our friendly team is always here to guide you."
+      "response": "Ordering is quick and easy! Just visit our website from any device  -  phone, tablet, laptop, or desktop  -  and follow the simple steps to get started. If you need any help along the way, our friendly team is always here to guide you."
     },
     {
       "question": "Do I need to visit the practice?",
-      "response": "Nope — you can get started from the comfort of your own home! Simply sign up, and one of our friendly team members will give you a quick call to guide you through the onboarding process. We’ll request your latest scans from your dental practice so all your information is in one secure place. From there, you can use our platform to subscribe and receive a fresh retainer every year — or order one whenever you need."
+      "response": "Nope  -  you can get started from the comfort of your own home! Simply sign up, and one of our friendly team members will give you a quick call to guide you through the onboarding process. We’ll request your latest scans from your dental practice so all your information is in one secure place. From there, you can use our platform to subscribe and receive a fresh retainer every year  -  or order one whenever you need."
     },
     {
       "question": "What happens if my retainers don’t fit?",
-      "response": "Don’t worry — we’ve got you covered! If your retainers don’t fit, we’ll remake them for you. If they still don’t fit after that, we’ll work with your dental practice to arrange an additional scan and remake them at no extra cost, so you get the perfect fit."
+      "response": "Don’t worry  -  we’ve got you covered! If your retainers don’t fit, we’ll remake them for you. If they still don’t fit after that, we’ll work with your dental practice to arrange an additional scan and remake them at no extra cost, so you get the perfect fit."
     },
     {
       "question": "How long will my retainers take to arrive?",
@@ -26,10 +26,10 @@
     },
     {
       "question": "What is your subscription service?",
-      "response": "At Hold My Smile, we’re here to help you protect your smile and the investment you’ve made in it—all while saving you between £30 and £800 annually compared to traditional replacement costs! Our subscription service makes it easy: you’ll receive a fresh set of retainers every year. Simply start your subscription, choose when you’d like your first set, and from that date, we’ll send you a new retainer every 12 months to keep your smile looking its best. Please note that some additional charges may be applied directly by your dental practice."
+      "response": "At Hold My Smile, we’re here to help you protect your smile and the investment you’ve made in it - all while saving you between £30 and £800 annually compared to traditional replacement costs! Our subscription service makes it easy: you’ll receive a fresh set of retainers every year. Simply start your subscription, choose when you’d like your first set, and from that date, we’ll send you a new retainer every 12 months to keep your smile looking its best. Please note that some additional charges may be applied directly by your dental practice."
     },
     {
-      "question": "My retainers have been damaged 6 months into my subscription — can I get new ones?",
+      "question": "My retainers have been damaged 6 months into my subscription  -  can I get new ones?",
       "response": "Yes! Simply visit our website, add a replacement retainer to your cart, and checkout as normal. As a subscription member, you’ll automatically receive 20% off your replacement. We’ll have it made and delivered to your door within 48 hours, so you can get back to protecting your smile without delay."
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "question": "What if I decide to cancel after a few months? Will I get a refund?",
-      "response": "Unfortunately, we’re not able to offer refunds, as Hold My Smile is a full-term commitment. Once you’ve signed up, we’ll honour our part by manufacturing and delivering your retainers as promised. You can, however, cancel your subscription at any time via the Profile page in the Hold My Smile app — this will stop any future payments after your current term ends."
+      "response": "Unfortunately, we’re not able to offer refunds, as Hold My Smile is a full-term commitment. Once you’ve signed up, we’ll honour our part by manufacturing and delivering your retainers as promised. You can, however, cancel your subscription at any time via the Profile page in the Hold My Smile app  -  this will stop any future payments after your current term ends."
     }
   ],
   "clinician_faqs": [
@@ -88,7 +88,7 @@
         },
         {
           "question": "Who confirms retainer suitability?",
-          "response": "The clinician — we only manufacture retainers from an approved prescription."
+          "response": "The clinician  -  we only manufacture retainers from an approved prescription."
         }
       ]
     },
@@ -97,11 +97,11 @@
       "questions": [
         {
           "question": "How do I approve a patient’s retainers?",
-          "response": "Since there are no changes to the prescription, the patient receives the same type of retainer they left your practice with — just newer and cleaner."
+          "response": "Since there are no changes to the prescription, the patient receives the same type of retainer they left your practice with  -  just newer and cleaner."
         },
         {
           "question": "Is there a formal prescription process?",
-          "response": "Yes — a prescription must be sent with the scan before manufacture."
+          "response": "Yes  -  a prescription must be sent with the scan before manufacture."
         },
         {
           "question": "How are clinical concerns flagged?",
@@ -155,7 +155,7 @@
         },
         {
           "question": "Can a patient order outside their yearly cycle?",
-          "response": "Yes — replacements can be ordered anytime via our website."
+          "response": "Yes  -  replacements can be ordered anytime via our website."
         }
       ]
     },
@@ -168,7 +168,7 @@
         },
         {
           "question": "Who communicates with the patient?",
-          "response": "Hold My Smile manages all patient communication, except when a new scan is required — in that case, the practice contacts the patient after we notify them."
+          "response": "Hold My Smile manages all patient communication, except when a new scan is required  -  in that case, the practice contacts the patient after we notify them."
         },
         {
           "question": "Will the practice be updated on orders?",

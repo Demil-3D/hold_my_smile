@@ -146,7 +146,7 @@ function AboutUsPage() {
               The problem was just as clear. Once active treatment ends,
               accessing replacement retainers can feel slow, confusing, and
               inconvenient. Many patients delay action, disengage, or abandon
-              retention altogether — often without realizing the long-term
+              retention altogether - often without realizing the long-term
               consequences.
             </CardContent>
           </Card>
